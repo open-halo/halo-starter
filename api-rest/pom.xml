@@ -3,26 +3,22 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.example</groupId>
-        <artifactId>halo-stater</artifactId>
+        <artifactId>halo-starter</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>fun</artifactId>
+    <artifactId>api-rest</artifactId>
     <packaging>jar</packaging>
-
-    <name>fun</name>
-    <url>http://maven.apache.org</url>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <name>api-rest</name>
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
-            <scope>test</scope>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>fun</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 
@@ -34,4 +30,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>

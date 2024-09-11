@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>halo-stater</artifactId>
+    <artifactId>halo-starter</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
 
