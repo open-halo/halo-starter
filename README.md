@@ -1,3 +1,13 @@
+## TODO list
+1. 添加DAL层示例
+2. 添加PMD代码检查
+3. 添加git提交钩子，强制PMD检查
+4. 添加格式化工具，提交前自动格式化
+5. 添加slf4j + logback的全套配置
+6. 添加基础工具类
+7. 添加统一拦截器
+8. 添加spring doc实现
+
 
 ## 整体的模块如下：
 1. api-rest: 接口定义module，纯interface，无逻辑，因为需要注解，弱依赖于spring boot
