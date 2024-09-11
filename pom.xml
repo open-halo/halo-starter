@@ -16,15 +16,7 @@
         <mapstruct.version>1.5.5.Final</mapstruct.version>
     </properties>
 
-    <modules>
-        <module>api-rest</module>
-        <module>biz-rest</module>
-        <module>csl</module>
-        <module>dal</module>
-        <module>ext</module>
-        <module>fun</module>
-        <module>starter</module>
-    </modules>
+
 
     <dependencyManagement>
         <dependencies>
@@ -35,9 +27,10 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>api-grpc</artifactId>
+                <artifactId>pmd-check</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -132,6 +125,8 @@
         </repository>
     </repositories>
 
+
+
     <build>
         <pluginManagement>
             <plugins>
@@ -158,6 +153,61 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.25.0</version>
+                <configuration>
+                    <targetJdk>21</targetJdk>
+                    <rulesets>
+                        <ruleset>src/main/resources/pmd-ruleset.xml</ruleset>
+                    </rulesets>
+                    <linkXref>true</linkXref>
+                    <format>html</format>
+                    <failOnViolation>true</failOnViolation>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <phase>process-sources</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-pmd-plugin</artifactId>
+                <version>3.25.0</version>
+                <configuration>
+                    <rulesets>
+                        <ruleset>src/main/resources/pmd-ruleset.xml</ruleset>
+                    </rulesets>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>pmd</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
+            </plugin>
+        </plugins>
+    </reporting>
+
+    <modules>
+        <module>api-rest</module>
+        <module>biz-rest</module>
+        <module>csl</module>
+        <module>dal</module>
+        <module>ext</module>
+        <module>fun</module>
+        <module>starter</module>
+    </modules>
 
 </project>
