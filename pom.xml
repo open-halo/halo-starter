@@ -161,7 +161,7 @@
                 <configuration>
                     <targetJdk>21</targetJdk>
                     <rulesets>
-                        <ruleset>src/main/resources/pmd-ruleset.xml</ruleset>
+                        <ruleset>pmd-check-rules/main/resources/pmd-ruleset.xml</ruleset>
                     </rulesets>
                     <linkXref>true</linkXref>
                     <format>html</format>
@@ -186,7 +186,7 @@
                 <version>3.25.0</version>
                 <configuration>
                     <rulesets>
-                        <ruleset>src/main/resources/pmd-ruleset.xml</ruleset>
+                        <ruleset>pmd-check-rules/main/resources/pmd-ruleset.xml</ruleset>
                     </rulesets>
                 </configuration>
                 <reportSets>
