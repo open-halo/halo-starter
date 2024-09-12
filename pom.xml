@@ -148,7 +148,6 @@
             </plugins>
         </pluginManagement>
         <plugins>
-
             <plugin>
                 <groupId>com.rudikershaw.gitbuildhook</groupId>
                 <artifactId>git-build-hook-maven-plugin</artifactId>
@@ -156,7 +155,7 @@
                 <configuration>
                     <gitConfig>
                         <!-- The location of the directory you are using to store the Git hooks in your project. -->
-                        <core.hooksPath>.git-hooks/</core.hooksPath>
+                        <core.hooksPath>.halo/git-hooks/</core.hooksPath>
                         <!-- Some other project specific git config that you want to set. -->
                         <custom.configuration>true</custom.configuration>
                     </gitConfig>
@@ -178,7 +177,7 @@
                 <configuration>
                     <targetJdk>21</targetJdk>
                     <rulesets>
-                        <ruleset>.pmd-check-rules/main/resources/pmd-ruleset.xml</ruleset>
+                        <ruleset>.halo/pmd-check-rules/main/resources/pmd-ruleset.xml</ruleset>
                     </rulesets>
                     <format>html</format>
                     <failOnViolation>true</failOnViolation>
@@ -202,7 +201,7 @@
                 <version>3.25.0</version>
                 <configuration>
                     <rulesets>
-                        <ruleset>pmd-check-rules/main/resources/pmd-ruleset.xml</ruleset>
+                        <ruleset>.halo/pmd-check-rules/main/resources/pmd-ruleset.xml</ruleset>
                     </rulesets>
                 </configuration>
                 <reportSets>
