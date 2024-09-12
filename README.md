@@ -24,7 +24,7 @@
 
 
 ## 整体的模块如下：
-![alt text](.docs/halo-design.png)
+![alt text](examples/spring-boot-maven/.docs/halo-design.png)
 1. api: 接口层，纯定义interface和object，无逻辑，因为需要注解，弱依赖于spring boot
 2. api-adapter: 适配层，接口实现module，包含简单实现，核心逻辑转发到core service layer
 3. core: 核心逻辑实现层， 纯代码逻辑，整个工程的核心

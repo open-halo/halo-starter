@@ -1,0 +1,5 @@
+spring.profiles.active: dev
+
+spring.datasource.hikari.maximum-pool-size: 60
+mybatis-plus.mapper-locations: classpath:/mappers/**.xml
+mybatis-plus.configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
