@@ -35,10 +35,10 @@
 ## 整体的modules依赖关系强制如下
 1. api: 无依赖，因为其他方可能导入，依赖越少越好，避免库污染
 2. common: 纯工具，不依赖其他任何module，可以二次封装一些库，可以被除api以外所有模块依赖
-3. api-adapter: 依赖于api, core, external, common
+3. api-adapter: 依赖于api, core, common
 4. external: 只依赖于common和一些外部sdk或者三方jar
-5. infra: 依赖于core，引入csl的interface，然后实现
-6. core: 依赖于fun + ext，其余无依赖，这里依赖倒置
+5. infra: 依赖于common + core，引入core的gateway，然后实现gateway中的interface
+6. core: 依赖于common，其余无依赖，这里依赖倒置
 7. starter: 依赖所有module
 
 
