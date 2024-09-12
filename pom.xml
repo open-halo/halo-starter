@@ -17,7 +17,6 @@
     </properties>
 
 
-
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -126,7 +125,6 @@
     </repositories>
 
 
-
     <build>
         <pluginManagement>
             <plugins>
@@ -154,6 +152,29 @@
             </plugins>
         </pluginManagement>
         <plugins>
+
+            <plugin>
+                <groupId>com.rudikershaw.gitbuildhook</groupId>
+                <artifactId>git-build-hook-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <gitConfig>
+                        <!-- The location of the directory you are using to store the Git hooks in your project. -->
+                        <core.hooksPath>.git-hooks/</core.hooksPath>
+                        <!-- Some other project specific git config that you want to set. -->
+                        <custom.configuration>true</custom.configuration>
+                    </gitConfig>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!-- Sets git config specified under configuration > gitConfig. -->
+                            <goal>configure</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
@@ -163,7 +184,6 @@
                     <rulesets>
                         <ruleset>pmd-check-rules/main/resources/pmd-ruleset.xml</ruleset>
                     </rulesets>
-                    <linkXref>true</linkXref>
                     <format>html</format>
                     <failOnViolation>true</failOnViolation>
                 </configuration>

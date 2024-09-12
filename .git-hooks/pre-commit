@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# 运行 PMD 检查
+mvn verify
+
+# 检查 PMD 是否成功执行
+if [ $? -ne 0 ]; then
+    echo "PMD check failed, please fix the issues before committing."
+    exit 1
+fi
+
+echo "PMD check passed, proceeding with commit."
+exit 0
