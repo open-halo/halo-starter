@@ -3,30 +3,25 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.example</groupId>
-        <artifactId>halo-starter</artifactId>
+        <artifactId>halo-starter-infra</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>dal</artifactId>
+    <artifactId>halo-starter-persistent-data</artifactId>
     <packaging>jar</packaging>
+    <name>persistent-data</name>
 
-    <name>dal</name>
-    <url>http://maven.apache.org</url>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <dependencies>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>fun</artifactId>
+            <artifactId>common</artifactId>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>csl</artifactId>
+            <artifactId>halo-starter-core</artifactId>
         </dependency>
 
         <dependency>

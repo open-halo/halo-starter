@@ -27,51 +27,46 @@
                 <scope>import</scope>
             </dependency>
 
+
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>pmd-check</artifactId>
+                <artifactId>halo-starter-api-rest</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>api-rest</artifactId>
+                <artifactId>halo-starter-adapter-rest</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>biz-grpc</artifactId>
+                <artifactId>halo-starter-core</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>biz-rest</artifactId>
+                <artifactId>halo-starter-persistent-data</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>csl</artifactId>
+                <artifactId>halo-starter-external</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>dal</artifactId>
+                <artifactId>halo-starter-external-weather</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
-                <artifactId>ext</artifactId>
-                <version>${project.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>fun</artifactId>
+                <artifactId>common</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -131,6 +126,7 @@
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.13.0</version>
                     <configuration>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
@@ -182,7 +178,7 @@
                 <configuration>
                     <targetJdk>21</targetJdk>
                     <rulesets>
-                        <ruleset>pmd-check-rules/main/resources/pmd-ruleset.xml</ruleset>
+                        <ruleset>.pmd-check-rules/main/resources/pmd-ruleset.xml</ruleset>
                     </rulesets>
                     <format>html</format>
                     <failOnViolation>true</failOnViolation>
@@ -221,12 +217,12 @@
     </reporting>
 
     <modules>
-        <module>api-rest</module>
-        <module>biz-rest</module>
-        <module>csl</module>
-        <module>dal</module>
-        <module>ext</module>
-        <module>fun</module>
+        <module>api</module>
+        <module>api-adapter</module>
+        <module>common</module>
+        <module>core</module>
+        <module>external</module>
+        <module>infra</module>
         <module>starter</module>
     </modules>
 

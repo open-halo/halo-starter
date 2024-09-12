@@ -3,25 +3,18 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.example</groupId>
-        <artifactId>halo-starter</artifactId>
+        <artifactId>halo-starter-adapter</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>starter</artifactId>
+    <artifactId>halo-starter-adapter-rest</artifactId>
+    <name>adapter-rest</name>
     <packaging>jar</packaging>
-    <name>starter</name>
-
 
     <dependencies>
-
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>halo-starter-api-rest</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>halo-starter-adapter-rest</artifactId>
         </dependency>
 
         <dependency>
@@ -31,23 +24,17 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>halo-starter-persistent-data</artifactId>
+            <artifactId>halo-starter-external-weather</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>halo-starter-external-weather</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
         </dependency>
 
         <dependency>
@@ -59,14 +46,6 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <finalName>app</finalName>
-                </configuration>
-            </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
