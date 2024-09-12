@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>halo-starter-common</artifactId>
         </dependency>
         <dependency>
             <groupId>junit</groupId>

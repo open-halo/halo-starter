@@ -7,7 +7,7 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>halo-starter-persistent-data</artifactId>
+    <artifactId>halo-starter-infra-persistent-data</artifactId>
     <packaging>jar</packaging>
     <name>persistent-data</name>
 
@@ -16,7 +16,7 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>halo-starter-common</artifactId>
         </dependency>
 
         <dependency>

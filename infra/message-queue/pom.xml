@@ -7,7 +7,7 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>halo-starter-message-queue</artifactId>
+    <artifactId>halo-starter-infra-message-queue</artifactId>
     <packaging>jar</packaging>
     <name>message-queue</name>
 

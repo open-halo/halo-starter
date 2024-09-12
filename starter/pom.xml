@@ -31,7 +31,17 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>halo-starter-persistent-data</artifactId>
+            <artifactId>halo-starter-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>halo-starter-infra-persistent-data</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>halo-starter-infra-message-queue</artifactId>
         </dependency>
 
         <dependency>
