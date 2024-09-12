@@ -6,6 +6,20 @@
 5. 提供强制的代码风格检查&PMD基础错误检查，并配合git hooks消除潜在基础错误
 6. 许多符合现代最佳实践的工具类
 
+## QUICK START
+*由于现在archetype还没有发布到maven中央仓库，所以可以按照本地安装流程使用
+```shell
+# clone git repository
+git clone https://github.com/open-halo/halo-starter.git
+
+# install archetype to local
+cd halo-starter/archetypes/spring-boot-maven && mvn install
+
+# generate new project from archetype
+cd ~/your-awesome-projext-dir
+mvn archetype:generate -DarchetypeCatalog=local
+```
+
 ## 这个项目模板\[template\] \[boilerplate\]的核心设计理念是什么？
 这个项目的核心设计理念是：追求软件工程的「外延灵活性」和「内核确定性」
 1. 「外延灵活性」是指软件可能适应不同的外在环境，例如允许项目在spring boot/quarkus \
