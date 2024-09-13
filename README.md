@@ -1,3 +1,6 @@
+# Halo
+![alt text](docs/flagship.png)
+
 ## 这个项目模板\[template\] \[boilerplate\]提供什么能力？
 1. 提供一个基础项目，快速开启一个spring-boot/helidon/quarkus/micronaut项目
 2. 一个合理的久经考验的项目module和包接口，这个结构符合DDD最佳实践
