@@ -13,11 +13,34 @@
 
     <dependencies>
         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <!-- json使用门面框架隔离了JSON工具和具体实现 -->
+        <dependency>
+            <groupId>cn.zhxu</groupId>
+            <artifactId>xjsonkit-api</artifactId>
+        </dependency>
+
+        <!-- 默认使用jackson作为json工具 -->
+        <dependency>
+            <groupId>cn.zhxu</groupId>
+            <artifactId>xjsonkit-jackson</artifactId>
+        </dependency>
+
+        <!-- 默认使用hutool-core -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>

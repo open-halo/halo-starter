@@ -27,6 +27,21 @@
                 <scope>import</scope>
             </dependency>
 
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>5.11.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-bom</artifactId>
+                <version>5.8.32</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
@@ -99,6 +114,21 @@
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>2.1.0</version>
             </dependency>
+
+            <!-- 解藕JSON实现类，类似slf4j -->
+            <dependency>
+                <groupId>cn.zhxu</groupId>
+                <artifactId>xjsonkit-api</artifactId>
+                <version>1.5.0</version>
+            </dependency>
+
+            <!-- xjsonkit的实现类，默认使用jackson -->
+            <dependency>
+                <groupId>cn.zhxu</groupId>
+                <artifactId>xjsonkit-jackson</artifactId>
+                <version>1.5.0</version>
+            </dependency>
+
 
             <dependency>
                 <groupId>com.h2database</groupId>
