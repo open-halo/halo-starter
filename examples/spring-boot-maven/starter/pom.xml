@@ -36,12 +36,12 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>halo-starter-infra-persistent-data</artifactId>
+            <artifactId>halo-starter-infra-persistent</artifactId>
         </dependency>
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>halo-starter-infra-message-queue</artifactId>
+            <artifactId>halo-starter-infra-message</artifactId>
         </dependency>
 
         <dependency>

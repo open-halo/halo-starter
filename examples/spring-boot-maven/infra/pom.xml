@@ -12,7 +12,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>persistent-data</module>
-        <module>message-queue</module>
+        <module>persistent</module>
+        <module>message</module>
     </modules>
+
+
 </project>
