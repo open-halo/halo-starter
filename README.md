@@ -59,6 +59,13 @@ mvn archetype:generate -DarchetypeCatalog=local
 6. core: 依赖于common，其余无依赖，这里依赖倒置
 7. starter: 依赖所有module
 
+## 工具类选择
+1. Json工具选择了xjsonkit作为门面框架，隔离了底层实现，底层可以使用几大常用json库都以，默认是jackson
+2. 日期等格式转换工具使用了Hutool
+3. 日志使用slf4j配合lombok，底层使用log4j2
+4. 内部ORM框架，默认使用Jimmer
+5. 对于简单查询需求，默认引入了BeanSearcher
+
 
 ## TODO list
 - [] 添加DAL层示例 
