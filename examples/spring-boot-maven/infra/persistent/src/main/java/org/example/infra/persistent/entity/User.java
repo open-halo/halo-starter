@@ -1,4 +1,4 @@
-package org.example.persistent.entity;
+package org.example.infra.persistent.entity;
 
 import org.babyfish.jimmer.sql.Entity;
 import org.babyfish.jimmer.sql.Id;

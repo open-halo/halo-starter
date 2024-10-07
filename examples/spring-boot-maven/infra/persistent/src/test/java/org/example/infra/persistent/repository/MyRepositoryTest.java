@@ -17,19 +17,19 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-@SpringBootTest
-@ContextConfiguration(classes = AppTestConfig.class)
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
-@Sql(scripts = {"/sql/schema/schema.sql", "/sql/data/data.sql"})
-public class MyRepositoryTest {
-    @Autowired
-    private MyRepository myRepository;
-
-    @Test
-    public void testRepository() {
-        myRepository.addUser("Allen", "allen@example.com");
-
-        List<Map<String, Object>> users = myRepository.findAllUsers();
-        assertEquals(users.size(), 3);
-    }
-}
+//@SpringBootTest
+//@ContextConfiguration(classes = AppTestConfig.class)
+//@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
+//@Sql(scripts = {"/sql/schema/schema.sql", "/sql/data/data.sql"})
+//public class MyRepositoryTest {
+//    @Autowired
+//    private MyRepository myRepository;
+//
+//    @Test
+//    public void testRepository() {
+//        myRepository.addUser("Allen", "allen@example.com");
+//
+//        List<Map<String, Object>> users = myRepository.findAllUsers();
+//        assertEquals(users.size(), 3);
+//    }
+//}

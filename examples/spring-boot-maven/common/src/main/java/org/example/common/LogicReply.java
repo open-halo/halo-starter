@@ -60,8 +60,8 @@ public class LogicReply<T> {
         return new LogicReply<>(false, null, 1, "entity not found");
     }
 
-    public static <T> LogicReply<PagedList<T>> ofEmptyList() {
-        return new LogicReply<PagedList<T>>(false, null, 1, "entity not found");
+    public static <T> LogicReply<PagedReply<T>> ofEmptyList() {
+        return new LogicReply<PagedReply<T>>(false, null, 1, "entity not found");
     }
 
 }

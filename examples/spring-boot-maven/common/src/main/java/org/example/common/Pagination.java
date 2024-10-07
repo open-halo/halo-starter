@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 @Builder
-public class PageInfo {
+public class Pagination {
     long pageSize;
     long pageIndex;
 }

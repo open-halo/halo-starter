@@ -1,4 +1,4 @@
-package org.example.core.domian;
+package org.example.api.rest.model;
 
 public record User(
         long id,
