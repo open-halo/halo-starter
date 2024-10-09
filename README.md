@@ -26,23 +26,25 @@ mvn archetype:generate -DarchetypeCatalog=local
 ## 这个项目能为你做什么？
 ### [1] 符合DDD设计的多module架子
 ```html
--- api           # 对外接口模块，纯interface和实体model
-  |-- rest  
-  |-- grpc  
+-- api           # 对外接口模块
+   |-- rest         # restful接口层
+   |-- grpc         # grpc接口层
+   |-- dubbo        # dubbo接口层
 -- api-adapter   # 接口实现模块
-  |-- rest  
-  |-- grpc 
+   |-- rest         # restful接口实现层
+   |-- grpc         # grpc接口实现层
+   |-- dubbo        # dubbo接口实现层
 -- common        # 工具类模块
--- core          # 核心业务模块
-  |-- model      # 核心实体定义层
-  |-- service    # 核心服务层
-  |-- gateway    # 核心依赖接口层
--- infra  
-  |-- persistent # 数据存储层
-  |-- message    # 消息处理层
+-- core          # 核心模块
+   |-- model        # 核心实体定义层
+   |-- service      # 核心服务层
+   |-- gateway      # 核心依赖接口层
+-- infra         # 基础设施模块
+   |-- persistent   # 数据存储层
+   |-- message      # 消息处理层
 -- external      # 外部防腐模块
-  |-- xxxA  
-  |-- xxxB  
+   |-- xxxA         # 防腐层A
+   |-- xxxB         # 防腐层B
 -- starter       # 启动模块
 ```
 
@@ -135,14 +137,19 @@ mvn archetype:generate -DarchetypeCatalog=local
 
 
 ## TODO list
-- [] 添加DAL层示例 
-- [] 添加PMD代码检查 
+- [x] 添加DAL层示例 
+- [x] 添加PMD代码检查 
 - [x] 添加git提交钩子，强制PMD检查
 - [x] 添加格式化工具，提交前自动格式化
-- [] 添加slf4j + logback的全套配置
+- [x] 添加slf4j + log4j2的全套配置
 - [x] 添加基础工具类
+- [] 添加每个层的最佳实践markdown文档
+- [] 添加docker配置
+- [] 添加graalvm配置
+- [] 添加grpc/dubbo模块
 - [] 添加统一拦截器
 - [] 添加spring doc实现
+- [] 自动生成typescript代码
 
 ## LICENSE
 Apache
