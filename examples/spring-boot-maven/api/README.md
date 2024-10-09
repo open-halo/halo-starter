@@ -8,16 +8,17 @@ DELETE：删除
 
 ## URL设计  
 1. 使用名词  
-不使用/getBooks和/queryUsers  
-使用/users  
+&#10005; GET /getBooks  
+&#10005; GET /queryUsers  
+&#10003; GET /users  
 
 2. 使用复数  
-不使用/user/2  
-使用/users/2  
+&#10005; GET /user/2  
+&#10003; GET /users/2  
 
 3. 避免多级  
-不使用 /users/12/categories/3  
-使用 /users/12?categories=3
+&#10005; GET /users/12/categories/3  
+&#10003; GET /users/12?categories=3
 
 ## 状态码设计
 1. 1xx: 表示相关信息，一般很少用  
@@ -59,7 +60,7 @@ DELETE：删除
 例如 POST /users
 一般返回主键，因为主键在服务端生成  
 
-2. 全实体替换更新使用PUT， 应该较少使用 
+2. 全实体替换更新使用PUT， 应该较少使用  
 例如 PUT /users  
 必须包含所有实体的必填字段，选填字段如果不存在，会被置空或者设定为默认值
 
