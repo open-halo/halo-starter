@@ -26,7 +26,17 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>halo-starter-core</artifactId>
+            <artifactId>halo-starter-core-model</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>halo-starter-core-service</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>halo-starter-core-gateway</artifactId>
         </dependency>
 
         <dependency>

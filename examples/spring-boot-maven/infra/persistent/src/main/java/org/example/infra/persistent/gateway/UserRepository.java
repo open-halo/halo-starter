@@ -1,10 +1,10 @@
 package org.example.infra.persistent.gateway;
 
 import lombok.AllArgsConstructor;
-import org.example.common.LogicReply;
-import org.example.common.PagedReply;
+import org.example.common.ApiResult;
+import org.example.common.PagedResult;
 import org.example.common.PagedRequest;
-import org.example.core.domian.User;
+import org.example.core.model.User;
 import org.example.core.gateway.repository.IUserRepository;
 import org.example.infra.persistent.repository.UserJRepository;
 import org.mapstruct.Mapper;
@@ -29,46 +29,46 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public LogicReply<Void> create(User user) {
+    public ApiResult<Void> create(User user) {
         return null;
     }
 
     @Override
-    public LogicReply<Void> delete(long userId) {
+    public ApiResult<Void> delete(long userId) {
         return null;
     }
 
     @Override
-    public LogicReply<Void> update(User user) {
+    public ApiResult<Void> update(User user) {
         return null;
     }
 
     @Override
-    public LogicReply<User> select(long userId) {
+    public ApiResult<User> select(long userId) {
         return null;
     }
 
     @Override
-    public LogicReply<User> selectOne(String email) {
+    public ApiResult<User> selectByEmail(String email) {
         return null;
     }
 
     @Override
-    public LogicReply<PagedReply<User>> searchByName(PagedRequest<String> searchByNameRequest) {
+    public ApiResult<PagedResult<User>> searchByName(PagedRequest<String> searchByNameRequest) {
         return null;
     }
 
 
-    public LogicReply<Void> save(User user) {
+    public ApiResult<Void> save(User user) {
         org.example.infra.persistent.entity.User userEntity = UserRepositoryMapper.INSTANCE.domainToEntity(user);
         jRepository.save(userEntity);
-        return LogicReply.ofSuccess();
+        return ApiResult.ofSuccess();
     }
 
 
-    public LogicReply<List<User>> findAllUsers() {
+    public ApiResult<List<User>> findAllUsers() {
         List<org.example.infra.persistent.entity.User> userList = jRepository.findAll();
         List<User> domains = UserRepositoryMapper.INSTANCE.entitiesToDomains(userList);
-        return LogicReply.ofSuccessList(domains);
+        return ApiResult.ofSuccessList(domains);
     }
 }

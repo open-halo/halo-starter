@@ -1,50 +1,48 @@
-package org.example.biz.rest;
-
+package org.example.core.service.impl;
 
 import lombok.AllArgsConstructor;
-import org.example.api.rest.IUser;
 import org.example.common.ApiResult;
 import org.example.common.PagedResult;
 import org.example.common.PagedRequest;
 import org.example.core.model.User;
+import org.example.core.gateway.repository.IUserRepository;
 import org.example.core.service.IUserService;
+import jakarta.annotation.Resource;
 
 
-import org.springframework.stereotype.Component;
-
-@Component
+@Resource
 @AllArgsConstructor
-public class UserController implements IUser {
+public class UserService implements IUserService {
 
-    private IUserService userService;
+    private IUserRepository userRepository;
 
     @Override
     public ApiResult<Void> create(User user) {
-        return userService.create(user);
+        return userRepository.create(user);
     }
 
     @Override
     public ApiResult<Void> delete(long userId) {
-        return userService.delete(userId);
+        return userRepository.delete(userId);
     }
 
     @Override
     public ApiResult<Void> update(User user) {
-        return userService.update(user);
+        return userRepository.update(user);
     }
 
     @Override
     public ApiResult<User> select(long userId) {
-        return userService.select(userId);
+        return userRepository.select(userId);
     }
 
     @Override
     public ApiResult<User> selectByEmail(String email) {
-        return userService.selectByEmail(email);
+        return userRepository.selectByEmail(email);
     }
 
     @Override
-    public ApiResult<PagedResult<User>> search(PagedRequest<String> nameSearch) {
-        return userService.searchByName(nameSearch);
+    public ApiResult<PagedResult<User>> searchByName(PagedRequest<String> nameSearch) {
+        return userRepository.searchByName(nameSearch);
     }
 }

@@ -3,38 +3,26 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.example</groupId>
-        <artifactId>halo-starter-api</artifactId>
+        <artifactId>halo-starter-core</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>halo-starter-api-rest</artifactId>
-    <name>api-rest</name>
+    <artifactId>halo-starter-core-gateway</artifactId>
     <packaging>jar</packaging>
+    <name>gateway</name>
+
 
     <dependencies>
+
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.example</groupId>
             <artifactId>halo-starter-common</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.example</groupId>
             <artifactId>halo-starter-core-model</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>

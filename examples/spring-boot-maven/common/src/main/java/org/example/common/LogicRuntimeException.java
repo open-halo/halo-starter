@@ -15,7 +15,7 @@ public class LogicRuntimeException extends RuntimeException {
         this.errMsg = errMsg;
     }
 
-    public <T> LogicReply<T> intoLogicReply(Class<T> tClass) {
-        return LogicReply.ofFailure(this.errCode, this.errMsg);
+    public <T> ApiResult<T> intoApiResult(Class<T> tClass) {
+        return ApiResult.ofFailure(this.errCode, this.errMsg);
     }
 }

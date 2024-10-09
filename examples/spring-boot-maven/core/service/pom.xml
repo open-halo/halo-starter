@@ -3,13 +3,14 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.example</groupId>
-        <artifactId>halo-starter-api</artifactId>
+        <artifactId>halo-starter-core</artifactId>
         <version>1.0</version>
     </parent>
 
-    <artifactId>halo-starter-api-rest</artifactId>
-    <name>api-rest</name>
+    <artifactId>halo-starter-core-service</artifactId>
+
     <packaging>jar</packaging>
+    <name>service</name>
 
     <dependencies>
         <dependency>
@@ -23,8 +24,24 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>halo-starter-core-gateway</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>halo-starter-external-weather</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

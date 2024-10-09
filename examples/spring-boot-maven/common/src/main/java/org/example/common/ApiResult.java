@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class LogicReply<T> {
+public class ApiResult<T> {
 
     boolean success;
     T data;
@@ -34,34 +34,34 @@ public class LogicReply<T> {
         }
     }
 
-    public <N> LogicReply<N> intoFailure() {
-        return LogicReply.ofFailure(errCode, errMsg);
+    public <N> ApiResult<N> intoFailure() {
+        return ApiResult.ofFailure(errCode, errMsg);
     }
 
-    public static <T> LogicReply<T> ofSuccess() {
-        return new LogicReply<>(true, null, 0, null);
+    public static <T> ApiResult<T> ofSuccess() {
+        return new ApiResult<>(true, null, 0, null);
     }
 
     // 为什么不考虑Optional<T>，因为Java默认是一个nullable的语言
     // 所以其实等价于所有对象都是一个Optional<T>
-    public static <T> LogicReply<T> ofSuccess(T data) {
-        return new LogicReply<>(true, data, 0, null);
+    public static <T> ApiResult<T> ofSuccess(T data) {
+        return new ApiResult<>(true, data, 0, null);
     }
 
-    public static <T> LogicReply<List<T>> ofSuccessList(List<T> data) {
-        return new LogicReply<>(true, data, 0, null);
+    public static <T> ApiResult<List<T>> ofSuccessList(List<T> data) {
+        return new ApiResult<>(true, data, 0, null);
     }
 
-    public static <T> LogicReply<T> ofFailure(int errCode, String errMsg) {
-        return new LogicReply<>(false, null, errCode, errMsg);
+    public static <T> ApiResult<T> ofFailure(int errCode, String errMsg) {
+        return new ApiResult<>(false, null, errCode, errMsg);
     }
 
-    public static <T> LogicReply<T> ofEmptyEntity() {
-        return new LogicReply<>(false, null, 1, "entity not found");
+    public static <T> ApiResult<T> ofEmptyEntity() {
+        return new ApiResult<>(false, null, 1, "entity not found");
     }
 
-    public static <T> LogicReply<PagedReply<T>> ofEmptyList() {
-        return new LogicReply<PagedReply<T>>(false, null, 1, "entity not found");
+    public static <T> ApiResult<PagedResult<T>> ofEmptyList() {
+        return new ApiResult<PagedResult<T>>(false, null, 1, "entity not found");
     }
 
 }

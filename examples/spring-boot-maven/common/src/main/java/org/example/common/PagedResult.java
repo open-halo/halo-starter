@@ -11,7 +11,7 @@ import java.util.List;
 @Data
 @Builder
 @AllArgsConstructor
-public class PagedReply<T> {
+public class PagedResult<T> {
     PagedInfo pagedInfo;
     List<T> data;
 
@@ -19,8 +19,8 @@ public class PagedReply<T> {
         return data.isEmpty();
     }
 
-    public static <T> PagedReply<T> empty() {
-        return PagedReply.<T>builder().pagedInfo(PagedInfo.empty()).data(new ArrayList<>()).build();
+    public static <T> PagedResult<T> empty() {
+        return PagedResult.<T>builder().pagedInfo(PagedInfo.empty()).data(new ArrayList<>()).build();
     }
 }
 
