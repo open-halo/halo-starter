@@ -76,12 +76,12 @@ mvn archetype:generate -DarchetypeCatalog=local
 2. 例如使用log4j2提高日志性能，并做默认配置
 3. 默认启动优雅停机graceful shutdown
 
-### [6] k8s友好
+### [6] 云原声友好
 1. 默认支持k8s下的startup,readiness,liveness探针
 2. 提供默认的docker配置
 3. 部分框架提供graalvm的native image生成
 
-### [7] 前端优化
+### [7] 前端友好
 1. 支持类似swagger的在线文档
 2. 自动生成前端直接可用的typescript的接口文件
 
