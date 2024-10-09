@@ -73,7 +73,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 - [x] 添加git提交钩子，强制PMD检查
 - [x] 添加格式化工具，提交前自动格式化
 - [] 添加slf4j + logback的全套配置
-- [] 添加基础工具类
+- [x] 添加基础工具类
 - [] 添加统一拦截器
 - [] 添加spring doc实现
 

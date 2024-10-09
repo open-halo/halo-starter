@@ -26,7 +26,7 @@ public interface IUser {
     @GetMapping
     ApiResult<User> selectByEmail(@PathParam("email") String email);
 
-    @GetMapping
+    @GetMapping("/search")
     ApiResult<PagedResult<User>> search(PagedRequest<String> nameSearch);
 
 }

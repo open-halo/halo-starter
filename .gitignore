@@ -3,3 +3,4 @@ target/
 halo-archetype/
 local-test/
 **/.DS_store
+logs

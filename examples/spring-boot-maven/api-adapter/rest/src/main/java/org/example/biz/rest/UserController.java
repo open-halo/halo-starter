@@ -2,6 +2,7 @@ package org.example.biz.rest;
 
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.api.rest.IUser;
 import org.example.common.ApiResult;
 import org.example.common.PagedResult;
@@ -12,6 +13,7 @@ import org.example.core.service.IUserService;
 
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 @AllArgsConstructor
 public class UserController implements IUser {
@@ -35,6 +37,7 @@ public class UserController implements IUser {
 
     @Override
     public ApiResult<User> select(long userId) {
+        log.info("select({})", userId);
         return userService.select(userId);
     }
 

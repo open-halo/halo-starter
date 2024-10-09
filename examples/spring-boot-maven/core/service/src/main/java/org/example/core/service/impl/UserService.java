@@ -1,16 +1,17 @@
 package org.example.core.service.impl;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.common.ApiResult;
 import org.example.common.PagedResult;
 import org.example.common.PagedRequest;
 import org.example.core.model.User;
 import org.example.core.gateway.repository.IUserRepository;
 import org.example.core.service.IUserService;
-import jakarta.annotation.Resource;
 
 
-@Resource
+
+@Slf4j
 @AllArgsConstructor
 public class UserService implements IUserService {
 
@@ -33,6 +34,7 @@ public class UserService implements IUserService {
 
     @Override
     public ApiResult<User> select(long userId) {
+        log.info("select({})", userId);
         return userRepository.select(userId);
     }
 
