@@ -16,6 +16,12 @@
         <include>**/*.xml</include>
       </includes>
     </fileSet>
+    <fileSet filtered="true" encoding="UTF-8">
+      <directory>.halo/formatter</directory>
+      <includes>
+        <include>**/*.xml</include>
+      </includes>
+    </fileSet>
     <fileSet encoding="UTF-8">
       <directory>.halo/git-hooks</directory>
       <includes>
@@ -32,12 +38,21 @@
     <fileSet encoding="UTF-8">
       <directory></directory>
       <includes>
+        <include>build.sh</include>
         <include>.gitignore</include>
       </includes>
     </fileSet>
   </fileSets>
   <modules>
     <module id="${rootArtifactId}-api" dir="api" name="${rootArtifactId}-api">
+      <fileSets>
+        <fileSet encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>README.md</include>
+          </includes>
+        </fileSet>
+      </fileSets>
       <modules>
         <module id="${rootArtifactId}-api-rest" dir="rest" name="${rootArtifactId}-api-rest">
           <fileSets>
@@ -88,20 +103,38 @@
       </fileSets>
     </module>
     <module id="${rootArtifactId}-core" dir="core" name="${rootArtifactId}-core">
-      <fileSets>
-        <fileSet filtered="true" packaged="true" encoding="UTF-8">
-          <directory>src/main/java</directory>
-          <includes>
-            <include>**/*.java</include>
-          </includes>
-        </fileSet>
-        <fileSet filtered="true" packaged="true" encoding="UTF-8">
-          <directory>src/test/java</directory>
-          <includes>
-            <include>**/*.java</include>
-          </includes>
-        </fileSet>
-      </fileSets>
+      <modules>
+        <module id="${rootArtifactId}-core-model" dir="model" name="${rootArtifactId}-core-model">
+          <fileSets>
+            <fileSet filtered="true" packaged="true" encoding="UTF-8">
+              <directory>src/main/java</directory>
+              <includes>
+                <include>**/*.java</include>
+              </includes>
+            </fileSet>
+          </fileSets>
+        </module>
+        <module id="${rootArtifactId}-core-service" dir="service" name="${rootArtifactId}-core-service">
+          <fileSets>
+            <fileSet filtered="true" packaged="true" encoding="UTF-8">
+              <directory>src/main/java</directory>
+              <includes>
+                <include>**/*.java</include>
+              </includes>
+            </fileSet>
+          </fileSets>
+        </module>
+        <module id="${rootArtifactId}-core-gateway" dir="gateway" name="${rootArtifactId}-core-gateway">
+          <fileSets>
+            <fileSet filtered="true" packaged="true" encoding="UTF-8">
+              <directory>src/main/java</directory>
+              <includes>
+                <include>**/*.java</include>
+              </includes>
+            </fileSet>
+          </fileSets>
+        </module>
+      </modules>
     </module>
     <module id="${rootArtifactId}-external" dir="external" name="${rootArtifactId}-external">
       <modules>
@@ -125,12 +158,24 @@
     </module>
     <module id="${rootArtifactId}-infra" dir="infra" name="${rootArtifactId}-infra">
       <modules>
-        <module id="${rootArtifactId}-infra-persistent-data" dir="persistent-data" name="${rootArtifactId}-infra-persistent-data">
+        <module id="${rootArtifactId}-infra-persistent" dir="persistent" name="${rootArtifactId}-infra-persistent">
           <fileSets>
             <fileSet filtered="true" packaged="true" encoding="UTF-8">
               <directory>src/main/java</directory>
               <includes>
                 <include>**/*.java</include>
+              </includes>
+            </fileSet>
+            <fileSet encoding="UTF-8">
+              <directory>src/main/resources</directory>
+              <includes>
+                <include>**/*.sql</include>
+              </includes>
+            </fileSet>
+            <fileSet encoding="UTF-8">
+              <directory>src/main/dto</directory>
+              <includes>
+                <include>**/*.dto</include>
               </includes>
             </fileSet>
             <fileSet filtered="true" packaged="true" encoding="UTF-8">
@@ -141,7 +186,7 @@
             </fileSet>
           </fileSets>
         </module>
-        <module id="${rootArtifactId}-infra-message-queue" dir="message-queue" name="${rootArtifactId}-infra-message-queue">
+        <module id="${rootArtifactId}-infra-message" dir="message" name="${rootArtifactId}-infra-message">
           <fileSets>
             <fileSet filtered="true" packaged="true" encoding="UTF-8">
               <directory>src/main/java</directory>
@@ -165,6 +210,12 @@
           <directory>src/main/java</directory>
           <includes>
             <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/resources</directory>
+          <includes>
+            <include>**/*.xml</include>
           </includes>
         </fileSet>
         <fileSet encoding="UTF-8">

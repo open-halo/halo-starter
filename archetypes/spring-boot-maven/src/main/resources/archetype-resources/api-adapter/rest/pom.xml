@@ -19,7 +19,12 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>${rootArtifactId}-core</artifactId>
+            <artifactId>${rootArtifactId}-core-model</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>${rootArtifactId}-core-service</artifactId>
         </dependency>
 
         <dependency>
@@ -33,8 +38,13 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>jakarta.ws.rs</groupId>
+            <artifactId>jakarta.ws.rs-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>jakarta.inject</groupId>
+            <artifactId>jakarta.inject-api</artifactId>
         </dependency>
 
         <dependency>

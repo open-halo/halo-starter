@@ -1,5 +1,14 @@
 spring.profiles.active: dev
 
-spring.datasource.hikari.maximum-pool-size: 60
-mybatis-plus.mapper-locations: classpath:/mappers/**.xml
-mybatis-plus.configuration.log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 8080
+  undertow:
+    io-threads: 4
+    worker-threads: 20
+    buffer-size: 1024
+    direct-buffers: true
+
+spring:
+  datasource:
+    hikari:
+      maximum-pool-size: 60
