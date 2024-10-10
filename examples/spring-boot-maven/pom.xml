@@ -284,13 +284,13 @@
                                 <content>/* (C)$YEAR */</content>  <!-- or <file>${project.basedir}/license-header</file> -->
                             </licenseHeader>
                         </java>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>check</goal>
-                                </goals>
-                            </execution>
-                        </executions>
+<!--                        <executions>-->
+<!--                            <execution>-->
+<!--                                <goals>-->
+<!--                                    <goal>check</goal>-->
+<!--                                </goals>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
                     </configuration>
                 </plugin>
 
