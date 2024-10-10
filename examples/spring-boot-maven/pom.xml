@@ -16,7 +16,7 @@
         <lombok.version>1.18.32</lombok.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <flyway.version>10.18.1</flyway.version>
-        <h2.version>2.3.232</h2.version>
+        <h2.version>2.2.224</h2.version>
         <jimmer.version>0.8.150</jimmer.version>
         <spotless.version>2.44.0.BETA2</spotless.version>
     </properties>
