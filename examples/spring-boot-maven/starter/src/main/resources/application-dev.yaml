@@ -1,12 +1,19 @@
-#spring.datasource.url: jdbc:mysql://xxxx_db_url:3306/xxx_db_name
-#spring.datasource.username: xxxUserName
-#spring.datasource.password: xxxUserPass
-#spring.datasource.driver-class-name: com.mysql.cj.jdbc.Driver
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb;MODE=MYSQL;DATABASE_TO_UPPER=true;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ''
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
 
-spring.datasource.url: jdbc:h2:mem:test
-spring.datasource.username: sa
-spring.datasource.password:
-spring.datasource.driver-class-name: org.h2.Driver
+jimmer:
+  dialect: org.babyfish.jimmer.sql.dialect.MySqlDialect
+  show-sql: true
+  pretty-sql: true
+  database-validation-mode: ERROR
 
 
 

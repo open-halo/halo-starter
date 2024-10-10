@@ -1,9 +1,13 @@
-package org.example.common;
+package org.example.core.model.base;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.util.List;
+import java.util.Optional;
+
+import static org.example.core.model.base.CommonError.EntityNotFound;
+import static org.example.core.model.base.CommonError.Success;
 
 @Data
 @AllArgsConstructor
@@ -15,8 +19,9 @@ public class ApiResult<T> {
     String errMsg;
 
     // 因为经常需要写 !response.isSuccess()
-    // 而这个写法是比较容易混淆！符号，漏掉是常有的事情，isFailure语义更加明确
-    public boolean isFailure() {
+    // 而这个写法是比较容易混淆！符号，漏掉是常有的事情，failure语义更加明确
+    // 如果用isFailure，会导致序列化的时候多一个字段
+    public boolean failure() {
         return !success;
     }
 
@@ -54,6 +59,11 @@ public class ApiResult<T> {
 
     public static <T> ApiResult<T> ofFailure(int errCode, String errMsg) {
         return new ApiResult<>(false, null, errCode, errMsg);
+    }
+
+    public static <T> ApiResult<T> ofOptional(Optional<T> data) {
+        return data.map(t -> new ApiResult<>(true, t, Success.code(), Success.msg()))
+                .orElseGet(() -> new ApiResult<>(false, null, EntityNotFound.code(), EntityNotFound.msg()));
     }
 
     public static <T> ApiResult<T> ofEmptyEntity() {

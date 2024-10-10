@@ -1,32 +1,39 @@
 package org.example.api.rest;
 
-import jakarta.websocket.server.PathParam;
-import org.example.core.model.User;
-import org.example.common.ApiResult;
-import org.example.common.PagedResult;
-import org.example.common.PagedRequest;
-import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/user")
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
+import org.example.core.model.User;
+import org.example.core.model.base.ApiResult;
+import org.example.core.model.base.PagedResult;
+import org.example.core.model.base.PagedRequest;
+
+
+
+@Path("/users")
+@Produces(MediaType.APPLICATION_JSON)
 public interface IUser {
 
-    @PostMapping
-    ApiResult<Void> create(@RequestBody User user);
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    ApiResult<Void> create(User user);
 
-    @DeleteMapping("/{userId}")
-    ApiResult<Void> delete(@PathVariable("userId") long userId);
+    @Path("/{userId}")
+    ApiResult<Void> delete(@PathParam("userId") long userId);
 
-    @PutMapping
-    ApiResult<Void> update(@RequestBody User user);
+    @PATCH
+    @Consumes(MediaType.APPLICATION_JSON)
+    ApiResult<Void> update(User user);
 
-    @GetMapping("/{userId}")
-    ApiResult<User> select(@PathVariable("userId") long userId);
+    @Path("/{userId}")
+    @GET
+    ApiResult<User> select(@PathParam("userId") long userId);
 
-    @GetMapping
-    ApiResult<User> selectByEmail(@PathParam("email") String email);
+    @GET
+    ApiResult<User> selectByEmail(@QueryParam("email") String email);
 
-    @GetMapping("/search")
+    @Path("/search")
+    @GET
     ApiResult<PagedResult<User>> search(PagedRequest<String> nameSearch);
 
 }

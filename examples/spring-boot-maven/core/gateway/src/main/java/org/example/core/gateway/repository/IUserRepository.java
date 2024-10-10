@@ -1,8 +1,8 @@
 package org.example.core.gateway.repository;
 
-import org.example.common.ApiResult;
-import org.example.common.PagedResult;
-import org.example.common.PagedRequest;
+import org.example.core.model.base.ApiResult;
+import org.example.core.model.base.PagedResult;
+import org.example.core.model.base.PagedRequest;
 import org.example.core.model.User;
 
 

@@ -1,35 +1,47 @@
 package org.example.infra.persistent.gateway;
 
+import jakarta.inject.Named;
 import lombok.AllArgsConstructor;
-import org.example.common.ApiResult;
-import org.example.common.PagedResult;
-import org.example.common.PagedRequest;
-import org.example.core.model.User;
+import lombok.extern.slf4j.Slf4j;
+import org.example.core.model.base.ApiResult;
+import org.example.core.model.base.PagedResult;
+import org.example.core.model.base.PagedRequest;
 import org.example.core.gateway.repository.IUserRepository;
+import org.example.infra.persistent.entity.Users;
 import org.example.infra.persistent.repository.UserJRepository;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
-import org.springframework.stereotype.Repository;
+
 
 import java.util.List;
+import java.util.Optional;
 
-@Repository
+@Slf4j
+@Named
 @AllArgsConstructor
 public class UserRepository implements IUserRepository {
 
-    private UserJRepository jRepository;
+    private UserJRepository userJRepository;
 
     @Mapper
     interface UserRepositoryMapper {
         UserRepositoryMapper INSTANCE = Mappers.getMapper(UserRepositoryMapper.class);
-        org.example.infra.persistent.entity.User domainToEntity(User user);
-        User entityToDomain(org.example.infra.persistent.entity.User userEntity);
+        Users domainToEntity(org.example.core.model.User user);
+        org.example.core.model.User entityToModel(Users userEntity);
+        default Optional<org.example.core.model.User> optionalEntityToModel(Optional<Users> userEntity) {
+            if (userEntity.isEmpty()) {
+                return Optional.empty();
+            } else {
+                org.example.core.model.User user = entityToModel(userEntity.get());
+                return Optional.of(user);
+            }
+        }
 
-        List<User> entitiesToDomains(List<org.example.infra.persistent.entity.User> userList);
+        List<org.example.core.model.User> entitiesToDomains(List<Users> userList);
     }
 
     @Override
-    public ApiResult<Void> create(User user) {
+    public ApiResult<Void> create(org.example.core.model.User user) {
         return null;
     }
 
@@ -39,36 +51,39 @@ public class UserRepository implements IUserRepository {
     }
 
     @Override
-    public ApiResult<Void> update(User user) {
+    public ApiResult<Void> update(org.example.core.model.User user) {
         return null;
     }
 
     @Override
-    public ApiResult<User> select(long userId) {
+    public ApiResult<org.example.core.model.User> select(long userId) {
+        log.info("select({})", userId);
+        Optional<Users> userEntity = userJRepository.findById(userId);
+        Optional<org.example.core.model.User> userModelOpt = UserRepositoryMapper.INSTANCE.optionalEntityToModel(userEntity);
+        return ApiResult.ofOptional(userModelOpt);
+    }
+
+    @Override
+    public ApiResult<org.example.core.model.User> selectByEmail(String email) {
         return null;
     }
 
     @Override
-    public ApiResult<User> selectByEmail(String email) {
-        return null;
-    }
-
-    @Override
-    public ApiResult<PagedResult<User>> searchByName(PagedRequest<String> searchByNameRequest) {
+    public ApiResult<PagedResult<org.example.core.model.User>> searchByName(PagedRequest<String> searchByNameRequest) {
         return null;
     }
 
 
-    public ApiResult<Void> save(User user) {
-        org.example.infra.persistent.entity.User userEntity = UserRepositoryMapper.INSTANCE.domainToEntity(user);
-        jRepository.save(userEntity);
+    public ApiResult<Void> save(org.example.core.model.User user) {
+        Users userEntity = UserRepositoryMapper.INSTANCE.domainToEntity(user);
+        userJRepository.save(userEntity);
         return ApiResult.ofSuccess();
     }
 
 
-    public ApiResult<List<User>> findAllUsers() {
-        List<org.example.infra.persistent.entity.User> userList = jRepository.findAll();
-        List<User> domains = UserRepositoryMapper.INSTANCE.entitiesToDomains(userList);
+    public ApiResult<List<org.example.core.model.User>> findAllUsers() {
+        List<Users> userList = userJRepository.findAll();
+        List<org.example.core.model.User> domains = UserRepositoryMapper.INSTANCE.entitiesToDomains(userList);
         return ApiResult.ofSuccessList(domains);
     }
 }

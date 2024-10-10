@@ -1,8 +1,10 @@
 package org.example.core.model;
 
-public record User(
-        long id,
-        String name,
-        String email
-) {
+import lombok.Data;
+
+@Data
+public class User {
+    long id;
+    String name;
+    String email;
 }

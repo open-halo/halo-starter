@@ -1,10 +1,11 @@
 package org.example.core.service.impl;
 
-import lombok.AllArgsConstructor;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 import lombok.extern.slf4j.Slf4j;
-import org.example.common.ApiResult;
-import org.example.common.PagedResult;
-import org.example.common.PagedRequest;
+import org.example.core.model.base.ApiResult;
+import org.example.core.model.base.PagedResult;
+import org.example.core.model.base.PagedRequest;
 import org.example.core.model.User;
 import org.example.core.gateway.repository.IUserRepository;
 import org.example.core.service.IUserService;
@@ -12,9 +13,10 @@ import org.example.core.service.IUserService;
 
 
 @Slf4j
-@AllArgsConstructor
+@Named
 public class UserService implements IUserService {
 
+    @Inject
     private IUserRepository userRepository;
 
     @Override
