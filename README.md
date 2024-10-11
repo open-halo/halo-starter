@@ -96,11 +96,11 @@ mvn archetype:generate -DarchetypeCatalog=local
 |--------------|---------|----------|
 | spring-boot  | 47M     | 2.041s   |
 * 较为大的依赖是几大部分：spring本身，mysql driver, jimmer, jackson, log4j2, hutool, h2
-* jimmer有很多不合理的依赖，随着后续的成熟应该会减少
+* jimmer占用10M左右，有很多不合理的依赖，随着后续的成熟应该会减少
 * h2是一个非必要依赖，可以在生产包去掉，只是示例项目依赖h2作为数据库，所以强依赖
 * jackson如果替换为其他实现，可能会减少很多体积
 * hutool功能是非常强大的，所以也比较大，但其实是值得的
-* spring,mysql driver,log4j2 是不容易减少的部分
+* spring, mysql driver, log4j2 是不容易减少的部分
 
 ## 这个项目模板\[template\] \[boilerplate\]的核心设计理念是什么？
 这个项目的核心设计理念是：追求软件工程的「外延灵活性」和「内核确定性」

@@ -2,6 +2,7 @@ spring.profiles.active: dev
 
 server:
   port: 8080
+  shutdown: graceful # 开启优雅停机
   undertow:
     io-threads: 4
     worker-threads: 20
@@ -9,6 +10,8 @@ server:
     direct-buffers: true
 
 spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 20s #停机缓冲时间 默认30s
   datasource:
     hikari:
       maximum-pool-size: 60
