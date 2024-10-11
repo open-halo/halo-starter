@@ -29,6 +29,12 @@
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
+      <directory>logs</directory>
+      <includes>
+        <include>**/*.log</include>
+      </includes>
+    </fileSet>
+    <fileSet encoding="UTF-8">
       <directory>.docs</directory>
       <includes>
         <include>**/*.pptx</include>
