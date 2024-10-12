@@ -3,7 +3,7 @@
 Halo is the flagship of the interstellar fleet in the Remembrance of Earth's Past trilogy.
 
 # multi-lingual docs
-![中文](README-zh.md)
+[中文](README-zh.md)
 
 ## what is on board of this \[template\] \[boilerplate\]？
 1. Provide a base project to quickly start a Spring Boot/Helidon/Quarkus/Micronaut project.
