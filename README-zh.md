@@ -171,5 +171,5 @@ mvn archetype:generate -DarchetypeCatalog=local
 - [ ] 自动生成typescript代码
 
 ## LICENSE
-Apache
+Apache OR MIT
 
