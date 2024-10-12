@@ -66,14 +66,14 @@ mvn archetype:generate -DarchetypeCatalog=local
 代码风格比格式化更加重一些，例如不允许无用的import等
 
 ### [4] 工程化地避免低级错误
-很多错误是天然的低级错误
-1. Object使用==对比，java的==对比的是object id，绝大部分不是我们期望的
-2. Catch NPE错误，
-3. 空的try catch通常是危险的
+使用PMD检查工具，并使用git hook强制提交前进行检查，这能大量避免低级错误
+1. 例如避免Object使用 == 对比，java的==对比的是object id，绝大部分不是我们期望的
+2. 例如避免Catch NPE错误，
+3. 例如避免空的try catch吞掉错误
 
 ### [5] 符合最佳实践的默认配置
-1. 例如Spring Boot使用undertow提高性能
-2. 例如使用log4j2提高日志性能，并做默认配置
+1. Spring Boot使用undertow作为内置容器
+2. 使用log4j2作为默认日志库，并配置默认log4j2.xml
 3. 默认启动优雅停机graceful shutdown
 
 ### [6] 云原声友好
@@ -95,7 +95,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 
 
 ## 一个架子能够节省多少时间
-1. 搭建一个优秀的架子，一个工作多年的程序员可能也至少需要6h
+1. 搭建一个优秀的架子，一个工作多年的程序员可能也至少需要1-day
 2. 久经考验的模块和分包设计，能够节省大量code review的时间和理解成本
 3. 工程化地强制代码风格和避免低级错误，能够避免大量低级错误，保证项目质量底线，节省纠正低级错时间
 4. 自动生成前端接口，可节省大量接口联调对齐参数的时间
