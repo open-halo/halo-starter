@@ -19,6 +19,7 @@
         <h2.version>2.2.224</h2.version>
         <jimmer.version>0.8.150</jimmer.version>
         <spotless.version>2.44.0.BETA2</spotless.version>
+        <sentinel.version>1.8.8</sentinel.version>
     </properties>
 
 
@@ -76,6 +77,17 @@
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>2.0.16</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-annotation-aspectj</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-core</artifactId>
+                <version>${sentinel.version}</version>
             </dependency>
 
             <dependency>
@@ -186,6 +198,11 @@
             <dependency>
                 <groupId>cn.zhxu</groupId>
                 <artifactId>xjsonkit-jackson</artifactId>
+                <version>1.5.0</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.zhxu</groupId>
+                <artifactId>xjsonkit-jackson-yaml</artifactId>
                 <version>1.5.0</version>
             </dependency>
 
