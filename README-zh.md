@@ -1,5 +1,6 @@
 # Halo
 ![alt text](.docs/flagship.png)
+星环是刘慈欣小说《三体》中星际舰队的旗舰  
 
 ## 这个项目模板\[template\] \[boilerplate\]提供什么能力？
 1. 提供一个基础项目，快速开启一个spring-boot/helidon/quarkus/micronaut项目
