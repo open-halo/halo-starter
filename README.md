@@ -159,19 +159,19 @@ core: Core logic implementation layer, contains pure business logic and is the h
 * Simple Query Needs: Defaulted to BeanSearcher for simple query requirements.
 * 
 ## TODO List
--[x] Add DAL (Data Access Layer) examples  
--[x] Add PMD code checks  
--[x] Add Git commit hooks to enforce PMD checks  
--[x] Add formatting tools to automatically format code before commits  
--[x] Add full configuration for SLF4J + Log4j2  
--[x] Add basic utility classes   
--[ ] Add best practice markdown documentation for each layer  
--[ ] Add Docker configuration  
--[ ] Add GraalVM configuration  
--[ ] Add gRPC/Dubbo modules  
--[ ] Add a unified interceptor  
--[ ] Add Spring Doc implementation  
--[ ] Automatically generate TypeScript code  
+- [x] Add DAL (Data Access Layer) examples  
+- [x] Add PMD code checks  
+- [x] Add Git commit hooks to enforce PMD checks  
+- [x] Add formatting tools to automatically format code before commits  
+- [x] Add full configuration for SLF4J + Log4j2  
+- [x] Add basic utility classes   
+- [ ] Add best practice markdown documentation for each layer  
+- [ ] Add Docker configuration  
+- [ ] Add GraalVM configuration  
+- [ ] Add gRPC/Dubbo modules  
+- [ ] Add a unified interceptor  
+- [ ] Add Spring Doc implementation  
+- [ ] Automatically generate TypeScript code  
 
 ## LICENSE
 Apache OR MIT
