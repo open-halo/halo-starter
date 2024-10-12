@@ -105,7 +105,7 @@ Setting up an excellent template might take at least 1 day for an experienced pr
 A well-structured and battle-tested module and package design can save a significant amount of time on code reviews and reduce the cost of understanding the code.
 Enforcing code style and avoiding low-level errors through engineering practices can prevent many low-level errors, ensuring a baseline of project quality and saving time that would otherwise be spent fixing these errors.
 Automatically generating frontend interfaces can save a lot of time on interface alignment and parameter synchronization.
-Package Size and Startup Performance
+Package Size and Startup Performance:    
 
 |Template|	Package Size|	Startup Time|
 |--|--|--|
