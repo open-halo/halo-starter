@@ -9,6 +9,8 @@ spring:
       enabled: true
       path: /h2-console
 
+logging.level.org.springframework.jdbc.core.JdbcTemplate: debug
+
 jimmer:
   dialect: org.babyfish.jimmer.sql.dialect.MySqlDialect
   show-sql: true
