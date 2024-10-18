@@ -1,0 +1,3 @@
+rest
+dubbo
+grpc: 现在grpc的quarkus插件不太推荐使用proto和实现分离的方式，建议直接复制proto文件

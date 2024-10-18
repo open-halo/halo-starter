@@ -2,7 +2,7 @@
 ![alt text](.docs/flagship.png)
 Halo is the flagship of the interstellar fleet in the Remembrance of Earth's Past trilogy.
 
-# multi-lingual docs
+# Docs
 [中文](README-zh.md)
 
 ## what is on board of this \[template\] \[boilerplate\]？

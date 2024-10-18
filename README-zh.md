@@ -4,13 +4,13 @@
 
 ## 这个项目模板\[template\] \[boilerplate\]提供什么能力？
 1. 提供一个基础项目，快速开启一个spring-boot/helidon/quarkus/micronaut项目
-2. 一个合理的久经考验的项目module和包接口，这个结构符合DDD最佳实践
+2. 一个合理的久经考验的module和package结构，这个结构符合DDD最佳实践
 3. 提供基础的命名约束规范要求，减少可能存在的沟通歧义
 4. 提供大量提升开发体验的能力，如lombok，mapstruct，slf4j等
 5. 提供强制的代码风格检查&PMD基础错误检查，并配合git hooks消除潜在基础错误
 6. 许多符合现代最佳实践的工具类
 
-## QUICK START
+## GETTING START
 *由于现在archetype还没有发布到maven中央仓库，所以可以按照本地安装流程使用
 ```shell
 # clone git repository
