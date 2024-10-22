@@ -98,6 +98,18 @@
 
             <dependency>
                 <groupId>${project.groupId}</groupId>
+                <artifactId>halo-api-rest</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>halo-api-dubbo</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
                 <artifactId>halo-starter-adapter-rest</artifactId>
                 <version>${project.version}</version>
             </dependency>
@@ -390,6 +402,7 @@
         <module>external</module>
         <module>infra</module>
         <module>starter</module>
+        <module>api-adapter/api-adapter-dubbo</module>
     </modules>
 
 </project>

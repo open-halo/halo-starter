@@ -13,6 +13,7 @@
 
     <modules>
         <module>rest</module>
+        <module>dubbo</module>
     </modules>
 
 </project>
