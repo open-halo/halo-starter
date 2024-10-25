@@ -1,4 +1,7 @@
-# 星环-Halo
+<div style="text-align: center;">
+  <h1>星环 [Halo]</h1>
+</div>
+
 ![alt text](.docs/flagship.png)
 星环是刘慈欣小说《三体》中星际舰队的旗舰  
 
