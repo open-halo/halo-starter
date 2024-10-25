@@ -1,14 +1,11 @@
 package org.example.api.rest;
 
-
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import org.example.core.model.User;
 import org.example.core.model.base.ApiResult;
 import org.example.core.model.base.PagedResult;
 import org.example.core.model.base.PagedRequest;
-
-
 
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)

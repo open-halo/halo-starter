@@ -1,6 +1,5 @@
 package org.example.biz.rest;
 
-
 import jakarta.inject.Named;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

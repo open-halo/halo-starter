@@ -5,7 +5,6 @@ import org.example.core.model.base.PagedResult;
 import org.example.core.model.base.PagedRequest;
 import org.example.core.model.User;
 
-
 public interface IUserRepository {
     ApiResult<Void> create(User user);
 

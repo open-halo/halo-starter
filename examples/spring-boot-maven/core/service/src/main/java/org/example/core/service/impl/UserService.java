@@ -11,8 +11,6 @@ import org.example.core.model.User;
 import org.example.core.gateway.repository.IUserRepository;
 import org.example.core.service.IUserService;
 
-
-
 @Slf4j
 @Named
 public class UserService implements IUserService {

@@ -41,7 +41,8 @@ public class SentinelAspect extends AbstractSentinelAspectSupport {
             entry = SphU.entry(resourceName);
             return joinPoint.proceed();
         } catch (BlockException e) {
-            return "Blocked by Sentinel: " + resourceName + "->" + e.getClass().getSimpleName() + "->" + methodName;
+            return "Blocked by Sentinel: " + resourceName + "->" + e.getClass().getSimpleName()
+                   + "->" + methodName;
         } finally {
             if (entry != null) {
                 entry.exit();

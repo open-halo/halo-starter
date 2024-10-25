@@ -23,7 +23,7 @@ public class DateUtilTest {
         String now = DateUtil.now();
 
         //当前日期字符串，格式：yyyy-MM-dd
-        String today= DateUtil.today();
+        String today = DateUtil.today();
 
         // 支持自动识别的格式
         //        yyyy-MM-dd HH:mm:ss

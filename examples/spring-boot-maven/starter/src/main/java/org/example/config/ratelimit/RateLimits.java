@@ -5,26 +5,24 @@ import lombok.Data;
 
 import java.util.List;
 
-
 @Data
 public class RateLimits {
 
     @Data
     public static class Degrade {
         @JsonAlias("time-window-seconds")
-        int timeWindowSeconds;
+        int    timeWindowSeconds;
 
         @JsonAlias("min-request")
-        int minRequest;
+        int    minRequest;
         String grade;
         double count;
     }
 
-
     @Data
     public static class LimitRule {
-        String name;
-        int limit;
+        String  name;
+        int     limit;
         Degrade degrade;
     }
 

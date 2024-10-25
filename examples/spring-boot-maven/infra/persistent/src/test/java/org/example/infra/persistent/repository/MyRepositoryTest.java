@@ -1,8 +1,5 @@
 package org.example.infra.persistent.repository;
 
-
-
-
 import org.example.infra.persistent.AppTestConfig;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
 
 //@SpringBootTest
 //@ContextConfiguration(classes = AppTestConfig.class)

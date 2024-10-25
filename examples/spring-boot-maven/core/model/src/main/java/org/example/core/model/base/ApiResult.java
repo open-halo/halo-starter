@@ -14,9 +14,9 @@ import static org.example.core.model.base.CommonError.Success;
 public class ApiResult<T> {
 
     boolean success;
-    T data;
-    int errCode;
-    String errMsg;
+    T       data;
+    int     errCode;
+    String  errMsg;
 
     // 因为经常需要写 !response.isSuccess()
     // 而这个写法是比较容易混淆！符号，漏掉是常有的事情，failure语义更加明确
@@ -75,4 +75,3 @@ public class ApiResult<T> {
     }
 
 }
-

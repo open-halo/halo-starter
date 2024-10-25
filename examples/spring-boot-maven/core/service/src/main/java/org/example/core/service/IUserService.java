@@ -7,6 +7,7 @@ import org.example.core.model.User;
 
 public interface IUserService {
     ApiResult<Void> create(User user);
+
     ApiResult<Void> delete(long userId);
 
     ApiResult<Void> update(User user);

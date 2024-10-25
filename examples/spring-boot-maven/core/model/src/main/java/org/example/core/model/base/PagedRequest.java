@@ -9,5 +9,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class PagedRequest<T> {
     Pagination pagination;
-    T request;
+    T          request;
 }

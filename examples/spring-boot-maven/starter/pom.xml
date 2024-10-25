@@ -157,6 +157,12 @@
                 <artifactId>maven-compiler-plugin</artifactId>
             </plugin>
 
+            <plugin>
+                <groupId>org.graalvm.buildtools</groupId>
+                <artifactId>native-maven-plugin</artifactId>
+                <version>0.10.3</version>
+            </plugin>
+
         </plugins>
     </build>
 </project>

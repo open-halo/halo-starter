@@ -1,6 +1,5 @@
 package org.example.infra.persistent.repository;
 
-
 import lombok.AllArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
