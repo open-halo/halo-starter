@@ -3,15 +3,12 @@
 #set( $symbol_escape = '\' )
 package ${package}.api.rest;
 
-
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import ${package}.core.model.User;
 import ${package}.core.model.base.ApiResult;
 import ${package}.core.model.base.PagedResult;
 import ${package}.core.model.base.PagedRequest;
-
-
 
 @Path("/users")
 @Produces(MediaType.APPLICATION_JSON)

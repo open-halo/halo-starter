@@ -7,17 +7,26 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>dynamic</artifactId>
+    <artifactId>halo-external-dynamic</artifactId>
     <packaging>jar</packaging>
-
     <name>dynamic</name>
-    <url>http://maven.apache.org</url>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-arc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus.arc</groupId>
+            <artifactId>arc-processor</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>

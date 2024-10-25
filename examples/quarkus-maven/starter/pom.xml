@@ -25,6 +25,11 @@
 
         <dependency>
             <groupId>org.example</groupId>
+            <artifactId>halo-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.example</groupId>
             <artifactId>halo-core-model</artifactId>
         </dependency>
 
@@ -55,6 +60,7 @@
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-grpc</artifactId>
         </dependency>
+
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>
@@ -64,6 +70,10 @@
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.quarkus.arc</groupId>
+            <artifactId>arc-processor</artifactId>
         </dependency>
     </dependencies>
 

@@ -3,7 +3,6 @@
 #set( $symbol_escape = '\' )
 package ${package}.infra.persistent;
 
-
 import ${package}.core.gateway.repository.IUserRepository;
 import ${package}.infra.persistent.gateway.UserRepository;
 import ${package}.infra.persistent.repository.UserJRepository;
@@ -18,11 +17,11 @@ import javax.sql.DataSource;
 @ComponentScan("${package}.infra.persistent")
 public class AppTestConfig {
 
-
     @Bean
     IUserRepository getIUserRepository(UserJRepository jRepository) {
         return new UserRepository(jRepository);
     }
+
     @Bean
     JdbcTemplate getJdbcTemplate(DataSource dataSource) {
         return new JdbcTemplate(dataSource);

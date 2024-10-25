@@ -8,7 +8,6 @@ import ${package}.core.model.base.PagedResult;
 import ${package}.core.model.base.PagedRequest;
 import ${package}.core.model.User;
 
-
 public interface IUserRepository {
     ApiResult<Void> create(User user);
 

@@ -17,6 +17,7 @@
         <module>infra</module>
         <module>external</module>
         <module>starter</module>
+        <module>dynamic</module>
     </modules>
 
     <properties>
@@ -98,6 +99,12 @@
             <dependency>
                 <groupId>org.example</groupId>
                 <artifactId>halo-core-gateway</artifactId>
+                <version>1.0.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.example</groupId>
+                <artifactId>halo-core-service-impl</artifactId>
                 <version>1.0.0</version>
             </dependency>
 

@@ -13,5 +13,6 @@
 
     <modules>
         <module>weather</module>
+        <module>dynamic</module>
     </modules>
 </project>

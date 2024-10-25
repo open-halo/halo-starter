@@ -6,19 +6,19 @@
     <artifactId>${artifactId}</artifactId>
     <version>${version}</version>
     <packaging>pom</packaging>
-
-    <name>halo-stater</name>
+    <name>halo-spring-boot-stater</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.root.basedir>${project.basedir}</project.root.basedir>
+        <project.root.basedir>${basedir}</project.root.basedir>
         <java.version>21</java.version>
         <lombok.version>1.18.32</lombok.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <flyway.version>10.18.1</flyway.version>
         <h2.version>2.2.224</h2.version>
-        <jimmer.version>0.8.150</jimmer.version>
-        <spotless.version>2.44.0.BETA2</spotless.version>
+        <jimmer.version>0.9.1</jimmer.version>
+<!--        <spotless.version>2.44.0.BETA2</spotless.version>-->
+        <sentinel.version>1.8.8</sentinel.version>
     </properties>
 
 
@@ -79,9 +79,32 @@
             </dependency>
 
             <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-annotation-aspectj</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-core</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>${rootArtifactId}-api-rest</artifactId>
                 <version>${version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>halo-api-rest</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>halo-api-dubbo</artifactId>
+                <version>${project.version}</version>
             </dependency>
 
             <dependency>
@@ -188,6 +211,11 @@
                 <artifactId>xjsonkit-jackson</artifactId>
                 <version>1.5.0</version>
             </dependency>
+            <dependency>
+                <groupId>cn.zhxu</groupId>
+                <artifactId>xjsonkit-jackson-yaml</artifactId>
+                <version>1.5.0</version>
+            </dependency>
 
 
             <dependency>
@@ -240,86 +268,31 @@
                         </annotationProcessorPaths>
                     </configuration>
                 </plugin>
-
-                <plugin>
-                    <groupId>com.diffplug.spotless</groupId>
-                    <artifactId>spotless-maven-plugin</artifactId>
-                    <version>${spotless.version}</version>
-                    <configuration>
-                        <!-- optional: limit format enforcement to just the files changed by this feature branch -->
-                        <ratchetFrom>origin/main</ratchetFrom>
-                        <formats>
-                            <!-- you can define as many formats as you want, each is independent -->
-                            <format>
-                                <!-- define the files to apply to -->
-                                <includes>
-                                    <include>.gitattributes</include>
-                                    <include>.gitignore</include>
-                                </includes>
-                                <!-- define the steps to apply to those files -->
-                                <trimTrailingWhitespace />
-                                <endWithNewline />
-                                <indent>
-                                    <tabs>true</tabs>
-                                    <spacesPerTab>4</spacesPerTab>
-                                </indent>
-                            </format>
-                        </formats>
-                        <!-- define a language-specific format -->
-                        <java>
-                            <!-- no need to specify files, inferred automatically, but you can if you want -->
-
-                            <!-- apply a specific flavor of google-java-format and reflow long strings -->
-                            <googleJavaFormat>
-                                <version>1.8</version>
-                                <style>AOSP</style>
-                                <reflowLongStrings>true</reflowLongStrings>
-                                <formatJavadoc>false</formatJavadoc>
-                            </googleJavaFormat>
-
-                            <!-- make sure every file has the following copyright header.
-                              optionally, Spotless can set copyright years by digging
-                              through git history (see "license" section below) -->
-                            <licenseHeader>
-                                <content>/* (C)$YEAR */</content>  <!-- or <file>${project.basedir}/license-header</file> -->
-                            </licenseHeader>
-                        </java>
-<!--                        <executions>-->
-<!--                            <execution>-->
-<!--                                <goals>-->
-<!--                                    <goal>check</goal>-->
-<!--                                </goals>-->
-<!--                            </execution>-->
-<!--                        </executions>-->
-                    </configuration>
-                </plugin>
-
             </plugins>
         </pluginManagement>
+
         <plugins>
+            <!-- 代码格式化插件 -->
             <plugin>
-                <groupId>com.rudikershaw.gitbuildhook</groupId>
-                <artifactId>git-build-hook-maven-plugin</artifactId>
-                <version>3.5.0</version>
-                <configuration>
-                    <gitConfig>
-                        <!-- The location of the directory you are using to store the Git hooks in your project. -->
-                        <core.hooksPath>.halo/git-hooks/</core.hooksPath>
-                        <!-- Some other project specific git config that you want to set. -->
-                        <custom.configuration>true</custom.configuration>
-                    </gitConfig>
-                </configuration>
+                <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+                <artifactId>maven-java-formatter-plugin</artifactId>
+                <version>0.4</version>
                 <executions>
                     <execution>
+                        <phase>process-classes</phase>
                         <goals>
-                            <!-- Sets git config specified under configuration > gitConfig. -->
-                            <goal>configure</goal>
+                            <goal>format</goal>
                         </goals>
                     </execution>
                 </executions>
+                <configuration>
+                    <!-- ${maven.multiModuleProjectDirectory} is a internal property now work -->
+                    <configFile>${maven.multiModuleProjectDirectory}/.halo/formatter/google-format.xml</configFile>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
             </plugin>
 
-
+            <!-- 代码错误 以及 最佳实践校验 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
@@ -341,8 +314,32 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- git提交钩子，强制进行格式化/最佳实践校验 -->
+            <plugin>
+                <groupId>com.rudikershaw.gitbuildhook</groupId>
+                <artifactId>git-build-hook-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <gitConfig>
+                        <!-- The location of the directory you are using to store the Git hooks in your project. -->
+                        <core.hooksPath>.halo/git-hooks/</core.hooksPath>
+                        <!-- Some other project specific git config that you want to set. -->
+                        <custom.configuration>true</custom.configuration>
+                    </gitConfig>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!-- Sets git config specified under configuration > gitConfig. -->
+                            <goal>configure</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
     <reporting>
         <plugins>
             <plugin>
@@ -364,5 +361,7 @@
             </plugin>
         </plugins>
     </reporting>
+
+
 
 </project>

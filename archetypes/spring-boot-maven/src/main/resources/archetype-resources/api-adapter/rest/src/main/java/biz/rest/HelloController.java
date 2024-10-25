@@ -7,7 +7,6 @@ import jakarta.inject.Named;
 import lombok.extern.slf4j.Slf4j;
 import ${package}.api.rest.IHello;
 
-
 @Named
 @Slf4j
 public class HelloController implements IHello {

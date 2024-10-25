@@ -21,11 +21,9 @@ public class H2Initializer implements Initializer {
 
     private final DataSource dataSource;
 
-    private final String url;
+    private final String     url;
 
-    public H2Initializer(
-            DataSource dataSource,
-            @Value("${symbol_dollar}{spring.datasource.url}") String url) {
+    public H2Initializer(DataSource dataSource, @Value("${symbol_dollar}{spring.datasource.url}") String url) {
         this.dataSource = dataSource;
         this.url = url;
     }

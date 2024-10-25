@@ -3,18 +3,18 @@
 #set( $symbol_escape = '\' )
 package ${package}.common.utils;
 
-
 import cn.zhxu.data.Mapper;
 import cn.zhxu.xjson.JsonKit;
 import lombok.Data;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class JsonUtilTest {
 
     @Data
     public static class User {
         String name;
-        int age;
+        int    age;
     }
 
     @Test

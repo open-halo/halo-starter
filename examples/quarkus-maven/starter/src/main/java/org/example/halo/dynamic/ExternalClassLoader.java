@@ -1,4 +1,4 @@
-package org.example.halo.external.dynamic;
+package org.example.halo.dynamic;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;

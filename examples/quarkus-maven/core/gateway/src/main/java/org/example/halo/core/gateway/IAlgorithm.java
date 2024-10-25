@@ -1,5 +1,5 @@
 package org.example.halo.core.gateway;
 
-public interface Algorithm {
+public interface IAlgorithm {
     int add(int a, int b);
 }

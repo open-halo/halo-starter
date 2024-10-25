@@ -1,5 +1,5 @@
 package org.example.halo.core.service;
 
-public interface SumService {
+public interface ISumService {
     int sum(int[] intArray);
 }

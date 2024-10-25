@@ -3,7 +3,6 @@
 #set( $symbol_escape = '\' )
 package ${package}.api.rest;
 
-
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 

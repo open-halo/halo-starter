@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LogicRuntimeException extends RuntimeException {
-    private int errCode;
+    private int    errCode;
     private String errMsg;
 
     public LogicRuntimeException(int errCode, String errMsg) {

@@ -1,0 +1,8 @@
+rate-limits:
+  - name: query-user-by-id
+    limit: 2
+    degrade:
+      time-window-seconds: 1
+      min-request: 10
+      grade: exception
+      count: 0.05

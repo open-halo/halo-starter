@@ -4,11 +4,11 @@
 package ${package}.core.model.base;
 
 public enum CommonError {
-    Success(0, ""),
-    EntityNotFound(400001, "entity not found");
+    Success(0, ""), EntityNotFound(400001, "entity not found");
 
-    private final int code;
+    private final int    code;
     private final String msg;
+
     CommonError(int code, String msg) {
         this.code = code;
         this.msg = msg;
@@ -17,6 +17,7 @@ public enum CommonError {
     public int code() {
         return code;
     }
+
     public String msg() {
         return msg;
     }

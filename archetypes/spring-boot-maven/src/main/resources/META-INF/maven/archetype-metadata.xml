@@ -70,9 +70,58 @@
             </fileSet>
           </fileSets>
         </module>
+        <module id="halo-api-dubbo" dir="halo-api-dubbo" name="halo-api-dubbo">
+          <fileSets>
+            <fileSet filtered="true" packaged="true" encoding="UTF-8">
+              <directory>src/main/java</directory>
+              <includes>
+                <include>**/*.java</include>
+              </includes>
+            </fileSet>
+          </fileSets>
+        </module>
       </modules>
     </module>
     <module id="${rootArtifactId}-adapter" dir="api-adapter" name="${rootArtifactId}-adapter">
+      <fileSets>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>api-adapter-dubbo</directory>
+          <includes>
+            <include>**/*.xml</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>api-adapter-dubbo/target</directory>
+          <includes>
+            <include>**/*.txt</include>
+            <include>**/*.xml</include>
+            <include>**/*.html</include>
+            <include>**/*.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>api-adapter-dubbo/src</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>api-adapter-dubbo/target</directory>
+          <includes>
+            <include>**/*.css</include>
+            <include>**/*.gif</include>
+            <include>**/*.svg</include>
+            <include>**/*.ttf</include>
+            <include>**/*.png</include>
+            <include>**/*.js</include>
+            <include>**/*.jar</include>
+            <include>**/*.eot</include>
+            <include>**/*.lst</include>
+            <include>**/*.class</include>
+            <include>**/*.woff</include>
+          </includes>
+        </fileSet>
+      </fileSets>
       <modules>
         <module id="${rootArtifactId}-adapter-rest" dir="rest" name="${rootArtifactId}-adapter-rest">
           <fileSets>
@@ -143,6 +192,14 @@
       </modules>
     </module>
     <module id="${rootArtifactId}-external" dir="external" name="${rootArtifactId}-external">
+      <fileSets>
+        <fileSet encoding="UTF-8">
+          <directory></directory>
+          <includes>
+            <include>README.md</include>
+          </includes>
+        </fileSet>
+      </fileSets>
       <modules>
         <module id="${rootArtifactId}-external-weather" dir="weather" name="${rootArtifactId}-external-weather">
           <fileSets>

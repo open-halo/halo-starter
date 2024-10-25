@@ -6,14 +6,13 @@ package ${package}.core.service.impl;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import lombok.extern.slf4j.Slf4j;
+import ${package}.common.annotations.HaloSentinelResource;
 import ${package}.core.model.base.ApiResult;
 import ${package}.core.model.base.PagedResult;
 import ${package}.core.model.base.PagedRequest;
 import ${package}.core.model.User;
 import ${package}.core.gateway.repository.IUserRepository;
 import ${package}.core.service.IUserService;
-
-
 
 @Slf4j
 @Named
@@ -37,6 +36,7 @@ public class UserService implements IUserService {
         return userRepository.update(user);
     }
 
+    @HaloSentinelResource("query-user-by-id")
     @Override
     public ApiResult<User> select(long userId) {
         log.info("select({})", userId);

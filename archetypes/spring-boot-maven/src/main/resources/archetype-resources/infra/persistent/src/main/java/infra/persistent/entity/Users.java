@@ -7,7 +7,6 @@ import org.babyfish.jimmer.sql.DatabaseValidationIgnore;
 import org.babyfish.jimmer.sql.Entity;
 import org.babyfish.jimmer.sql.Id;
 
-
 @Entity
 @DatabaseValidationIgnore
 public interface Users {

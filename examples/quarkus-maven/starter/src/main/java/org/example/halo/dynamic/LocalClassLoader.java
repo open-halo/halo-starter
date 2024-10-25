@@ -1,24 +1,20 @@
-package org.example.halo.external.dynamic;
+package org.example.halo.dynamic;
 
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.util.StrUtil;
 
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-
 public class LocalClassLoader extends ClassLoader {
-    private final String remoteBaseUrl;
+    private final String baseLocalClassFilePath;
 
-    public LocalClassLoader(ClassLoader parent, String remoteBaseUrl) {
+    public LocalClassLoader(ClassLoader parent, String baseLocalClassFilePath) {
         super(parent);
-        this.remoteBaseUrl = remoteBaseUrl;
+        this.baseLocalClassFilePath = baseLocalClassFilePath;
     }
 
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
         String path = name.replace('.', '/') + ".class";
-        String classContent = FileUtil.readUtf8String(path);
+        String classContent = FileUtil.readUtf8String(baseLocalClassFilePath + path);
         if (StrUtil.isBlank(classContent)) {
             throw new ClassNotFoundException("Failed to load class file from local path: " + path);
         }

@@ -12,9 +12,14 @@
     <name>rest</name>
 
     <dependencies>
+
         <dependency>
             <groupId>org.example</groupId>
             <artifactId>halo-api-rest</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>halo-core-service</artifactId>
         </dependency>
 
         <dependency>
