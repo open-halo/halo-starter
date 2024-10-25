@@ -1,26 +1,20 @@
+# Docs
+[English](README-en.md)
+
 # Halo
 ![alt text](.docs/flagship.png)
-Halo is the flagship of the interstellar fleet in the Remembrance of Earth's Past trilogy.
+星环是刘慈欣小说《三体》中星际舰队的旗舰  
 
-# Docs
-[中文](README-zh.md)
+## 这个项目模板\[template\] \[boilerplate\]提供什么能力？
+1. 提供一个基础项目，快速开启一个spring-boot/helidon/quarkus/micronaut项目
+2. 一个合理的久经考验的module和package结构，这个结构符合DDD最佳实践
+3. 提供基础的命名约束规范要求，减少可能存在的沟通歧义
+4. 提供大量提升开发体验的能力，如lombok，mapstruct，slf4j等
+5. 提供强制的代码风格检查&PMD基础错误检查，并配合git hooks消除潜在基础错误
+6. 许多符合现代最佳实践的工具类
 
-## what is on board of this \[template\] \[boilerplate\]？
-1. Provide a base project to quickly start a Spring Boot/Helidon/Quarkus/Micronaut project.
-This involves setting up a foundational template that developers can use to bootstrap a new project with one of the mentioned frameworks, ensuring a consistent and efficient starting point.
-2. A well-structured and battle-tested project module and package interface that adheres to DDD (Domain-Driven Design) best practices.
-The project structure should be organized in a way that aligns with DDD principles, making it easier to manage and scale the application. This includes clear separation of concerns, domain models, and service layers.
-3. Provide basic naming conventions and guidelines to reduce potential communication ambiguities.
-Establishing a set of naming conventions for classes, methods, variables, and packages helps ensure consistency and clarity across the codebase, reducing misunderstandings and improving maintainability.
-4. Offer a variety of tools to enhance the development experience, such as Lombok, MapStruct, and SLF4J.
-These tools can significantly improve developer productivity by reducing boilerplate code, automating common tasks, and providing robust logging capabilities.
-5. Enforce code style checks and basic error checks using PMD, and integrate with Git hooks to eliminate potential basic errors.
-Implementing code style and quality checks, along with integrating them into the Git workflow, ensures that code adheres to the defined standards and catches common issues before they are committed to the repository.
-6. Provide a collection of modern, best-practice utility classes.
-A set of well-designed and reusable utility classes can help developers avoid reinventing the wheel and ensure that common tasks are performed consistently and efficiently.
-
-## QUICK START
-*for now, archetype has not publised to maven central，so you can install it locally:
+## GETTING START
+*由于现在archetype还没有发布到maven中央仓库，所以可以按照本地安装流程使用
 ```shell
 # clone git repository
 git clone https://github.com/open-halo/halo-starter.git
@@ -33,145 +27,191 @@ cd ~/your-awesome-projext-dir
 mvn archetype:generate -DarchetypeCatalog=local
 ```
 
-## what's offer to you ？
-### [1] a multi-module Domain-Driver-Design project structure
+## 这个项目能为你做什么？
+### [1] 符合DDD设计的多module架子
 ```html
--- api           # api module
-   |-- rest         # restful layer
-   |-- grpc         # grpc layer
-   |-- dubbo        # dubbo layer
--- api-adapter   # api implements module
-   |-- rest         # restful implements layer
-   |-- grpc         # grpc implements layer
-   |-- dubbo        # dubbo implements layer
--- common        # common tools module
--- core          # core module
-   |-- model        # core module layer
-   |-- service      # core service layer
-   |-- gateway      # core gateway layer
--- infra         # infrastructure module
-   |-- persistent   # database layer
-   |-- message      # message queue layer
--- external      # external anti-corrosion module
-   |-- xxxA         # anti-corrosion layer A
-   |-- xxxB         # anti-corrosion layer B
--- starter       # startup container layer
+-- api           # 对外接口模块
+   |-- rest         # restful接口层
+   |-- grpc         # grpc接口层
+   |-- dubbo        # dubbo接口层
+-- api-adapter   # 接口实现模块
+   |-- rest         # restful接口实现层
+   |-- grpc         # grpc接口实现层
+   |-- dubbo        # dubbo接口实现层
+-- common        # 工具类模块
+-- core          # 核心模块
+   |-- model        # 核心实体定义层
+   |-- service      # 核心服务层
+   |-- gateway      # 核心依赖接口层
+-- infra         # 基础设施模块
+   |-- persistent   # 数据存储层
+   |-- message      # 消息处理层
+-- external      # 外部防腐模块
+   |-- xxxA         # 防腐层A
+   |-- xxxB         # 防腐层B
+-- starter       # 启动模块
 ```
 
-### [2] Elaborately Selected Dependencies
-Choosing the right versions is often a complex task as several factors need to be considered:
+### [2] 精挑细选的依赖
+选取正确的版本，通常是一件蛮复杂的事情，通常有一下一些问题需要考虑：
+1. 新鲜：尽量选择JDK兼容下最新的版本，如最新的Spring Boot
+2. 兼容：不同库和包之间需要兼容，有时候直接更新到最新版本，会发现几个库之间不兼容
+3. 正确：一些包中有内存泄漏，有一些不知名的坑
+4. 最佳：选择一些久经考验的库
+例如使用hutools
+例如使用jimmer作为数据库操作层
+5. 验证：被大量项目使用，有实时可访问的项目作为在线验证
 
-Freshness: Prefer the latest version that is compatible with the JDK, such as the latest Spring Boot.  
-Compatibility: Libraries and packages need to be compatible with each other. Sometimes, directly updating to the latest version can result in incompatibilities between different libraries.  
-Correctness: Some packages may have memory leaks or other unknown issues.  
-Proven: Choose libraries that have been battle-tested and are widely used.  
-For example, using Hutool.  
-For example, using Jimmer for the database operation layer.  
-Validation: The library should be used by a large number of projects, and there should be live, accessible projects available for online validation.  
+### [3] 工程化地保证代码风格
+我们接手一个旧的项目的时候，通常最不愿意做的事情就是全局代码格式化，
+因为这通常意味着大量的git变更，基本无法做code review。
+作为一个技术管理人员，最希望的可能是所有提交的代码都是格式化好的。
+这个格式化最好不是基于公司的管理手段的，而是基于工程的技术手段完成的。
+代码风格比格式化更加重一些，例如不允许无用的import等
 
-### [3] Engineering to Ensure Code Style
-When taking over an old project, one of the most undesirable tasks is global code formatting because it usually means a large number of Git changes, making code review almost impossible. As a technical manager, the ideal scenario is that all submitted code is already formatted. This formatting should be achieved through engineering techniques rather than company management policies. Code style is more important than just formatting, such as disallowing unused imports.
+### [4] 工程化地避免低级错误
+使用PMD检查工具，并使用git hook强制提交前进行检查，这能大量避免低级错误
+1. 例如避免Object使用 == 对比，java的==对比的是object id，绝大部分不是我们期望的
+2. 例如避免Catch NPE错误，
+3. 例如避免空的try catch吞掉错误
 
-### [4] Engineering to Avoid Low-Level Errors
-Use PMD check tools and enforce checks before commits using Git hooks. This can significantly reduce low-level errors:  
+### [5] 符合最佳实践的默认配置
+1. Spring Boot使用undertow作为内置容器
+2. 使用log4j2作为默认日志库，并配置默认log4j2.xml
+3. 默认启动优雅停机graceful shutdown
 
-For example, avoid using == to compare Object instances, as == compares object references, which is rarely what you want.  
-For example, avoid catching NPE (NullPointerException) without proper handling.  
-For example, avoid empty try-catch blocks that swallow exceptions.  
+### [6] 云原声友好
+1. 默认支持k8s下的startup,readiness,liveness探针
+2. 提供默认的docker配置
+3. 部分框架提供graalvm的native image生成
 
-### [5] Default Configurations Following Best Practices
-Use Undertow as the embedded container in Spring Boot.  
-Use Log4j2 as the default logging library and configure the default log4j2.xml.  
-Enable graceful shutdown by default.  
+### [7] 前端友好
+1. 支持类似swagger的在线文档
+2. 自动生成前端直接可用的typescript的接口文件
 
-### [6] Cloud-Native Friendly
-Support startup, readiness, and liveness probes in Kubernetes by default.  
-Provide default Docker configurations.  
-Some frameworks support generating GraalVM native images.  
+### [8] 生产就绪的
+1. 默认支持限流
+2. 默认支持熔断
 
-### [7] Frontend Friendly
-Support online documentation similar to Swagger.  
-Automatically generate TypeScript interface files that can be directly used by the frontend.
-
-### [8] Production-Ready
-Default support for rate limiting.  
-Default support for circuit breaking.  
-
-### [9] Traceable
-Default design for a call tracing log strategy, including logging of input and output parameters.  
-
-## How Much Time We Can Save?
-Setting up an excellent template might take at least 1 day for an experienced programmer.
-A well-structured and battle-tested module and package design can save a significant amount of time on code reviews and reduce the cost of understanding the code.
-Enforcing code style and avoiding low-level errors through engineering practices can prevent many low-level errors, ensuring a baseline of project quality and saving time that would otherwise be spent fixing these errors.
-Automatically generating frontend interfaces can save a lot of time on interface alignment and parameter synchronization.
-Package Size and Startup Performance:    
-
-|Template|	Package Size|	Startup Time|
-|--|--|--|
-|Spring Boot|	47M	|2.041s|
-
-The larger dependencies include: Spring itself, MySQL driver, Jimmer, Jackson, Log4j2, Hutool, and H2.
-Jimmer takes up about 10M and has some unnecessary dependencies, which should be reduced as it matures.
-* H2 is not a necessary dependency and can be removed in production builds; it is only strongly depended on in the example project because it uses H2 as the database.
-* Replacing Jackson with another implementation might significantly reduce the package size.
-* Hutool is very powerful, so it is relatively large, but it is worth it.
-* Spring, MySQL driver, and Log4j2 are not easily reducible parts.
-* 
-## What Are the Core Design Principles of This Template/Boilerplate?
-The core design principles of this project are to pursue "external flexibility" and "core stability" in software engineering:
-
-* External Flexibility refers to the ability of the software to adapt to different external environments. For example, allowing the project to switch flexibly between Spring Boot and Quarkus, or between MySQL and PostgreSQL, or between RocketMQ and Kafka. This isolation is not just to cope with potential changes but also to encourage developers to focus on the core business logic.
-Core Stability means that we want the most fundamental logic of the software to be relatively stable. Only with this stability and testability can we ensure the continuous stability of the project. We aim to convert all implicit concepts into domain modeling through DDD and solidify them in the core.
-Why Enforce DDD Style? Is It Too Heavy for Small Projects?
-We firmly endorse the following three values:
-
-* Having a clear and fixed structure for files and classes by adding more layers is more important than saving a package/directory level.
-Defining "variables," "functions," and "objects" with a few extra lines of code to make the logic clear is more important than saving a few lines of code.
-Enforcing isolation between modules can reduce a lot of confusion caused by unclear logical layering. If we agree with these values, we won't consider having a few extra layers or packages as being too heavy. We believe that ordered layers are far better than a flat, unorganized structure.
+### [9] 可追踪
+默认设计好的一套调用追踪日志策略
+默认记录出入参数
 
 
-## Layer Definitions：
+## 一个架子能够节省多少时间
+1. 搭建一个优秀的架子，一个工作多年的程序员可能也至少需要1-day
+2. 久经考验的模块和分包设计，能够节省大量code review的时间和理解成本
+3. 工程化地强制代码风格和避免低级错误，能够避免大量低级错误，保证项目质量底线，节省纠正低级错时间
+4. 自动生成前端接口，可节省大量接口联调对齐参数的时间
+
+## 打包大小和启动性能
+| 模板           | 打包大小    | 启动时间     |
+|--------------|---------|----------|
+| spring-boot  | 47M     | 2.041s   |
+* 较为大的依赖是几大部分：spring本身，mysql driver, jimmer, jackson, log4j2, hutool, h2
+* jimmer占用10M左右，有很多不合理的依赖，随着后续的成熟应该会减少
+* h2是一个非必要依赖，可以在生产包去掉，只是示例项目依赖h2作为数据库，所以强依赖
+* jackson如果替换为其他实现，可能会减少很多体积
+* hutool功能是非常强大的，所以也比较大，但其实是值得的
+* spring, mysql driver, log4j2 是不容易减少的部分
+
+## 这个项目模板\[template\] \[boilerplate\]的核心设计理念是什么？
+这个项目的核心设计理念是：追求软件工程的「外延灵活性」和「内核确定性」
+1. 「外延灵活性」是指软件可能适应不同的外在环境，例如允许项目在spring boot/quarkus \
+之间灵活切换，在MySql和PostgreSQL之间切换，在RockerMQ和Kafka之间灵活切换。这种隔离性 \
+不仅仅是为了应对潜在的变化，更加会促使开发者把真正的业务逻辑沉淀到核心层。
+2. 「内核确定性」是指我们希望软件最内核的逻辑是相对稳定的，只有这部分的相对稳定，可测，才能\
+保证项目的持续稳定性。我们希望通过DDD把原来隐性的概念，全部转化为领域建模，沉淀在内核之中。
+
+## 为什么强制使用DDD风格，这个风格对于小型项目是否过重？
+我们坚定地认可以下3条价值观：
+1. 多几个层次划分，让文件和class的位置清晰固定，比节省一个包/目录层次重要
+2. 多几行代码把「变量」「函数」「对象」定义出来，让逻辑变得明确，比节省几行代码重要  
+3. module之间的强制隔离，能减少很多逻辑层次的划分不明确导致的代码混乱  
+如果我们认可以上价值，我们不会认为多分了几个层，多分了几个包就是重。
+我们认为有序的层次，远远好于无序的平铺。
+
+
+## 整体的模块如下：
 ![alt text](examples/spring-boot-maven/.docs/halo-design.png)
+1. api: 接口层，纯定义interface和object，无逻辑，因为需要注解，弱依赖于spring boot
+2. api-adapter: 适配层，接口实现module，包含简单实现，核心逻辑转发到core service layer
+3. core: 核心逻辑实现层， 纯代码逻辑，整个工程的核心
+4. infra: 基础设置层
+5. external: 防腐层，外部调用必须经过防腐层才内被内部调用
+6. common: 工具层，纯函数的工具类，可以一些外部工具库
+7. starter: 启动module，配置文件集中在这里
 
-* api: Interface layer, purely defines interfaces and objects with no logic. It has a weak dependency on Spring Boot due to annotations.
-* api-adapter: Adapter layer, implements the interfaces defined in the api module. It contains simple implementations and forwards core logic to the core service layer.
-core: Core logic implementation layer, contains pure business logic and is the heart of the entire project.
-* infra: Infrastructure layer, handles foundational setup and configurations.
-* external: Anti-corrosion layer, all external calls must go through this layer before being called internally.
-* common: Utility layer, contains pure function utility classes and can include some external tool libraries.
-* starter: Starter module, centralizes configuration files.
+## 整体的modules依赖关系强制如下
+1. api: 无依赖，因为其他方可能导入，依赖越少越好，避免库污染
+2. common: 纯工具，不依赖其他任何module，可以二次封装一些库，可以被除api以外所有模块依赖
+3. api-adapter: 依赖于api, core, common
+4. external: 只依赖于common和一些外部sdk或者三方jar
+5. infra: 依赖于common + core，引入core的gateway，然后实现gateway中的interface
+6. core: 依赖于common，其余无依赖，这里依赖倒置
+7. starter: 依赖所有module
 
-## Global Dependencies:
-* api: No dependencies, as it may be imported by other parties. Fewer dependencies are better to avoid library pollution.
-* common: Pure utility classes, does not depend on any other modules. It can wrap some libraries and can be used by all modules except api.
-* api-adapter: Depends on api, core, and common.
-* external: Depends only on common and some external SDKs or third-party JARs.
-* infra: Depends on common and core. It introduces the gateway from core and implements the interfaces in the gateway.
-* core: Depends only on common. This is an example of dependency inversion.
-* starter: Depends on all modules.
-* 
-## Tool Selection
-* JSON Tool: Chose xjsonkit as the facade framework, which isolates the underlying implementation. The default underlying JSON library is Jackson, but it can use other popular JSON libraries.
-* Date and Format Conversion Tools: Used Hutool for date and format conversion.
-* Logging: Used SLF4J with Lombok, with Log4j2 as the underlying logging framework.
-* Internal ORM Framework: Defaulted to Jimmer.
-* Simple Query Needs: Defaulted to BeanSearcher for simple query requirements.
-* 
-## TODO List
-- [x] Add DAL (Data Access Layer) examples  
-- [x] Add PMD code checks  
-- [x] Add Git commit hooks to enforce PMD checks  
-- [x] Add formatting tools to automatically format code before commits  
-- [x] Add full configuration for SLF4J + Log4j2  
-- [x] Add basic utility classes   
-- [ ] Add best practice markdown documentation for each layer  
-- [ ] Add Docker configuration  
-- [ ] Add GraalVM configuration  
-- [ ] Add gRPC/Dubbo modules  
-- [ ] Add a unified interceptor  
-- [ ] Add Spring Doc implementation  
-- [ ] Automatically generate TypeScript code  
+## 工具类选择
+1. Json工具选择了xjsonkit作为门面框架，隔离了底层实现，底层可以使用几大常用json库都以，默认是jackson
+2. 日期等格式转换工具使用了Hutool
+3. 日志使用slf4j配合lombok，底层使用log4j2
+4. 内部ORM框架，默认使用Jimmer
+5. 对于简单查询需求，默认引入了BeanSearcher
+
+## 选择&思考
+### 关于maven和gradle
+后续maven和gradle都会支持，  
+公司级项目推荐maven，因为简单，因为没有那么多高级特性，所以不用担心某些同事玩出花活儿，下限有保证。  
+个人级项目推荐gradle，因为行数少，修改依赖简单一些，能节省不少代码，同时也能玩出高级花活儿，上限有保证。  
+
+### 关于Spring boot/quarkus/micronaut/helidon
+绝大多数时候推荐Spring boot，因为资料多，graalvm也能做。  
+如果实在希望内存占用少，特别想用graalvm，推荐quarkus，热更新做得特别好。  
+micronaut和helidon现在没有特别优势，暂不建议投入学习过多。  
+
+### 关于JPA，MyBatis和Jimmer
+如果希国外项目，推荐JPA，国际友人对JPA标准还是很有执念的。  
+如果是国内项目，推荐MyBatis，毕竟后续能够开发维护的人是最多的。  
+如果是全新项目，推荐尝试Jimmer，很多开发体验可能超出你的想象，但不成熟。  
+
+### 关于restful接口的注解
+建议多用jakarta的标准注解，就算spring中也建议用标准注解  
+你会发现万一有一天需要迁移到其他框架的时候，能节省大量工作量。  
+最主要的是jakarta注解比起spring注解也没有太多不方便的敌方。  
+
+### 关于IoC/DI注入注解
+也推荐使用jakarta标准注解，而不用spring的@Autowire
+
+### 关于Jackson/fastjson/Gson
+国外项目，不用犹豫了，直接Jackson  
+国内项目，可以考虑fastjson，确实快很多，就是偶尔有问题或者漏洞。  
+Gson尽量不用。  
+
+### 关于logback和log4j2
+log4j2性能好，不担心兼容性的情况默认选这个吧。  
+logback兼容性好
+
+### 关于Hutool
+Hutool很好，比大多数的程序员能够写出的代码都好，尽量采用Hutool工具API可以保证很多质量下限。  
+
+### 关于BeanSearcher
+能够极大减少查询类工作量，建议尝试。
+
+
+## TODO list
+- [x] 添加DAL层示例 
+- [x] 添加PMD代码检查 
+- [x] 添加git提交钩子，强制PMD检查
+- [x] 添加格式化工具，提交前自动格式化
+- [x] 添加slf4j + log4j2的全套配置
+- [x] 添加基础工具类
+- [ ] 添加每个层的最佳实践markdown文档
+- [ ] 添加docker配置
+- [ ] 添加graalvm配置
+- [ ] 添加grpc/dubbo模块
+- [ ] 添加统一拦截器
+- [ ] 添加spring doc实现
+- [ ] 自动生成typescript代码
 
 ## LICENSE
 Apache OR MIT
