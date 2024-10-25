@@ -1,4 +1,4 @@
-# Halo
+# 星环-Halo
 ![alt text](.docs/flagship.png)
 星环是刘慈欣小说《三体》中星际舰队的旗舰  
 
