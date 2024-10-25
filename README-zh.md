@@ -155,6 +155,45 @@ mvn archetype:generate -DarchetypeCatalog=local
 4. 内部ORM框架，默认使用Jimmer
 5. 对于简单查询需求，默认引入了BeanSearcher
 
+## 选择&思考
+### 关于maven和gradle
+后续maven和gradle都会支持，
+公司级项目推荐maven，因为简单，因为没有那么多高级特性，所以不用担心某些同事玩出花活儿，下限有保证。
+个人级项目推荐gradle，因为行数少，修改依赖简单一些，能节省不少代码，同时也能玩出高级花活儿，上限有保证。
+
+### 关于Spring boot/quarkus/micronaut/helidon
+绝大多数时候推荐Spring boot，因为资料多，graalvm也能做。
+如果实在希望内存占用少，特别想用graalvm，推荐quarkus，热更新做得特别好。
+micronaut和helidon现在没有特别优势，暂不建议投入学习过多。
+
+### 关于JPA，MyBatis和Jimmer
+如果希国外项目，推荐JPA，国际友人对JPA标准还是很有执念的。
+如果是国内项目，推荐MyBatis，毕竟后续能够开发维护的人是最多的。
+如果是全新项目，推荐尝试Jimmer，很多开发体验可能超出你的想象，但不成熟。
+
+### 关于restful接口的注解
+建议多用jakarta的标准注解，就算spring中也建议用标准注解
+你会发现万一有一天需要迁移到其他框架的时候，能节省大量工作量。
+最主要的是jakarta注解比起spring注解也没有太多不方便的敌方。
+
+### 关于IoC/DI注入注解
+也推荐使用jakarta标准注解，而不用spring的@Autowire
+
+### 关于Jackson/fastjson/Gson
+国外项目，不用犹豫了，直接Jackson
+国内项目，可以考虑fastjson，确实快很多，就是偶尔有问题或者漏洞。
+Gson尽量不用。
+
+### 关于logback和log4j2
+log4j2性能好，不担心兼容性的情况默认选这个吧。
+logback兼容性好
+
+### 关于Hutool
+Hutool很好，比大多数的程序员能够写出的代码都好，尽量采用Hutool工具API可以保证很多质量下限。
+
+### 关于BeanSearcher
+能够极大减少查询类工作量，建议尝试。
+
 
 ## TODO list
 - [x] 添加DAL层示例 
