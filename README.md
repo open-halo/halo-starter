@@ -1,19 +1,11 @@
-# Docs
-[English](README-en.md)
-
 # Halo
 ![alt text](.docs/flagship.png)
 星环是刘慈欣小说《三体》中星际舰队的旗舰  
 
-## 这个项目模板\[template\] \[boilerplate\]提供什么能力？
-1. 提供一个基础项目，快速开启一个spring-boot/helidon/quarkus/micronaut项目
-2. 一个合理的久经考验的module和package结构，这个结构符合DDD最佳实践
-3. 提供基础的命名约束规范要求，减少可能存在的沟通歧义
-4. 提供大量提升开发体验的能力，如lombok，mapstruct，slf4j等
-5. 提供强制的代码风格检查&PMD基础错误检查，并配合git hooks消除潜在基础错误
-6. 许多符合现代最佳实践的工具类
+# Docs
+[English](README-en.md)
 
-## GETTING START
+## 快速开始
 *由于现在archetype还没有发布到maven中央仓库，所以可以按照本地安装流程使用
 ```shell
 # clone git repository
@@ -27,8 +19,9 @@ cd ~/your-awesome-projext-dir
 mvn archetype:generate -DarchetypeCatalog=local
 ```
 
-## 这个项目能为你做什么？
-### [1] 符合DDD设计的多module架子
+
+## 特性
+### [1] 符合DDD设计的多模块工程架子
 ```html
 -- api           # 对外接口模块
    |-- rest         # restful接口层
@@ -52,7 +45,34 @@ mvn archetype:generate -DarchetypeCatalog=local
 -- starter       # 启动模块
 ```
 
-### [2] 精挑细选的依赖
+### [2] 默认集成开发提效工具
+1. lombok帮助简化大量冗余模版代码
+2. mapstruct帮助简化大量类型转化代码
+
+### [3] 工程化地保证代码风格
+我们接手一个旧的项目的时候，通常最不愿意做的事情就是全局代码格式化，
+因为这通常意味着大量的git变更，基本无法做code review。
+作为一个技术管理人员，最希望的可能是所有提交的代码都是格式化好的。
+这个格式化最好不是基于公司的管理手段的，而是基于工程的技术手段完成的。
+默认引入maven-java-formatter-plugin执行代码格式化。
+可添加自定义格式化规则，规则目录在
+```html
+.halo/formatter/format.xml
+```
+
+### [4] 工程化地避免低级错误
+使用PMD检查工具，并使用git hook强制提交前进行检查，这能大量避免低级错误
+1. 例如避免Object使用 == 对比，java的==对比的是object id，绝大部分不是我们期望的
+2. 例如避免Catch NPE错误，
+3. 例如避免空的try catch吞掉错误
+默认引入maven-pmd-plugin配合上百条校验规则进行强制校验。
+可添加自定义校验规则，规则目录在
+```html
+.halo/pmd-check-rules
+```
+
+
+### [5] 精挑细选的依赖
 选取正确的版本，通常是一件蛮复杂的事情，通常有一下一些问题需要考虑：
 1. 新鲜：尽量选择JDK兼容下最新的版本，如最新的Spring Boot
 2. 兼容：不同库和包之间需要兼容，有时候直接更新到最新版本，会发现几个库之间不兼容
@@ -62,38 +82,26 @@ mvn archetype:generate -DarchetypeCatalog=local
 例如使用jimmer作为数据库操作层
 5. 验证：被大量项目使用，有实时可访问的项目作为在线验证
 
-### [3] 工程化地保证代码风格
-我们接手一个旧的项目的时候，通常最不愿意做的事情就是全局代码格式化，
-因为这通常意味着大量的git变更，基本无法做code review。
-作为一个技术管理人员，最希望的可能是所有提交的代码都是格式化好的。
-这个格式化最好不是基于公司的管理手段的，而是基于工程的技术手段完成的。
-代码风格比格式化更加重一些，例如不允许无用的import等
 
-### [4] 工程化地避免低级错误
-使用PMD检查工具，并使用git hook强制提交前进行检查，这能大量避免低级错误
-1. 例如避免Object使用 == 对比，java的==对比的是object id，绝大部分不是我们期望的
-2. 例如避免Catch NPE错误，
-3. 例如避免空的try catch吞掉错误
-
-### [5] 符合最佳实践的默认配置
+### [6] 符合最佳实践的默认配置
 1. Spring Boot使用undertow作为内置容器
 2. 使用log4j2作为默认日志库，并配置默认log4j2.xml
 3. 默认启动优雅停机graceful shutdown
 
-### [6] 云原声友好
+### [7] 云原声友好
 1. 默认支持k8s下的startup,readiness,liveness探针
 2. 提供默认的docker配置
 3. 部分框架提供graalvm的native image生成
 
-### [7] 前端友好
+### [8] 前端友好
 1. 支持类似swagger的在线文档
 2. 自动生成前端直接可用的typescript的接口文件
 
-### [8] 生产就绪的
+### [9] 生产就绪的
 1. 默认支持限流
 2. 默认支持熔断
 
-### [9] 可追踪
+### [10] 可追踪
 默认设计好的一套调用追踪日志策略
 默认记录出入参数
 
