@@ -6,7 +6,6 @@
     <artifactId>halo-starter</artifactId>
     <version>1.0</version>
     <packaging>pom</packaging>
-
     <name>halo-spring-boot-stater</name>
 
     <properties>
@@ -17,10 +16,20 @@
         <mapstruct.version>1.5.5.Final</mapstruct.version>
         <flyway.version>10.18.1</flyway.version>
         <h2.version>2.2.224</h2.version>
-        <jimmer.version>0.8.150</jimmer.version>
-        <spotless.version>2.44.0.BETA2</spotless.version>
+        <jimmer.version>0.9.1</jimmer.version>
+<!--        <spotless.version>2.44.0.BETA2</spotless.version>-->
         <sentinel.version>1.8.8</sentinel.version>
     </properties>
+
+    <modules>
+        <module>api</module>
+        <module>api-adapter</module>
+        <module>common</module>
+        <module>core</module>
+        <module>external</module>
+        <module>infra</module>
+        <module>starter</module>
+    </modules>
 
 
     <dependencyManagement>
@@ -287,35 +296,13 @@
                     </execution>
                 </executions>
                 <configuration>
-<!--                     ${maven.multiModuleProjectDirectory} is a internal property may work -->
+                    <!-- ${maven.multiModuleProjectDirectory} is a internal property now work -->
                     <configFile>${maven.multiModuleProjectDirectory}/.halo/formatter/google-format.xml</configFile>
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
 
-            <plugin>
-                <groupId>com.rudikershaw.gitbuildhook</groupId>
-                <artifactId>git-build-hook-maven-plugin</artifactId>
-                <version>3.5.0</version>
-                <configuration>
-                    <gitConfig>
-                        <!-- The location of the directory you are using to store the Git hooks in your project. -->
-                        <core.hooksPath>.halo/git-hooks/</core.hooksPath>
-                        <!-- Some other project specific git config that you want to set. -->
-                        <custom.configuration>true</custom.configuration>
-                    </gitConfig>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <!-- Sets git config specified under configuration > gitConfig. -->
-                            <goal>configure</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-
+            <!-- 代码错误 以及 最佳实践校验 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
@@ -337,8 +324,32 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <!-- git提交钩子，强制进行格式化/最佳实践校验 -->
+            <plugin>
+                <groupId>com.rudikershaw.gitbuildhook</groupId>
+                <artifactId>git-build-hook-maven-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <gitConfig>
+                        <!-- The location of the directory you are using to store the Git hooks in your project. -->
+                        <core.hooksPath>.halo/git-hooks/</core.hooksPath>
+                        <!-- Some other project specific git config that you want to set. -->
+                        <custom.configuration>true</custom.configuration>
+                    </gitConfig>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <!-- Sets git config specified under configuration > gitConfig. -->
+                            <goal>configure</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
     <reporting>
         <plugins>
             <plugin>
@@ -361,15 +372,6 @@
         </plugins>
     </reporting>
 
-    <modules>
-        <module>api</module>
-        <module>api-adapter</module>
-        <module>common</module>
-        <module>core</module>
-        <module>external</module>
-        <module>infra</module>
-        <module>starter</module>
-        <module>api-adapter/api-adapter-dubbo</module>
-    </modules>
+
 
 </project>
