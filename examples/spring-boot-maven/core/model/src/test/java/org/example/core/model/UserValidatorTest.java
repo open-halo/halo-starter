@@ -7,17 +7,12 @@ import java.util.stream.Stream;
 
 public class UserValidatorTest extends ValidatorTest<User> {
     private static Stream<Arguments> invalidEntities() {
-        return Stream.of(
-                Arguments.of(givenUserWithNullID()),
-                Arguments.of(givenUserWithEmptyName()),
-                Arguments.of(givenUserWithInvalidEmail())
-        );
+        return Stream.of(Arguments.of(givenUserWithNullID()),
+            Arguments.of(givenUserWithEmptyName()), Arguments.of(givenUserWithInvalidEmail()));
     }
 
     private static Stream<Arguments> validEntities() {
-        return Stream.of(
-                Arguments.of(givenValidUser1())
-        );
+        return Stream.of(Arguments.of(givenValidUser1()));
     }
 
     private static User givenValidUser1() {

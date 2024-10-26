@@ -171,42 +171,58 @@ mvn archetype:generate -DarchetypeCatalog=local
 
 ## 选择&思考
 ### 关于maven和gradle
-后续maven和gradle都会支持，  
-公司级项目推荐maven，因为简单，因为没有那么多高级特性，所以不用担心某些同事玩出花活儿，下限有保证。  
-个人级项目推荐gradle，因为行数少，修改依赖简单一些，能节省不少代码，同时也能玩出高级花活儿，上限有保证。  
+* 后续maven和gradle都会支持。  
+* 公司级项目推荐maven，因为简单，因为没有那么多高级特性，所以不用担心某些同事玩出花活儿，下限有保证。  
+* 个人级项目推荐gradle，因为行数少，修改依赖简单一些，能节省不少代码，同时也能玩出高级花活儿，上限有保证。  
 
 ### 关于Spring boot/quarkus/micronaut/helidon
-绝大多数时候推荐Spring boot，因为资料多，graalvm也能做。  
-如果实在希望内存占用少，特别想用graalvm，推荐quarkus，热更新做得特别好。  
-micronaut和helidon现在没有特别优势，暂不建议投入学习过多。  
-
-### 关于JPA，MyBatis和Jimmer
-如果希国外项目，推荐JPA，国际友人对JPA标准还是很有执念的。  
-如果是国内项目，推荐MyBatis，毕竟后续能够开发维护的人是最多的。  
-如果是全新项目，推荐尝试Jimmer，很多开发体验可能超出你的想象，但不成熟。  
-
-### 关于restful接口的注解
-建议多用jakarta的标准注解，就算spring中也建议用标准注解  
-你会发现万一有一天需要迁移到其他框架的时候，能节省大量工作量。  
-最主要的是jakarta注解比起spring注解也没有太多不方便的敌方。  
+* 绝大多数情况推荐Spring boot，因为资料多，时髦的graalvm native也能做。  
+* 如果实在希望内存占用少，轻量化且现代化，推荐quarkus，热更新做得特别好。  
+* micronaut和helidon现在没有特别优势，暂不建议投入学习过多。  
 
 ### 关于IoC/DI注入注解
-也推荐使用jakarta标准注解，而不用spring的@Autowire
+* 推荐使用jakarta标准注解，而不用spring的@Autowire
+
+### 关于restful接口的注解
+* 建议用jakarta标准注解，就算在spring环境中也建议用标准注解。
+* 你会发现万一有一天需要迁移到其他框架的时候，能节省大量工作量。
+* 最主要的是jakarta标准注解比起spring注解也没有太多不方便的地方。
+
+### 关于文档
+#### REST接口
+* 通过interface直接生成OpenApi文档是较好的工程实践
+* 开发环境支持swagger-ui和直接下载openapi.yaml，生产环境关闭
+* 前端可以通过类似orval的工具，根据下载的openapi.yaml自动生成client
+* REST是多数情况下的默认最优解
+
+#### GRPC接口
+* 后端直接定义.proto文件，在API层生成需要实现的接口
+* 前端通过工具从.proto文件直接生成client文件
+* GRPC直接做前后端交互现在还有少量缺陷，例如文件上传麻烦
+* 网关想做细粒度的权限控制复杂，因为不好在网关层感知payload内容
+
+### 关于bean校验
+* hibernate validator注解校验是现在体验最好的标准化方案
+
+### 关于JPA，MyBatis和Jimmer
+* 如果希国外项目，推荐JPA，国际友人对JPA标准还是很有执念的。
+* 如果是国内项目，推荐MyBatis，毕竟后续能够开发维护的人是最多的。
+* 如果是全新项目，推荐尝试Jimmer，很多开发体验可能超出你的想象，但不成熟。
 
 ### 关于Jackson/fastjson/Gson
-国外项目，不用犹豫了，直接Jackson  
-国内项目，可以考虑fastjson，确实快很多，就是偶尔有问题或者漏洞。  
-Gson尽量不用。  
+* 国外项目，不用犹豫，直接Jackson。   
+* 国内项目，可以考虑fastjson2，确实快很多，就是偶尔有问题或者漏洞。  
+* Gson尽量不用，范型API上相对简洁，但为此引入一套库并不值得。  
 
 ### 关于logback和log4j2
-log4j2性能好，不担心兼容性的情况默认选这个吧。  
-logback兼容性好
+* log4j2性能好，不担心兼容性的情况默认选这个吧。  
+* logback兼容性好
 
 ### 关于Hutool
-Hutool很好，比大多数的程序员能够写出的代码都好，尽量采用Hutool工具API可以保证很多质量下限。  
+* Hutool很好，比大多数的程序员能够写出的代码都好，尽量采用Hutool工具API可以保证很多质量下限。  
 
 ### 关于BeanSearcher
-能够极大减少查询类工作量，建议尝试。
+* 能够极大减少查询类工作量，建议尝试。
 
 
 ## TODO list

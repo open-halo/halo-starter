@@ -1,6 +1,5 @@
 package org.example.config;
 
-import jakarta.validation.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import org.example.core.model.base.ApiResult;
 import org.example.core.model.base.ErrorCode;
@@ -16,8 +15,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    ApiResult<Void> onConstraintValidationException(
-            ConstraintViolationException e) {
+    ApiResult<Void> onConstraintValidationException(ConstraintViolationException e) {
         String violationsContent = JSONUtil.toJsonStr(e.getConstraintViolations());
         return ApiResult.ofFailure(ErrorCode.InvalidRequest.getCode(), violationsContent);
     }
