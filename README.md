@@ -56,13 +56,13 @@ mvn archetype:generate -DarchetypeCatalog=local
 ### [3] 强制代码风格
 使用maven-java-formatter-plugin执行代码格式化。  
 可添加自定义格式化规则，规则目录在  
-[.halo/formatter/format.xml](.halo/formatter/format.xml)
+[.halo/formatter/format.xml](examples/spring-boot-maven/.halo/formatter/format.xml)
 
 
 ### [4] PMD强制校验低级错误
 使用maven-pmd-plugin配合上百条校验规则进行PMD强制校验。  
-可添加自定义校验规则，规则目录在
-[.halo/pmd-check-rules](.halo/pmd-check-rules)  
+规则目录在(可添加自定义规则):  
+[.halo/pmd-check-rules](examples/spring-boot-maven/.halo/pmd-check-rules)  
 
 使用PMD检查工具，并使用git hook强制提交前进行检查，这能大量避免低级错误  
 **规则正在逐步添加中**
