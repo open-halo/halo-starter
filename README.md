@@ -49,31 +49,22 @@ mvn archetype:generate -DarchetypeCatalog=local
 ```
 
 ### [2] 默认集成开发提效工具
-1. lombok帮助简化大量冗余模版代码
-2. mapstruct帮助简化大量类型转化代码  
+1. lombok帮助简化冗余模版代码
+2. mapstruct帮助简化类型转化代码  
 配置说明: [代码增强说明](.docs/1__source_enhance.md)
 
-### [3] 工程化地保证代码风格
-我们接手一个旧的项目的时候，通常最不愿意做的事情就是全局代码格式化，
-因为这通常意味着大量的git变更，基本无法做code review。
-作为一个技术管理人员，最希望的可能是所有提交的代码都是格式化好的。
-这个格式化最好不是基于公司的管理手段的，而是基于工程的技术手段完成的。
-默认引入maven-java-formatter-plugin执行代码格式化。
-可添加自定义格式化规则，规则目录在
-```html
-.halo/formatter/format.xml
-```
+### [3] 强制代码风格
+使用maven-java-formatter-plugin执行代码格式化。  
+可添加自定义格式化规则，规则目录在  
+[.halo/formatter/format.xml](.halo/formatter/format.xml)
 
-### [4] 工程化地避免低级错误
-使用PMD检查工具，并使用git hook强制提交前进行检查，这能大量避免低级错误
-1. 例如避免Object使用 == 对比，java的==对比的是object id，绝大部分不是我们期望的
-2. 例如避免Catch NPE错误，
-3. 例如避免空的try catch吞掉错误
-默认引入maven-pmd-plugin配合上百条校验规则进行强制校验。
+
+### [4] PMD强制校验低级错误
+使用maven-pmd-plugin配合上百条校验规则进行PMD强制校验。  
 可添加自定义校验规则，规则目录在
-```html
-.halo/pmd-check-rules
-```
+[.halo/pmd-check-rules](.halo/pmd-check-rules)  
+
+使用PMD检查工具，并使用git hook强制提交前进行检查，这能大量避免低级错误  
 **规则正在逐步添加中**
 
 
