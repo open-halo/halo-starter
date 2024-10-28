@@ -146,13 +146,6 @@ mvn archetype:generate -DarchetypeCatalog=local
 我们认为有序的层次，远远好于无序的平铺。
 
 
-## 工具类选择
-1. Json工具选择了xjsonkit作为门面框架，隔离了底层实现，底层可以使用几大常用json库都以，默认是jackson
-2. 日期等格式转换工具使用了Hutool
-3. 日志使用slf4j配合lombok，底层使用log4j2
-4. 内部ORM框架，默认使用Jimmer
-5. 对于简单查询需求，默认引入了BeanSearcher
-
 ## 选择&思考
 ### 关于maven和gradle
 * 后续maven和gradle都会支持。  
