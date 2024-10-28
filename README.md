@@ -182,8 +182,9 @@ mvn archetype:generate -DarchetypeCatalog=local
 
 ### 关于Spring boot/quarkus/micronaut/helidon
 * 绝大多数情况推荐Spring boot，因为资料多，时髦的graalvm native也能做。  
-* 如果实在希望内存占用少，轻量化且现代化，推荐quarkus，热更新做得特别好。  
-* micronaut和helidon现在没有特别优势，暂不建议投入学习过多。  
+* 如果实在希望内存占用少，轻量化且现代化，推荐quarkus，热更新做得特别好，DI是一个build-time的实现。
+* micronaut的显著特点是编译期DI和编译期AOP，考虑极致性能可以考虑。
+* helidon现在没有特别优势，暂不建议投入学习过多。  
 
 ### 关于IoC/DI注入注解
 * 推荐使用jakarta标准注解，而不用spring的@Autowire
