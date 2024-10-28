@@ -92,6 +92,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 1. Spring Boot使用undertow作为内置容器
 2. 使用log4j2作为默认日志库，并配置默认log4j2.xml
 3. 默认启动优雅停机graceful shutdown
+4. 具体相关配置说明参见[代码增强说明](.docs/2__spring_optimize.md)
 
 ### [7] 云原声友好
 1. 默认支持k8s下的startup,readiness,liveness探针
