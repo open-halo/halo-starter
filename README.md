@@ -74,10 +74,15 @@ mvn archetype:generate -DarchetypeCatalog=local
 2. 兼容：不同库和包之间需要兼容，有时候直接更新到最新版本，会发现几个库之间不兼容
 3. 正确：一些包中有内存泄漏，有一些不知名的坑
 4. 最佳：选择一些久经考验的库
-例如使用hutools
-例如使用jimmer作为数据库操作层
 5. 验证：被大量项目使用，有实时可访问的项目作为在线验证
 
+   | 功能        | 当前选择      | 其他候选                |
+   |-----------|-----------|---------------------|
+   | 日志        | log4j2    | logback             |
+   | jakarta注解 | resteasy  | -                   |
+   | 工具类       | hutool    | apache-common/guava |
+   | 校验库| hibernate | fluent              |
+   |ORM| jimmer    | JPA MyBatis|
 
 ### [6] 符合最佳实践的默认配置
 1. Spring Boot使用undertow作为内置容器
@@ -140,25 +145,6 @@ mvn archetype:generate -DarchetypeCatalog=local
 如果我们认可以上价值，我们不会认为多分了几个层，多分了几个包就是重。
 我们认为有序的层次，远远好于无序的平铺。
 
-
-## 整体的模块如下：
-![alt text](examples/spring-boot-maven/.docs/halo-design.png)
-1. api: 接口层，纯定义interface和object，无逻辑，因为需要注解，弱依赖于spring boot
-2. api-adapter: 适配层，接口实现module，包含简单实现，核心逻辑转发到core service layer
-3. core: 核心逻辑实现层， 纯代码逻辑，整个工程的核心
-4. infra: 基础设置层
-5. external: 防腐层，外部调用必须经过防腐层才内被内部调用
-6. common: 工具层，纯函数的工具类，可以一些外部工具库
-7. starter: 启动module，配置文件集中在这里
-
-## 整体的modules依赖关系强制如下
-1. api: 无依赖，因为其他方可能导入，依赖越少越好，避免库污染
-2. common: 纯工具，不依赖其他任何module，可以二次封装一些库，可以被除api以外所有模块依赖
-3. api-adapter: 依赖于api, core, common
-4. external: 只依赖于common和一些外部sdk或者三方jar
-5. infra: 依赖于common + core，引入core的gateway，然后实现gateway中的interface
-6. core: 依赖于common，其余无依赖，这里依赖倒置
-7. starter: 依赖所有module
 
 ## 工具类选择
 1. Json工具选择了xjsonkit作为门面框架，隔离了底层实现，底层可以使用几大常用json库都以，默认是jackson
