@@ -73,6 +73,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 ```html
 .halo/pmd-check-rules
 ```
+**规则正在逐步添加中**
 
 
 ### [5] 精挑细选的依赖
@@ -94,19 +95,23 @@ mvn archetype:generate -DarchetypeCatalog=local
 ### [7] 云原声友好
 1. 默认支持k8s下的startup,readiness,liveness探针
 2. 提供默认的docker配置
-3. 部分框架提供graalvm的native image生成
+3. 部分框架提供graalvm的native image生成  
+**正在建设中**
 
 ### [8] 前端友好
 1. 支持类似swagger的在线文档
-2. 自动生成前端直接可用的typescript的接口文件
+2. 自动生成前端直接可用的typescript的接口文件    
+**正在建设中**
 
 ### [9] 生产就绪的
 1. 默认支持限流
-2. 默认支持熔断
+2. 默认支持熔断  
+**正在建设中**
 
 ### [10] 可追踪
 默认设计好的一套调用追踪日志策略
-默认记录出入参数
+默认记录出入参数  
+**正在建设中**
 
 
 ## 一个架子能够节省多少时间
@@ -205,7 +210,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 * hibernate validator注解校验是现在体验最好的标准化方案
 
 ### 关于JPA，MyBatis和Jimmer
-* 如果希国外项目，推荐JPA，国际友人对JPA标准还是很有执念的。
+* 如果是国外项目，推荐JPA，国际友人对JPA标准还是很有执念的。
 * 如果是国内项目，推荐MyBatis，毕竟后续能够开发维护的人是最多的。
 * 如果是全新项目，推荐尝试Jimmer，很多开发体验可能超出你的想象，但不成熟。
 
