@@ -51,7 +51,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 ### [2] 默认集成开发提效工具
 1. lombok帮助简化大量冗余模版代码
 2. mapstruct帮助简化大量类型转化代码  
-具体相关配置说明参见[代码增强说明](.docs/1__source_enhance.md)
+配置说明: [代码增强说明](.docs/1__source_enhance.md)
 
 ### [3] 工程化地保证代码风格
 我们接手一个旧的项目的时候，通常最不愿意做的事情就是全局代码格式化，
@@ -91,8 +91,8 @@ mvn archetype:generate -DarchetypeCatalog=local
 ### [6] 符合最佳实践的默认配置
 1. Spring Boot使用undertow作为内置容器
 2. 使用log4j2作为默认日志库，并配置默认log4j2.xml
-3. 默认启动优雅停机graceful shutdown
-4. 具体相关配置说明参见[代码增强说明](.docs/2__spring_optimize.md)
+3. 默认启动优雅停机graceful shutdown  
+配置说明: [代码增强说明](.docs/2__spring_optimize.md)
 
 ### [7] 云原声友好
 1. 默认支持k8s下的startup,readiness,liveness探针
