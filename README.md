@@ -47,17 +47,17 @@ mvn archetype:generate -DarchetypeCatalog=local
    |-- xxxB         # 防腐层B
 -- starter       # 启动模块
 ```
+[模块结构说明](.docs/3__structure.md)
 
 ### [2] 默认集成开发提效工具
 1. lombok帮助简化冗余模版代码
 2. mapstruct帮助简化类型转化代码  
-配置说明: [代码增强说明](.docs/1__source_enhance.md)
+[代码增强说明](.docs/1__source_enhance.md)
 
 ### [3] 强制代码风格
 使用maven-java-formatter-plugin执行代码格式化。  
 可添加自定义格式化规则，规则目录在  
 [.halo/formatter/format.xml](examples/spring-boot-maven/.halo/formatter/format.xml)
-
 
 ### [4] PMD强制校验低级错误
 使用maven-pmd-plugin配合上百条校验规则进行PMD强制校验。  
@@ -88,29 +88,24 @@ mvn archetype:generate -DarchetypeCatalog=local
 1. Spring Boot使用undertow作为内置容器
 2. 使用log4j2作为默认日志库，并配置默认log4j2.xml
 3. 默认启动优雅停机graceful shutdown  
-配置说明: [代码增强说明](.docs/2__spring_optimize.md)
+[最佳实践配置说明](.docs/2__spring_optimize.md)
 
-### [7] 云原声友好
+### [7] 云原声友好(正在建设中)
 1. 默认支持k8s下的startup,readiness,liveness探针
 2. 提供默认的docker配置
 3. 部分框架提供graalvm的native image生成  
-**正在建设中**
 
-### [8] 前端友好
+### [8] 前端友好(正在建设中)
 1. 支持类似swagger的在线文档
-2. 自动生成前端直接可用的typescript的接口文件    
-**正在建设中**
+2. 自动生成前端直接可用的typescript的接口文件
 
-### [9] 生产就绪的
+### [9] 生产就绪的(正在建设中)
 1. 默认支持限流
-2. 默认支持熔断  
-**正在建设中**
+2. 默认支持熔断
 
-### [10] 可追踪
+### [10] 可追踪(正在建设中)
 默认设计好的一套调用追踪日志策略
 默认记录出入参数  
-**正在建设中**
-
 
 ## 一个架子能够节省多少时间
 1. 搭建一个优秀的架子，一个工作多年的程序员可能也至少需要1-day
@@ -187,7 +182,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 * 如果是国内项目，推荐MyBatis，毕竟后续能够开发维护的人是最多的。
 * 如果是全新项目，推荐尝试Jimmer，很多开发体验可能超出你的想象，但不成熟。
 
-### 关于Jackson/fastjson/Gson
+### 关于Jackson/Fastjson/Gson
 * 国外项目，不用犹豫，直接Jackson。   
 * 国内项目，可以考虑fastjson2，确实快很多，就是偶尔有问题或者漏洞。  
 * Gson尽量不用，范型API上相对简洁，但为此引入一套库并不值得。  
