@@ -1,5 +1,5 @@
 ## 整体的模块结构如下：
-![alt text](examples/spring-boot-maven/.docs/halo-design.png)
+![alt text](halo-design.png)
 ### api: 接口层
 纯定义interface和object定义，无逻辑。  
 定位是打包给其他接入项目使用，所以追求极致的干净。 
