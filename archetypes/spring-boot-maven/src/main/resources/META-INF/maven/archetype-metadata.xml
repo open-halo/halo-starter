@@ -68,16 +68,6 @@
             </fileSet>
           </fileSets>
         </module>
-        <module id="halo-api-dubbo" dir="halo-api-dubbo" name="halo-api-dubbo">
-          <fileSets>
-            <fileSet filtered="true" packaged="true" encoding="UTF-8">
-              <directory>src/main/java</directory>
-              <includes>
-                <include>**/*.java</include>
-              </includes>
-            </fileSet>
-          </fileSets>
-        </module>
       </modules>
     </module>
     <module id="${rootArtifactId}-adapter" dir="api-adapter" name="${rootArtifactId}-adapter">
