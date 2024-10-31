@@ -3,6 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.api.rest;
 
+import jakarta.validation.Valid;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import ${package}.core.model.User;
@@ -16,7 +17,7 @@ public interface IUser {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    ApiResult<Void> create(User user);
+    ApiResult<Void> create(@Valid User user);
 
     @Path("/{userId}")
     ApiResult<Void> delete(@PathParam("userId") long userId);
