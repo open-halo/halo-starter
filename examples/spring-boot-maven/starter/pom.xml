@@ -64,21 +64,7 @@
             <artifactId>hutool-json</artifactId>
         </dependency>
 
-        <!-- begin of jakarta spring servlet -->
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-servlet-spring-boot-starter</artifactId>
-            <version>6.2.0.Final</version>
-            <scope>runtime</scope>
-            <!-- we don't want spring with tomcat and logback by default -->
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-web</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
+        <!-- begin of spring boot dependency -->
         <!-- we need undertow instead of tomcat -->
         <!-- we need log4j2   instead of logback -->
         <dependency>
@@ -105,28 +91,8 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
-        <!-- end of jakarta spring servlet -->
+        <!-- end of spring boot dependency -->
 
-
-        <!-- begin of spring openapi doc -->
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>2.6.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
-            <version>2.6.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-common</artifactId>
-            <version>2.6.0</version>
-        </dependency>
-        <!-- end of spring openapi doc -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -170,6 +136,41 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <dependencies>
+                <!-- we only need doc in dev environment -->
+                <!-- mvn clean package -Pdev -->
+                <!-- download json: /v3/api-docs -->
+                <!-- download yaml: /v3/api-docs.yaml -->
+
+                <!-- begin of spring openapi doc -->
+                <dependency>
+                    <groupId>org.springdoc</groupId>
+                    <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                    <version>${springdoc.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springdoc</groupId>
+                    <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+                    <version>${springdoc.version}</version>
+                </dependency>
+
+                <dependency>
+                    <groupId>org.springdoc</groupId>
+                    <artifactId>springdoc-openapi-starter-common</artifactId>
+                    <version>${springdoc.version}</version>
+                </dependency>
+                <!-- end of spring openapi doc -->
+            </dependencies>
+        </profile>
+    </profiles>
 
     <build>
         <plugins>

@@ -3,12 +3,14 @@
 #set( $symbol_escape = '\' )
 package ${package}.api.rest;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Path("/hello")
+@RequestMapping("/hello")
+@RestController
 public interface IHello {
 
-    @GET
+    @GetMapping
     String sayHello();
 }

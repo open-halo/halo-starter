@@ -3,7 +3,7 @@
 #set( $symbol_escape = '\' )
 package ${package}.biz.rest;
 
-import jakarta.inject.Named;
+//import jakarta.inject.Named;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import ${package}.api.rest.IUser;
@@ -12,9 +12,11 @@ import ${package}.core.model.base.PagedResult;
 import ${package}.core.model.base.PagedRequest;
 import ${package}.core.model.User;
 import ${package}.core.service.IUserService;
+import org.springframework.stereotype.Component;
 
 @Slf4j
-@Named
+//@Named
+@Component
 @AllArgsConstructor
 public class UserController implements IUser {
 

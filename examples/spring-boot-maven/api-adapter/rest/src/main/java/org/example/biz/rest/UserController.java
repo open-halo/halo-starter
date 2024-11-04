@@ -1,6 +1,6 @@
 package org.example.biz.rest;
 
-import jakarta.inject.Named;
+//import jakarta.inject.Named;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.example.api.rest.IUser;
@@ -9,9 +9,11 @@ import org.example.core.model.base.PagedResult;
 import org.example.core.model.base.PagedRequest;
 import org.example.core.model.User;
 import org.example.core.service.IUserService;
+import org.springframework.stereotype.Component;
 
 @Slf4j
-@Named
+//@Named
+@Component
 @AllArgsConstructor
 public class UserController implements IUser {
 

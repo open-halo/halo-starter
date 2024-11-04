@@ -18,19 +18,12 @@
             <artifactId>halo-starter-core-model</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>jakarta.ws.rs</groupId>
-            <artifactId>jakarta.ws.rs-api</artifactId>
-        </dependency>
-
+        <!-- we need spring annotation, so we need depend on this -->
+        <!-- if we use jakarta.ws, we can just depend on jakarta annotation -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springdoc</groupId>
-            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>

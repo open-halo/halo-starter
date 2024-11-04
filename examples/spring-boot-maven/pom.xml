@@ -19,6 +19,7 @@
         <jimmer.version>0.9.1</jimmer.version>
         <!--        <spotless.version>2.44.0.BETA2</spotless.version>-->
         <sentinel.version>1.8.8</sentinel.version>
+        <springdoc.version>2.6.0</springdoc.version>
     </properties>
 
     <modules>
@@ -37,7 +38,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
-                <version>3.3.4</version>
+                <version>3.3.5</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

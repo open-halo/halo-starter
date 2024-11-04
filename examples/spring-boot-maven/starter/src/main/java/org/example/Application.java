@@ -14,12 +14,4 @@ public class Application {
         SpringApplication.run(Application.class, args);
     }
 
-    //        private void unusedVariable() {
-    //        int unused = 42;
-    //        try {
-    //
-    //        } catch (Exception ex) {
-    //
-    //        }
-    //        }
 }

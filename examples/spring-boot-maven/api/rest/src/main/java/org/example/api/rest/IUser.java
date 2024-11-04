@@ -1,37 +1,33 @@
 package org.example.api.rest;
 
 import jakarta.validation.Valid;
-import jakarta.ws.rs.*;
-import jakarta.ws.rs.core.MediaType;
+
 import org.example.core.model.User;
 import org.example.core.model.base.ApiResult;
 import org.example.core.model.base.PagedResult;
 import org.example.core.model.base.PagedRequest;
+import org.springframework.web.bind.annotation.*;
 
-@Path("/users")
-@Produces(MediaType.APPLICATION_JSON)
+@RestController
+@RequestMapping("/user")
 public interface IUser {
 
-    @POST
-    @Consumes(MediaType.APPLICATION_JSON)
+    @PostMapping
     ApiResult<Void> create(@Valid User user);
 
-    @Path("/{userId}")
-    ApiResult<Void> delete(@PathParam("userId") long userId);
+    @DeleteMapping("/{userId}")
+    ApiResult<Void> delete(@PathVariable("userId") long userId);
 
-    @PATCH
-    @Consumes(MediaType.APPLICATION_JSON)
+    @PatchMapping
     ApiResult<Void> update(User user);
 
-    @Path("/{userId}")
-    @GET
-    ApiResult<User> select(@PathParam("userId") long userId);
+    @GetMapping("/{userId}")
+    ApiResult<User> select(@PathVariable("userId") long userId);
 
-    @GET
-    ApiResult<User> selectByEmail(@QueryParam("email") String email);
+    @GetMapping
+    ApiResult<User> selectByEmail(@RequestParam("email") String email);
 
-    @Path("/search")
-    @GET
+    @GetMapping("/index")
     ApiResult<PagedResult<User>> search(PagedRequest<String> nameSearch);
 
 }
