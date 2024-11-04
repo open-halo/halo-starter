@@ -1,0 +1,6 @@
+export org.example.infra.persistent.entity.Users
+    -> package org.example.infra.persistent.model.dto
+
+input UserInput {
+    #allScalars(this)
+}

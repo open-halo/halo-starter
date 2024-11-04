@@ -167,6 +167,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 * 开发环境支持swagger-ui和直接下载openapi.yaml，生产环境关闭
 * 前端可以通过类似orval的工具，根据下载的openapi.yaml自动生成client
 * REST是多数情况下的默认最优解
+**当前resteasy-spring-boot-starter和spring-doc还无法兼容**
 
 #### GRPC接口
 * 后端直接定义.proto文件，在API层生成需要实现的接口
