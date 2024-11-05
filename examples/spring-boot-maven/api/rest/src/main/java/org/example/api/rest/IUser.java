@@ -9,7 +9,7 @@ import org.example.core.model.base.PagedRequest;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public interface IUser {
 
     @PostMapping

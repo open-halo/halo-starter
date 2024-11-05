@@ -1,5 +1,3 @@
-spring.profiles.active: dev
-
 server:
   port: 8080
   shutdown: graceful # 开启优雅停机
@@ -18,3 +16,8 @@ spring:
 
 resteasy:
   scan: org.example
+
+jimmer:
+  dialect: org.babyfish.jimmer.sql.dialect.MySqlDialect
+  show-sql: false
+  database-validation-mode: ERROR

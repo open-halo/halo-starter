@@ -2,7 +2,7 @@ package org.example.infra.persistent;
 
 import org.example.core.gateway.repository.IUserRepository;
 import org.example.infra.persistent.gateway.UserRepository;
-import org.example.infra.persistent.repository.UserJRepository;
+import org.example.infra.persistent.repository.AuthorJRepository;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 public class AppTestConfig {
 
     @Bean
-    IUserRepository getIUserRepository(UserJRepository jRepository) {
+    IUserRepository getIUserRepository(AuthorJRepository jRepository) {
         return new UserRepository(jRepository);
     }
 

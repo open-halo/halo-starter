@@ -7,8 +7,8 @@ import org.example.core.model.base.ApiResult;
 import org.example.core.model.base.PagedResult;
 import org.example.core.model.base.PagedRequest;
 import org.example.core.gateway.repository.IUserRepository;
-import org.example.infra.persistent.entity.Users;
-import org.example.infra.persistent.repository.UserJRepository;
+import org.example.infra.persistent.entity.Author;
+import org.example.infra.persistent.repository.AuthorJRepository;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
@@ -21,14 +21,14 @@ import java.util.Optional;
 @AllArgsConstructor
 public class UserRepository implements IUserRepository {
 
-    private UserJRepository userJRepository;
+    private AuthorJRepository userJRepository;
 
     @Mapper
     interface UserRepositoryMapper {
         UserRepositoryMapper INSTANCE = Mappers.getMapper(UserRepositoryMapper.class);
-        Users domainToEntity(org.example.core.model.User user);
-        org.example.core.model.User entityToModel(Users userEntity);
-        default Optional<org.example.core.model.User> optionalEntityToModel(Optional<Users> userEntity) {
+        Author domainToEntity(org.example.core.model.User user);
+        org.example.core.model.User entityToModel(Author userEntity);
+        default Optional<org.example.core.model.User> optionalEntityToModel(Optional<Author> userEntity) {
             if (userEntity.isEmpty()) {
                 return Optional.empty();
             } else {
@@ -37,7 +37,7 @@ public class UserRepository implements IUserRepository {
             }
         }
 
-        List<org.example.core.model.User> entitiesToDomains(List<Users> userList);
+        List<org.example.core.model.User> entitiesToDomains(List<Author> userList);
     }
 
     @Override
@@ -58,7 +58,7 @@ public class UserRepository implements IUserRepository {
     @Override
     public ApiResult<org.example.core.model.User> select(long userId) {
         log.info("select({})", userId);
-        Optional<Users> userEntity = userJRepository.findById(userId);
+        Optional<Author> userEntity = userJRepository.findById(userId);
         Optional<org.example.core.model.User> userModelOpt = UserRepositoryMapper.INSTANCE.optionalEntityToModel(userEntity);
         return ApiResult.ofOptional(userModelOpt);
     }
@@ -75,14 +75,14 @@ public class UserRepository implements IUserRepository {
 
 
     public ApiResult<Void> save(org.example.core.model.User user) {
-        Users userEntity = UserRepositoryMapper.INSTANCE.domainToEntity(user);
+        Author userEntity = UserRepositoryMapper.INSTANCE.domainToEntity(user);
         userJRepository.save(userEntity);
         return ApiResult.ofSuccess();
     }
 
 
     public ApiResult<List<org.example.core.model.User>> findAllUsers() {
-        List<Users> userList = userJRepository.findAll();
+        List<Author> userList = userJRepository.findAll();
         List<org.example.core.model.User> domains = UserRepositoryMapper.INSTANCE.entitiesToDomains(userList);
         return ApiResult.ofSuccessList(domains);
     }

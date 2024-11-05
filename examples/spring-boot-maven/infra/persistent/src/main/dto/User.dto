@@ -1,4 +1,4 @@
-export org.example.infra.persistent.entity.Users
+export org.example.infra.persistent.entity.Author
     -> package org.example.infra.persistent.model.dto
 
 input UserInput {
