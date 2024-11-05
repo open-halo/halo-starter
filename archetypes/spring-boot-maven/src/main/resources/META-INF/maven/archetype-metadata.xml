@@ -199,6 +199,7 @@
             <fileSet encoding="UTF-8">
               <directory>src/main/resources</directory>
               <includes>
+                <include>**/*.yaml</include>
                 <include>**/*.sql</include>
               </includes>
             </fileSet>

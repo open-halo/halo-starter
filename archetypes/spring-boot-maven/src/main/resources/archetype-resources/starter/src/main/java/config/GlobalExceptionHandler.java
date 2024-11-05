@@ -26,7 +26,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(RuntimeException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ResponseBody
-    ApiResult<Void> genericRuntimeExceptionHandler(Exception e) {
+    ApiResult<Void> genericRuntimeExceptionHandler(RuntimeException e) {
         return ApiResult.ofFailure(ErrorCode.InvalidRequest.getCode(), e.getMessage());
     }
 

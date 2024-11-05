@@ -118,44 +118,77 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- use testcontainers mysql in dev mode as sql engine -->
+        <!-- this will not be included in non-dev mode -->
+<!--        <dependency>-->
+<!--            <groupId>org.testcontainers</groupId>-->
+<!--            <artifactId>mysql</artifactId>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>testcontainers</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>junit-jupiter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>mysql</artifactId>
+        </dependency>
+
     </dependencies>
 
-    <build>
-        <plugins>
+    <profiles>
+        <profile>
+            <id>dev-mysql</id>
+            <activation>
+            </activation>
+            <properties>
+                <spring.profiles.active>dev-mysql</spring.profiles.active>
+            </properties>
+    </profile>
+</profiles>
 
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-
-            <plugin>
-                <groupId>org.flywaydb</groupId>
-                <artifactId>flyway-maven-plugin</artifactId>
-                <version>${flyway.version}</version>  <!-- 请使用最新版本 -->
-                <configuration>
-                    <url>jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</url>
-                    <user>sa</user>
-                    <password></password>
-                    <locations>filesystem:src/main/resources/db/migration</locations>
-                    <baselineOnMigrate>true</baselineOnMigrate>
-                </configuration>
-
-                <dependencies>
-                    <dependency>
-                        <groupId>com.h2database</groupId>
-                        <artifactId>h2</artifactId>
-                        <version>${h2.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
+<build>
+<plugins>
 
 
-        </plugins>
-    </build>
-</project>
+    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+    </plugin>
+
+    <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+    </plugin>
+
+    <plugin>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-maven-plugin</artifactId>
+        <version>${flyway.version}</version>  <!-- 请使用最新版本 -->
+        <configuration>
+            <url>jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</url>
+            <user>sa</user>
+            <password></password>
+            <locations>filesystem:src/main/resources/db/migration</locations>
+            <baselineOnMigrate>true</baselineOnMigrate>
+        </configuration>
+
+        <dependencies>
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+        </dependencies>
+    </plugin>
+
+
+</plugins>
+</build>
+        </project>

@@ -5,17 +5,16 @@ package ${package}.infra.persistent.entity;
 
 import org.babyfish.jimmer.sql.DatabaseValidationIgnore;
 import org.babyfish.jimmer.sql.Entity;
-import org.babyfish.jimmer.sql.Id;
+import ${package}.infra.persistent.entity.base.BaseEntity;
 
 @Entity
 @DatabaseValidationIgnore
-public interface Users {
-    @Id
-    long id();
+public interface Author extends BaseEntity {
 
     String name();
 
     String email();
 
-    Integer age();
+    String gender();
+
 }

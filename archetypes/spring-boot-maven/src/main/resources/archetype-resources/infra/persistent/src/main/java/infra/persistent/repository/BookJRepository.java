@@ -4,9 +4,8 @@
 package ${package}.infra.persistent.repository;
 
 import org.babyfish.jimmer.spring.repository.JRepository;
-import ${package}.infra.persistent.entity.Users;
+import ${package}.infra.persistent.entity.Book;
 import ${package}.infra.persistent.entity.Tables;
 
-public interface UserJRepository extends JRepository<Users, Long>, Tables {
-
+public interface BookJRepository extends JRepository<Book, Long>, Tables {
 }
