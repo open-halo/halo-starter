@@ -10,6 +10,4 @@
     <artifactId>${artifactId}</artifactId>
     <packaging>pom</packaging>
     <name>infra</name>
-
-
 </project>

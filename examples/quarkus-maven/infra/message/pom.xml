@@ -5,13 +5,25 @@
         <groupId>org.example</groupId>
         <artifactId>halo-infra</artifactId>
         <version>1.0.0</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <artifactId>halo-infra-message</artifactId>
     <packaging>jar</packaging>
-    <name>message</name>
+    <name>infra-message</name>
+
 
     <dependencies>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>halo-common</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>halo-core-service</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -19,4 +31,25 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>io.smallrye</groupId>
+                <artifactId>jandex-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>make-index</id>
+                        <goals>
+                            <goal>jandex</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

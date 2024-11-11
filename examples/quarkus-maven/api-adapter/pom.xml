@@ -7,7 +7,6 @@
         <version>1.0.0</version>
     </parent>
 
-    <groupId>org.example</groupId>
     <artifactId>halo-api-adapter</artifactId>
     <packaging>pom</packaging>
     <name>api-adapter</name>
@@ -16,5 +15,4 @@
         <module>rest</module>
         <module>grpc</module>
     </modules>
-
 </project>

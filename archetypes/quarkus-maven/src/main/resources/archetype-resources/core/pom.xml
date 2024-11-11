@@ -10,4 +10,5 @@
     <artifactId>${artifactId}</artifactId>
     <packaging>pom</packaging>
     <name>core</name>
+
 </project>

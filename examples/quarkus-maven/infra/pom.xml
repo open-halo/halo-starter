@@ -15,6 +15,4 @@
         <module>persistent</module>
         <module>message</module>
     </modules>
-
-
 </project>

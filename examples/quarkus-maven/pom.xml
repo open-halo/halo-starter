@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.example</groupId>
     <artifactId>halo</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
-    <name>halo-quarkus-starter</name>
 
     <modules>
         <module>api</module>
         <module>api-adapter</module>
-        <module>common</module>
-        <module>core</module>
-        <module>infra</module>
-        <module>external</module>
         <module>starter</module>
-        <module>dynamic</module>
+        <module>core</module>
+        <module>common</module>
+        <module>infra</module>
     </modules>
 
     <properties>
+        <compiler-plugin.version>3.13.0</compiler-plugin.version>
+        <maven.compiler.release>21</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <maven.compiler.release>21</maven.compiler.release>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-        <quarkus.platform.version>3.14.4</quarkus.platform.version>
+        <quarkus.platform.version>3.15.1</quarkus.platform.version>
+        <jandex.version>3.2.2</jandex.version>
+        <grpc.version>1.65.1</grpc.version>
+        <protobuf.version>3.25.5</protobuf.version>
+        <protoc.version>3.25.5</protoc.version>
         <skipITs>true</skipITs>
-        <surefire-plugin.version>3.1.2</surefire-plugin.version>
-        <compiler-plugin.version>3.11.0</compiler-plugin.version>
+        <surefire-plugin.version>3.5.0</surefire-plugin.version>
         <lombok.version>1.18.32</lombok.version>
         <mapstruct.version>1.5.5.Final</mapstruct.version>
-        <java.version>21</java.version>
+        <hutool.version>5.8.32</hutool.version>
     </properties>
 
     <dependencyManagement>
@@ -48,10 +48,32 @@
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-bom</artifactId>
-                <version>5.8.32</version>
+                <version>${hutool.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-bom</artifactId>
+                <version>${grpc.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${mapstruct.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
+            </dependency>
+
+
 
             <dependency>
                 <groupId>org.example</groupId>
@@ -61,7 +83,7 @@
 
             <dependency>
                 <groupId>org.example</groupId>
-                <artifactId>halo-api-grpc</artifactId>
+                <artifactId>halo-api-adapter-grpc</artifactId>
                 <version>1.0.0</version>
             </dependency>
 
@@ -73,20 +95,7 @@
 
             <dependency>
                 <groupId>org.example</groupId>
-                <artifactId>halo-api-adapter-grpc</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-
-
-            <dependency>
-                <groupId>org.example</groupId>
                 <artifactId>halo-common</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.example</groupId>
-                <artifactId>halo-core-model</artifactId>
                 <version>1.0.0</version>
             </dependency>
 
@@ -98,13 +107,13 @@
 
             <dependency>
                 <groupId>org.example</groupId>
-                <artifactId>halo-core-gateway</artifactId>
+                <artifactId>halo-core-model</artifactId>
                 <version>1.0.0</version>
             </dependency>
 
             <dependency>
                 <groupId>org.example</groupId>
-                <artifactId>halo-core-service-impl</artifactId>
+                <artifactId>halo-core-gateway</artifactId>
                 <version>1.0.0</version>
             </dependency>
 
@@ -120,69 +129,25 @@
                 <version>1.0.0</version>
             </dependency>
 
-            <dependency>
-                <groupId>org.example</groupId>
-                <artifactId>halo-external-weather</artifactId>
-                <version>1.0.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>jakarta.annotation</groupId>
-                <artifactId>jakarta.annotation-api</artifactId>
-                <version>3.0.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>jakarta.ws.rs</groupId>
-                <artifactId>jakarta.ws.rs-api</artifactId>
-                <version>4.0.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-api</artifactId>
-                <version>2.0.16</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.mapstruct</groupId>
-                <artifactId>mapstruct</artifactId>
-                <version>${mapstruct.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.projectlombok</groupId>
-                <artifactId>lombok</artifactId>
-                <version>${lombok.version}</version>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
     <build>
+        <!-- pluginManagement can manage version and configuration -->
+        <!-- pluginManagement can not manage executions, so do not define executions here -->
         <pluginManagement>
             <plugins>
-                <plugin>
-                    <groupId>${quarkus.platform.group-id}</groupId>
-                    <artifactId>quarkus-maven-plugin</artifactId>
-                    <version>${quarkus.platform.version}</version>
-                    <extensions>true</extensions>
-                    <executions>
-                        <execution>
-                            <goals>
-                                <goal>build</goal>
-                                <goal>generate-code</goal>
-                                <goal>generate-code-tests</goal>
-                                <goal>native-image-agent</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.13.0</version>
                     <configuration>
+                        <!--
+                          Generates metadata for reflection on method parameters.
+                          Stores formal parameter names of constructors and methods in the generated class file
+                          so that the method java.lang.reflect.Executable.getParameters from the Reflection API can retrieve them.
+                        -->
+                        <parameters>true</parameters>
                         <source>${java.version}</source>
                         <target>${java.version}</target>
                         <encoding>UTF-8</encoding>
@@ -202,19 +167,79 @@
                 </plugin>
 
                 <plugin>
+                    <groupId>${quarkus.platform.group-id}</groupId>
+                    <artifactId>quarkus-maven-plugin</artifactId>
+                    <version>${quarkus.platform.version}</version>
+                </plugin>
+
+                <!-- quarkus is build-time CDI, you need include jandex-maven-plugin in every submodule -->
+                <plugin>
                     <groupId>io.smallrye</groupId>
                     <artifactId>jandex-maven-plugin</artifactId>
-                    <version>3.2.2</version>
-                    <executions>
-                        <execution>
-                            <id>make-index</id>
-                            <goals>
-                                <goal>jandex</goal>
-                            </goals>
-                        </execution>
-                    </executions>
+                    <version>${jandex.version}</version>
                 </plugin>
+
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${surefire-plugin.version}</version>
+                    <configuration>
+                        <systemPropertyVariables>
+                            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                            <maven.home>${maven.home}</maven.home>
+                            <quarkus.http.test-port>8082</quarkus.http.test-port>
+                        </systemPropertyVariables>
+                    </configuration>
+                </plugin>
+
+                <plugin>
+                    <artifactId>maven-failsafe-plugin</artifactId>
+                    <version>${surefire-plugin.version}</version>
+                    <configuration>
+                        <systemPropertyVariables>
+                            <native.image.path>${project.build.directory}/${project.build.finalName}-runner
+                            </native.image.path>
+                            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+                            <maven.home>${maven.home}</maven.home>
+                        </systemPropertyVariables>
+                    </configuration>
+                </plugin>
+
             </plugins>
         </pluginManagement>
+
+<!--        <plugins>-->
+<!--            &lt;!&ndash; quarkus not have user defined main Application class &ndash;&gt;-->
+<!--            &lt;!&ndash; so define quarkus plugin in root, not in starter submodule &ndash;&gt;-->
+<!--            <plugin>-->
+<!--                <groupId>${quarkus.platform.group-id}</groupId>-->
+<!--                <artifactId>quarkus-maven-plugin</artifactId>-->
+<!--                <extensions>true</extensions>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>build</goal>-->
+<!--                            <goal>generate-code</goal>-->
+<!--                            <goal>generate-code-tests</goal>-->
+<!--                            <goal>native-image-agent</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--            <plugin>-->
+<!--                <groupId>io.smallrye</groupId>-->
+<!--                <artifactId>jandex-maven-plugin</artifactId>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>make-index</id>-->
+<!--                        <goals>-->
+<!--                            <goal>jandex</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
     </build>
+
+
+
 </project>

@@ -1,0 +1,49 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.example.halo.api.grpc.store";
+option java_outer_classname = "StoreGrpcProto";
+
+package store;
+
+import "google/protobuf/timestamp.proto";
+
+service StoreGrpc {
+    rpc Register (RegisterRequest) returns (RegisterReply) {}
+    rpc Procure (ProcureRequest) returns (ProcureReply) {}
+    rpc fetchAllBooks (FetchAllBooksRequest) returns (FetchAllBooksReply) {}
+}
+
+
+message Store {
+    uint64 id = 1;
+    string name = 2;
+    string website = 3;
+    google.protobuf.Timestamp create_time = 6;
+    google.protobuf.Timestamp update_time = 7;
+}
+
+message RegisterRequest {
+    string name = 1;
+}
+
+message RegisterReply {
+    string message = 1;
+}
+
+
+message ProcureRequest {
+    string name = 1;
+}
+
+message ProcureReply {
+    string message = 1;
+}
+
+message FetchAllBooksRequest {
+
+}
+
+message FetchAllBooksReply {
+
+}

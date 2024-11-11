@@ -12,7 +12,6 @@
     <name>starter</name>
 
     <dependencies>
-
         <dependency>
             <groupId>${groupId}</groupId>
             <artifactId>${rootArtifactId}-api-adapter-rest</artifactId>
@@ -25,7 +24,7 @@
 
         <dependency>
             <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}-core-model</artifactId>
+            <artifactId>${rootArtifactId}-common</artifactId>
         </dependency>
 
         <dependency>
@@ -35,26 +34,49 @@
 
         <dependency>
             <groupId>${groupId}</groupId>
-            <artifactId>${rootArtifactId}-core-gateway</artifactId>
+            <artifactId>${rootArtifactId}-infra-message</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${rootArtifactId}-infra-persistent</artifactId>
         </dependency>
 
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-micrometer-registry-prometheus</artifactId>
+            <artifactId>quarkus-hibernate-orm-rest-data-panache</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>io.quarkus</groupId>
+            <artifactId>quarkus-smallrye-openapi</artifactId>
+        </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-arc</artifactId>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-rest</artifactId>
+            <artifactId>quarkus-jdbc-h2</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>io.quarkus</groupId>
-            <artifactId>quarkus-grpc</artifactId>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-core</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>io.quarkus</groupId>
             <artifactId>quarkus-junit5</artifactId>
@@ -67,12 +89,13 @@
         </dependency>
     </dependencies>
 
+
+
     <build>
         <plugins>
             <plugin>
                 <groupId>${quarkus.platform.group-id}</groupId>
                 <artifactId>quarkus-maven-plugin</artifactId>
-                <version>${quarkus.platform.version}</version>
                 <extensions>true</extensions>
                 <executions>
                     <execution>
@@ -80,51 +103,34 @@
                             <goal>build</goal>
                             <goal>generate-code</goal>
                             <goal>generate-code-tests</goal>
-                            <goal>native-image-agent</goal>
                         </goals>
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>${compiler-plugin.version}</version>
-                <configuration>
-                    <parameters>true</parameters>
-                </configuration>
             </plugin>
-            <plugin>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${surefire-plugin.version}</version>
-                <configuration>
-                    <systemPropertyVariables>
-                        <quarkus.http.test-port>8082</quarkus.http.test-port>
-                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                        <maven.home>${maven.home}</maven.home>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
-            <plugin>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>${surefire-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <systemPropertyVariables>
-                        <native.image.path>${project.build.directory}/${project.build.finalName}-runner</native.image.path>
-                        <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-                        <maven.home>${maven.home}</maven.home>
-                    </systemPropertyVariables>
-                </configuration>
-            </plugin>
+
             <plugin>
                 <groupId>io.smallrye</groupId>
                 <artifactId>jandex-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>make-index</id>
+                        <goals>
+                            <goal>jandex</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
             </plugin>
         </plugins>
     </build>
@@ -152,5 +158,6 @@
             </properties>
         </profile>
     </profiles>
+
 
 </project>

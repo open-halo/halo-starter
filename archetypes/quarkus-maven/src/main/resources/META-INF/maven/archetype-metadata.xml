@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archetype-descriptor xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.1.0 http://maven.apache.org/xsd/archetype-catalog-1.1.0.xsd" name="halo"
-    xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.1.0"
+<archetype-descriptor xsi:schemaLocation="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0 https://maven.apache.org/xsd/archetype-descriptor-1.1.0.xsd" name="halo"
+    xmlns="https://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <fileSets>
     <fileSet filtered="true" encoding="UTF-8">
@@ -30,7 +30,6 @@
       </includes>
     </fileSet>
     <fileSet encoding="UTF-8">
-      <directory></directory>
       <includes>
         <include>mvnw.cmd</include>
         <include>README.md</include>
@@ -38,19 +37,12 @@
         <include>.dockerignore</include>
         <include>.gitignore</include>
         <include>mvnw</include>
+        <include>native.sh</include>
       </includes>
     </fileSet>
   </fileSets>
   <modules>
     <module id="${rootArtifactId}-api" dir="api" name="${rootArtifactId}-api">
-      <fileSets>
-        <fileSet encoding="UTF-8">
-          <directory></directory>
-          <includes>
-            <include>README.md</include>
-          </includes>
-        </fileSet>
-      </fileSets>
       <modules>
         <module id="${rootArtifactId}-api-rest" dir="rest" name="${rootArtifactId}-api-rest">
           <fileSets>
@@ -60,42 +52,16 @@
                 <include>**/*.java</include>
               </includes>
             </fileSet>
-            <fileSet filtered="true" packaged="true" encoding="UTF-8">
-              <directory>src/test/java</directory>
-              <includes>
-                <include>**/*.java</include>
-              </includes>
-            </fileSet>
           </fileSets>
         </module>
       </modules>
     </module>
     <module id="${rootArtifactId}-api-adapter" dir="api-adapter" name="${rootArtifactId}-api-adapter">
-      <fileSets>
-        <fileSet filtered="true" packaged="true" encoding="UTF-8">
-          <directory>src/main/java</directory>
-          <includes>
-            <include>**/*.java</include>
-          </includes>
-        </fileSet>
-        <fileSet filtered="true" packaged="true" encoding="UTF-8">
-          <directory>src/test/java</directory>
-          <includes>
-            <include>**/*.java</include>
-          </includes>
-        </fileSet>
-      </fileSets>
       <modules>
         <module id="${rootArtifactId}-api-adapter-rest" dir="rest" name="${rootArtifactId}-api-adapter-rest">
           <fileSets>
             <fileSet filtered="true" packaged="true" encoding="UTF-8">
               <directory>src/main/java</directory>
-              <includes>
-                <include>**/*.java</include>
-              </includes>
-            </fileSet>
-            <fileSet filtered="true" packaged="true" encoding="UTF-8">
-              <directory>src/test/java</directory>
               <includes>
                 <include>**/*.java</include>
               </includes>
@@ -116,22 +82,31 @@
                 <include>**/*.proto</include>
               </includes>
             </fileSet>
-            <fileSet filtered="true" packaged="true" encoding="UTF-8">
-              <directory>src/test/java</directory>
-              <includes>
-                <include>**/*.java</include>
-              </includes>
-            </fileSet>
           </fileSets>
         </module>
       </modules>
     </module>
-    <module id="${rootArtifactId}-common" dir="common" name="${rootArtifactId}-common">
+    <module id="${rootArtifactId}-starter" dir="starter" name="${rootArtifactId}-starter">
       <fileSets>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
           <directory>src/main/java</directory>
           <includes>
             <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" encoding="UTF-8">
+          <directory>src/main/resources</directory>
+          <includes>
+            <include>**/*.properties</include>
+          </includes>
+        </fileSet>
+        <fileSet encoding="UTF-8">
+          <directory>src/main/docker</directory>
+          <includes>
+            <include>**/*.jvm</include>
+            <include>**/*.native</include>
+            <include>**/*.legacy-jar</include>
+            <include>**/*.native-micro</include>
           </includes>
         </fileSet>
         <fileSet filtered="true" packaged="true" encoding="UTF-8">
@@ -158,18 +133,17 @@
                 <include>**/*.java</include>
               </includes>
             </fileSet>
+            <fileSet encoding="UTF-8">
+              <includes>
+                <include>README.md</include>
+              </includes>
+            </fileSet>
           </fileSets>
         </module>
         <module id="${rootArtifactId}-core-service" dir="service" name="${rootArtifactId}-core-service">
           <fileSets>
             <fileSet filtered="true" packaged="true" encoding="UTF-8">
               <directory>src/main/java</directory>
-              <includes>
-                <include>**/*.java</include>
-              </includes>
-            </fileSet>
-            <fileSet filtered="true" packaged="true" encoding="UTF-8">
-              <directory>src/test/java</directory>
               <includes>
                 <include>**/*.java</include>
               </includes>
@@ -184,15 +158,30 @@
                 <include>**/*.java</include>
               </includes>
             </fileSet>
-            <fileSet filtered="true" packaged="true" encoding="UTF-8">
-              <directory>src/test/java</directory>
+            <fileSet encoding="UTF-8">
               <includes>
-                <include>**/*.java</include>
+                <include>README.md</include>
               </includes>
             </fileSet>
           </fileSets>
         </module>
       </modules>
+    </module>
+    <module id="${rootArtifactId}-common" dir="common" name="${rootArtifactId}-common">
+      <fileSets>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/main/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+          <directory>src/test/java</directory>
+          <includes>
+            <include>**/*.java</include>
+          </includes>
+        </fileSet>
+      </fileSets>
     </module>
     <module id="${rootArtifactId}-infra" dir="infra" name="${rootArtifactId}-infra">
       <modules>
@@ -235,57 +224,6 @@
           </fileSets>
         </module>
       </modules>
-    </module>
-    <module id="${rootArtifactId}-external" dir="external" name="${rootArtifactId}-external">
-      <modules>
-        <module id="${rootArtifactId}-external-weather" dir="weather" name="${rootArtifactId}-external-weather">
-          <fileSets>
-            <fileSet filtered="true" packaged="true" encoding="UTF-8">
-              <directory>src/main/java</directory>
-              <includes>
-                <include>**/*.java</include>
-              </includes>
-            </fileSet>
-            <fileSet filtered="true" packaged="true" encoding="UTF-8">
-              <directory>src/test/java</directory>
-              <includes>
-                <include>**/*.java</include>
-              </includes>
-            </fileSet>
-          </fileSets>
-        </module>
-      </modules>
-    </module>
-    <module id="${rootArtifactId}-starter" dir="starter" name="${rootArtifactId}-starter">
-      <fileSets>
-        <fileSet filtered="true" packaged="true" encoding="UTF-8">
-          <directory>src/main/java</directory>
-          <includes>
-            <include>**/*.java</include>
-          </includes>
-        </fileSet>
-        <fileSet filtered="true" encoding="UTF-8">
-          <directory>src/main/resources</directory>
-          <includes>
-            <include>**/*.properties</include>
-          </includes>
-        </fileSet>
-        <fileSet encoding="UTF-8">
-          <directory>src/main/docker</directory>
-          <includes>
-            <include>**/*.jvm</include>
-            <include>**/*.native</include>
-            <include>**/*.legacy-jar</include>
-            <include>**/*.native-micro</include>
-          </includes>
-        </fileSet>
-        <fileSet filtered="true" packaged="true" encoding="UTF-8">
-          <directory>src/test/java</directory>
-          <includes>
-            <include>**/*.java</include>
-          </includes>
-        </fileSet>
-      </fileSets>
     </module>
   </modules>
 </archetype-descriptor>

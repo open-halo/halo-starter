@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.example.halo.api.grpc.common";
+
+package common;
+
+message Pagination {
+    int32 page_size = 1;
+    int32 page_index = 2;
+}
+
+message PagedInfo {
+    int32 page_size = 1;
+    int32 page_index = 2;
+    int32 item_count = 3;
+    int64 item_total = 4;
+}
+
+message RequestInfo {
+    uint64 request_id = 1;
+    uint64 channel_id = 2;
+}
+
+message ReplyInfo {
+    uint64 request_id = 1;
+    bool success = 2;
+    uint64 err_code = 3;
+    string err_msg = 4;
+}

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.example.halo.api.grpc.book";
+
+
+import "base/common.proto";
+import "google/protobuf/timestamp.proto";
+
+package book;
+
+message Book {
+    uint64 id = 1;
+    string name = 2;
+    uint32 edition = 3;
+    string price = 4;
+    uint64 author_id = 5;
+    google.protobuf.Timestamp create_time = 6;
+    google.protobuf.Timestamp update_time = 7;
+}

@@ -129,34 +129,23 @@
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>testcontainers</artifactId>
+            <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.testcontainers</groupId>
             <artifactId>mysql</artifactId>
+            <scope>test</scope>
         </dependency>
 
     </dependencies>
 
-    <profiles>
-        <profile>
-            <id>dev-mysql</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <spring.profiles.active>dev-mysql</spring.profiles.active>
-            </properties>
-            <dependencies>
-                <!-- begin of testcontainer mysql -->
-
-                <!-- end of testcontainer mysql -->
-        </dependencies>
-    </profile>
-</profiles>
 
 
 <build>
