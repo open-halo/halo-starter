@@ -55,6 +55,7 @@ CREATE TABLE IF NOT EXISTS `book_store_link` (
     `book_id`   BIGINT NOT NULL,
     `store_id`  BIGINT NOT NULL,
     `remain_count`     INT NOT NULL DEFAULT 0,
+    `price`     DECIMAL(10, 2) NOT NULL,
     `create_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `update_time` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY(`id`)

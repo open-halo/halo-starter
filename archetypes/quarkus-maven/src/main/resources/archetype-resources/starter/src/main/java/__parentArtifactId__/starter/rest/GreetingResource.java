@@ -1,7 +1,7 @@
 #set( $symbol_pound = '#' )
 #set( $symbol_dollar = '$' )
 #set( $symbol_escape = '\' )
-package ${package};
+package ${package}.${parentArtifactId}.starter.rest;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
