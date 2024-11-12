@@ -18,6 +18,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.BufferedReader;
 import java.sql.Connection;
+import java.sql.Statement;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
@@ -30,11 +31,14 @@ public class SqlInitExecutor {
 
 
     private static void executeScript(Connection conn, String sqlPath, String sql, String stage) {
+        Statement statement = null;
         try {
 //            String sql = ResourceUtil.readUtf8Str(sqlPath);
             log.info("\ninit {} by {}:\n{}", stage, sqlPath, sql);
-            conn.createStatement().execute(sql);
+            statement = conn.createStatement();
+            statement.execute(sql);
             log.info("\ninit {} by {} success!", stage, sqlPath);
+            statement.close();
         } catch (Exception ex) {
             throw new RuntimeException(ex.getMessage());
         }
