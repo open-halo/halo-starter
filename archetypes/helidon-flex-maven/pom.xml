@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.example</groupId>
+  <artifactId>halo-archetype</artifactId>
+  <version>1.0</version>
+  <packaging>maven-archetype</packaging>
+
+  <name>halo-archetype</name>
+
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>3.3.1</version>
+      </extension>
+    </extensions>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-archetype-plugin</artifactId>
+          <version>3.3.1</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+  <description>Maven dependency management for Helidon applications</description>
+
+  <url>https://helidon.io/helidon-bom/helidon-dependencies/halo</url>
+
+  <developers>
+    <developer>
+      <name>Tomas Langer</name>
+      <email>tomas.langer@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Tim Quinn</name>
+      <email>tim.quinn@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Romain Grecourt</name>
+      <email>romain.grecourt@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Laird Nelson</name>
+      <email>laird.nelson@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Santiago Pericas-Geertsen</name>
+      <email>santiago.pericasgeertsen@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Bryan Atsatt</name>
+      <email>bryan.atsatt@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Paul Parkinson</name>
+      <email>paul.parkinson@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Joe Di Pol</name>
+      <email>joe.dipol@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Dmitry Kornilov</name>
+      <email>dmitry.kornilov@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>David Kral</name>
+      <email>david.k.kral@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Daniel Kec</name>
+      <email>daniel.kec@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Arjav Desai</name>
+      <email>arjav.desai@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Keith Lustria</name>
+      <email>keith.lustria@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Dmitry Aleksandrov</name>
+      <email>dmitry.aleksandrov@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+    <developer>
+      <name>Jeff Trent</name>
+      <email>jeff.trent@oracle.com</email>
+      <organization>Oracle Corporation</organization>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>Apache 2.0</name>
+      <url>https://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:git:git@github.com:oracle/helidon.git/helidon-bom/helidon-dependencies/halo</connection>
+    <developerConnection>scm:git:git@github.com:oracle/helidon.git/helidon-bom/helidon-dependencies/halo</developerConnection>
+    <url>https://github.com/oracle/helidon/helidon-bom/helidon-dependencies/halo</url>
+  </scm>
+</project>
