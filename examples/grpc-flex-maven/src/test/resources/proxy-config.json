@@ -1,0 +1,10 @@
+[
+  {
+    "name": "io.grpc.stub.AbstractStub",
+    "interfaces": ["io.grpc.ManagedChannel"]
+  },
+  {
+    "name": "io.grpc.stub.AbstractStreamObserver",
+    "interfaces": ["io.grpc.stub.StreamObserver"]
+  }
+]

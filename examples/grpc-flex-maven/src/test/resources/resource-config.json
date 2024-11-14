@@ -1,0 +1,22 @@
+[
+  {
+    "pattern": ".*\\.proto$",
+    "type": "file"
+  },
+  {
+    "pattern": ".*\\.properties$",
+    "type": "file"
+  },
+  {
+    "pattern": ".*\\.txt$",
+    "type": "file"
+  },
+  {
+    "pattern": ".*\\.xml$",
+    "type": "file"
+  },
+  {
+    "pattern": ".*\\.json$",
+    "type": "file"
+  }
+]
