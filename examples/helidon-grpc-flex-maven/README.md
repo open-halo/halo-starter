@@ -1,3 +1,8 @@
+# Status: Blocking
+
+现在fat-jar模式可以正常运行
+native-image模式下mybatis-flex会因为logger初始化失败
+
 # halo
 
 Sample Helidon SE project that includes multiple REST operations.
@@ -8,7 +13,7 @@ Sample Helidon SE project that includes multiple REST operations.
 | type    | memory usage | jar size | binary size |
 |---------|--------------|----------|-------------|
 | fat-jar |              | 8K       | -           |
-| native  | 177.2M       | -        | 40M         |
+| native  | 177.2M       | -        | 77M         |
  
 ### Binary Size
 1. Helidon SE: 40M

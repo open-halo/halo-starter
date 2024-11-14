@@ -52,7 +52,7 @@ public class Application {
         Config config = Config.create();
         Config.global(config);
 
-        LogFactory.useSlf4jLogging();
+        LogFactory.useNoLogging();
 
         WebServer server = WebServer.builder()
                 .config(config.get("server"))
