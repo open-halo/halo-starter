@@ -2,6 +2,8 @@
 
 现在fat-jar模式可以正常运行
 native-image模式下jdbi会因为找不到类，而导致部分功能无法正常使用
+已经通过这个blog添加类reflect-config.json，现在能够正常build，但是运行有异常
+https://gist.github.com/Eng-Fouad/7b5925481dd391fcc74487a68484b987
 
 # halo
 
