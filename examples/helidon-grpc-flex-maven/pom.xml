@@ -417,6 +417,11 @@
                             <artifactId>avaje-inject-generator</artifactId>
                             <version>${avaje.inject.version}</version>
                         </path>
+                        <path>
+                            <groupId>com.mybatis-flex</groupId>
+                            <artifactId>mybatis-flex-processor</artifactId>
+                            <version>${mybatis-flex.version}</version>
+                        </path>
                     </annotationProcessorPaths>
                 </configuration>
             </plugin>
