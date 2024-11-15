@@ -22,6 +22,22 @@ cd ~/your-awesome-projext-dir
 mvn archetype:generate -DarchetypeCatalog=local
 ```
 
+## 框架支持进展
+| 框架名称                    | 框架组合                               | 当前状态 | 正在建设的点  |
+|-------------------------|------------------------------------|----|---------|
+| spring-boot-maven       | spring + jimmer + maven            | 可用 | 示例&测试   |
+| spring-boot-jaxrs-maven | spring + resteasy + jimmer + maven | 基本可用 | OpenAPI |
+| quarkus-maven           | quarkus + JPA + maven              | 可用 | 示例&测试   |
+| helidon-flex-maven      | helidon + Mybatis-Flex + maven     | 基本可用 | GraalVM |
+
+* spring-boot-maven：绝大多数情况的默认选择，优点是主流，主流的生态就是最大的优点
+* spring-boot-jaxrs-maven: 如果继续用spring，但是又希望尽量标准化，为将来迁移到其他框架做准备用，也可以是过渡框架
+但是现在和spring-doc的融合还有问题，没有办法正确识别jakarta的注解  
+[issue](https://github.com/resteasy/resteasy-spring-boot/issues/349)
+* quarkus-maven：现在开发体验最好的框架，无论是热更新，还是打包到native，支持都一流
+* helidon-flex-maven：追求最小内存，最快启动时间的选择。  
+现在Mybatis-Flex的native支持有问题
+[issue](https://github.com/mybatis-flex/mybatis-flex/issues/435)
 
 ## 特性
 ### [1] 符合DDD设计的多模块工程架子
