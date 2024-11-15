@@ -25,10 +25,10 @@ mvn archetype:generate -DarchetypeCatalog=local
 ## 框架支持进展
 | 框架名称                    | 框架组合                         | 成熟度     | graalvm    | 正在建设的点  |
 |-------------------------|----------------------------------|---------|------------|---------|
-| spring-boot-maven       | spring + jimmer + maven          | :star:  | build fail | 示例&测试   |
-| spring-boot-jaxrs-maven | spring + resteasy + jimmer + maven | :sparkles: | build fail | OpenAPI |
-| quarkus-maven           | quarkus + jpa + maven            | :star:  | ready      | 示例&测试   |
-| helidon-flex-maven      | helidon + mybatis-flex + maven   | :sparkles: | build pass | GraalVM |
+| spring-boot-maven       | spring + jimmer + maven          | :star:  | :sweat: | 示例&测试   |
+| spring-boot-jaxrs-maven | spring + resteasy + jimmer + maven | :sparkles: | :sweat: | OpenAPI |
+| quarkus-maven           | quarkus + jpa + maven            | :star:  | :heart:      | 示例&测试   |
+| helidon-flex-maven      | helidon + mybatis-flex + maven   | :sparkles: | :broken_heart: | GraalVM |
 
 ### 成熟度等级说明
 * :sparkles: Lv1-可构建: 可以正常构建，基本功能都有，但缺少示例代码 & 测试代码，插件支持可能不全
@@ -39,7 +39,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 
 ### Graalvm支持度说明
 * :sweat: build fail: 还不能构建graalvm native可执行程序
-* :broken_heart: build pass: 可以正常构建了，但是运行可能还有问题
+* :broken_heart: build pass: 可以正常构建了，但是运行还有问题
 * :heart: ready: 可正常运行
 * :sparkling_heart: production ready: 有实例在长期运行，没有问题被发现
 
