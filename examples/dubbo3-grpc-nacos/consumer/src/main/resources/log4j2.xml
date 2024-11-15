@@ -1,0 +1,17 @@
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%style{%d{HH:mm:ss.SSS}}{Magenta} %style{|-}{White}%highlight{%-5p} [%t] %style{%40.40c}{Cyan}:%style{%-3L}{Blue} %style{-|}{White} %m%n%rEx{filters(jdk.internal.reflect,java.lang.reflect,sun.reflect)}" disableAnsi="false" charset="UTF-8"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <Logger name="log4j.logger.org.apache.zookeeper" level="warn" />
+        <Logger name="log4j.logger.org.apache.dubbo.registry.zookeeper" level="warn" />
+        <Logger name="log4j.logger.org.apache.dubbo.config.deploy" level="warn" />
+        <Logger name="log4j.logger.org.apache.dubbo.registry.client" level="warn" />
+        <Logger name="log4j.logger.org.apache.dubbo.rpc.model" level="warn" />
+    </Loggers>
+</Configuration>
