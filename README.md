@@ -44,15 +44,21 @@ mvn archetype:generate -DarchetypeCatalog=local
 * :sparkling_heart: production ready: 有实例在长期运行，没有问题被发现
 
 ### 选择参考
-* spring-boot-maven：绝大多数情况的默认选择，优点是主流，主流的生态就是最大的优点。
+* spring-boot-maven：绝大多数情况的默认选择。
+:thumbsup: 优点是主流，主流的生态就是最大的优点。
+:thumbsdown: 因为大量使用spring的注解，所以移植性不高
+
 * spring-boot-jaxrs-maven: 如果继续用spring，但是又希望尽量使用标准化jakarta注解时选择。  
-为将来迁移到其他框架做准备用，也可以是过渡框架。  
-但是现在和spring-doc的融合还有问题，没有办法正确识别jakarta的注解  
-:warning: [issue](https://github.com/resteasy/resteasy-spring-boot/issues/349)
-* quarkus-maven：现在开发体验最好的框架，无论是热更新，还是打包到native，支持都一流
-* helidon-flex-maven：追求最小内存，最快启动时间的选择。  
-现在Mybatis-Flex的graalvm-native支持有问题  
-:warning: [issue](https://github.com/mybatis-flex/mybatis-flex/issues/435)
+:thumbsup: 在spring环境下使用了jakarta标准注解，可移植性高。
+:thumbsdown: 没有脱离spring生态，core层的整洁性没有得到绝对保证  
+同时现在和spring-doc的融合还有问题，没有办法正确识别jakarta的注解用于生成文档：  :warning: [issue](https://github.com/resteasy/resteasy-spring-boot/issues/349)
+* quarkus-maven：现代化的，开发体验最好的框架。
+:thumbsup: 热更新，native支持一流，quarkus的dev-ui开发体验良好
+:thumbsdown: 多模块支持有时候还有异常，生态没有spring强大
+
+* helidon-flex-maven：追求最小内存，最大化虚拟线程支持，最快启动时间的选择。  
+:thumbsup: 虚拟线程支持，内存占用，启动速度都非常优秀。
+:thumbsdown: helidon相对小众，生态小众。同时Mybatis-Flex的graalvm-native支持有问题  :warning: [issue](https://github.com/mybatis-flex/mybatis-flex/issues/435)
 
 ## 特性
 ### [1] 符合DDD设计的多模块工程架子
