@@ -185,10 +185,10 @@ mvn archetype:generate -DarchetypeCatalog=local
 * 个人级项目推荐gradle，因为行数少，修改依赖简单一些，能节省不少代码，同时也能玩出高级花活儿，上限有保证。  
 
 ### 关于Spring boot/quarkus/micronaut/helidon
-* spring: :tada: 生态最庞大，最成熟，资料最多，时髦的graalvm native也能做。  
-* quarkus: :fire: 如果实在希望内存占用少，轻量化且现代化，推荐quarkus，热更新做得特别好，DI是一个build-time的实现。
-* micronaut: :star: 编译期DI和编译期AOP，不喜欢反射，同时考虑极致性能可以考虑。
-* helidon: :star: 因为不依赖于netty，所以模块化和虚拟线程支持一流，虚拟线程目前看有内存占用优势。  
+* :tada: spring:  生态最庞大，最成熟，资料最多，时髦的graalvm native也能做。  
+* :fire: quarkus:  如果实在希望内存占用少，轻量化且现代化，推荐quarkus，热更新做得特别好，DI是一个build-time的实现。
+* :star: micronaut:  编译期DI和编译期AOP，不喜欢反射，同时考虑极致性能可以考虑。
+* :star: helidon:  因为不依赖于netty，所以模块化和虚拟线程支持一流，虚拟线程目前看有内存占用优势。  
 
 ### 关于IoC/DI注入注解
 * 推荐使用jakarta标准注解，而不用spring的@Autowire
