@@ -184,14 +184,18 @@ mvn archetype:generate -DarchetypeCatalog=local
 * 公司级项目推荐maven，因为简单，因为没有那么多高级特性，所以不用担心某些同事玩出花活儿，下限有保证。  
 * 个人级项目推荐gradle，因为行数少，修改依赖简单一些，能节省不少代码，同时也能玩出高级花活儿，上限有保证。  
 
-### 关于Spring boot/quarkus/micronaut/helidon
+### 关于spring/quarkus/micronaut/helidon
 * :tada: spring:  生态最庞大，最成熟，资料最多，时髦的graalvm native也能做。  
 * :fire: quarkus:  如果实在希望内存占用少，轻量化且现代化，推荐quarkus，热更新做得特别好，DI是一个build-time的实现。生态算仅次于spring的第二好的了。
 * :star: micronaut:  编译期DI和编译期AOP，不喜欢反射，同时考虑极致性能可以考虑。
 * :star: helidon:  因为不依赖于netty，所以模块化和虚拟线程支持一流，虚拟线程目前看有内存占用优势。  
 
 ### 关于IoC/DI注入注解
-* 推荐使用jakarta标准注解，而不用spring的@Autowire
+* spring中推荐使用jakarta标准注解，或者构造器注入，而不用spring的@Autowire
+* quarkus是一个build-time的实现，兼容CDI
+* micronaut是一个compile-time的实现，兼容CDI
+* 可以关注一下avaje/inject，是一个通用的compile-time的DI方案，挺好用的
+
 
 ### 关于restful接口的注解
 * 建议用jakarta标准注解，就算在spring环境中也建议用标准注解。
