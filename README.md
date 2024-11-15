@@ -58,7 +58,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 
 * helidon-flex-maven：追求最小内存，最大化虚拟线程支持，最快启动时间的选择。   
 :thumbsup: 虚拟线程支持，内存占用，启动速度都非常优秀。  
-:thumbsdown: helidon相对小众，生态小众。同时Mybatis-Flex的graalvm-native支持有问题  :warning: [issue](https://github.com/mybatis-flex/mybatis-flex/issues/435)
+:thumbsdown: helidon相对小众，生态更加小众。同时Mybatis-Flex的graalvm-native支持有问题  :warning: [issue](https://github.com/mybatis-flex/mybatis-flex/issues/435)
 
 ## 特性
 ### [1] 符合DDD设计的多模块工程架子
