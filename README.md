@@ -51,7 +51,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 :warning: [issue](https://github.com/resteasy/resteasy-spring-boot/issues/349)
 * quarkus-maven：现在开发体验最好的框架，无论是热更新，还是打包到native，支持都一流
 * helidon-flex-maven：追求最小内存，最快启动时间的选择。  
-现在Mybatis-Flex的graalvm-native支持有问题
+现在Mybatis-Flex的graalvm-native支持有问题  
 :warning: [issue](https://github.com/mybatis-flex/mybatis-flex/issues/435)
 
 ## 特性
