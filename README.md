@@ -25,10 +25,10 @@ mvn archetype:generate -DarchetypeCatalog=local
 ## 框架支持进展
 | 框架名称                    | 框架组合                         | 成熟度     | graalvm    | 正在建设的点  |
 |-------------------------|----------------------------------|---------|------------|---------|
-| spring-boot-maven       | spring + jimmer + maven          | Lv2-可用  | build fail | 示例&测试   |
-| spring-boot-jaxrs-maven | spring + resteasy + jimmer + maven | Lv1-可构建 | build fail | OpenAPI |
-| quarkus-maven           | quarkus + jpa + maven            | Lv2-可用  | ready      | 示例&测试   |
-| helidon-flex-maven      | helidon + mybatis-flex + maven   | Lv1-可构建 | build pass | GraalVM |
+| spring-boot-maven       | spring + jimmer + maven          | :star:  | build fail | 示例&测试   |
+| spring-boot-jaxrs-maven | spring + resteasy + jimmer + maven | :sparkles: | build fail | OpenAPI |
+| quarkus-maven           | quarkus + jpa + maven            | :star:  | ready      | 示例&测试   |
+| helidon-flex-maven      | helidon + mybatis-flex + maven   | :sparkles: | build pass | GraalVM |
 
 ### 成熟度等级说明
 * :sparkles: Lv1-可构建: 可以正常构建，基本功能都有，但缺少示例代码 & 测试代码，插件支持可能不全
