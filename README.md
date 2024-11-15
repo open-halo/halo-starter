@@ -191,7 +191,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 * :star: helidon:  因为不依赖于netty，所以模块化和虚拟线程支持一流，虚拟线程目前看有内存占用优势。  
 
 ### IoC/DI方案: spring/CDI/avaje
-* spring: 推荐使用jakarta标准注解，或者构造器注入，而不用spring的@Autowire，主支持自定义注解，也能兼容大部分CDI
+* spring: 主支持自定义注解，也能兼容大部分CDI；推荐使用jakarta标准注解，或者构造器注入，而不用spring的@Autowire。
 * CDI: quarkus/micronaut/helidon都兼容CDI，quarkus是一个build-time的实现，micronaut是一个compile-time实现，helidon是runtime实现
 * avaje/inject: 是一个通用的compile-time的DI方案，挺好用的
 
