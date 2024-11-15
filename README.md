@@ -200,10 +200,6 @@ mvn archetype:generate -DarchetypeCatalog=local
 * grpc: 高性能，纯后端交互支持不错，前后端交互能通过grpc-web勉强支持
 * dubbo3: 目前偏向于纯后端微服务交互方案，兼容grpc，有成熟的微服务治理方案
 
-#### 关于restful接口的注解
-* 建议用jakarta标准注解，就算在spring环境中也建议用标准注解。
-* 你会发现万一有一天需要迁移到其他框架的时候，能节省大量工作量。
-* 最主要的是jakarta标准注解比起spring注解也没有太多不方便的地方。
 
 #### REST接口
 * 通过interface直接生成OpenApi文档是较好的工程实践
@@ -218,6 +214,14 @@ mvn archetype:generate -DarchetypeCatalog=local
 * :thumbsup: 现在从grpc迁移到dubbo3的生态比较容易
 * :thumbsdown: GRPC直接做前后端交互现在还有少量缺陷，例如文件上传麻烦
 * :thumbsdown: 网关想做细粒度的权限控制复杂，因为不好在网关层感知payload内容
+
+#### Dubbo3接口
+* 倾向于纯后端的微服务方案，支持前端交互的dubbo-js生态还不成熟
+* 有完善的服务可视化/追踪/限流/熔断等治理方案
+* Java研发时体验优秀，远好于rest的开发体验，毕竟一个interface就定好协议了
+* Dubbo3兼容grpc是一个非常优秀的决策，让跨语言交互成为可能
+* :thumbsdown: 现在还只有spring生态比较完善，其他的生态还非常不成熟 [issue](https://github.com/apache/dubbo/issues/14897)
+
 
 ### 参数校验方案: jakarta validation
 * jakarta validation的默认实现hibernate validator注解校验是现在体验最好的标准化方案
