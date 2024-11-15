@@ -203,14 +203,16 @@ mvn archetype:generate -DarchetypeCatalog=local
 * 通过interface直接生成OpenApi文档是较好的工程实践
 * 开发环境支持swagger-ui和直接下载openapi.yaml，生产环境关闭
 * 前端可以通过类似orval的工具，根据下载的openapi.yaml自动生成client
-* REST是多数情况下的默认最优解
+* :tada: REST是多数情况下的默认最优解，前后端都有非常多成熟的方案
 **当前resteasy-spring-boot-starter和spring-doc还无法兼容**
 
 #### GRPC接口
 * 后端直接定义.proto文件，在API层生成需要实现的接口
 * 前端通过工具从.proto文件直接生成client文件
-* GRPC直接做前后端交互现在还有少量缺陷，例如文件上传麻烦
-* 网关想做细粒度的权限控制复杂，因为不好在网关层感知payload内容
+* :thumbsup: 性能高于rest，节省传输带宽
+* :thumbsup: 现在从grpc迁移到dubbo3的生态比较容易
+* :thumbsdown: GRPC直接做前后端交互现在还有少量缺陷，例如文件上传麻烦
+* :thumbsdown: 网关想做细粒度的权限控制复杂，因为不好在网关层感知payload内容
 
 ### 关于bean校验
 * hibernate validator注解校验是现在体验最好的标准化方案
