@@ -31,7 +31,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 | helidon-flex-maven      | helidon + mybatis-flex + maven   | Lv1-可构建 | build pass | GraalVM |
 
 ### 成熟度等级说明
-* Lv1-可构建: 可以正常构建，基本功能都有，但缺少示例代码 & 测试代码，插件支持可能不全
+* :collision: Lv1-可构建: 可以正常构建，基本功能都有，但缺少示例代码 & 测试代码，插件支持可能不全
 * Lv2-可用: 在基本可用的基础上，补全了插件支持，增加了完整的示例代码 
 * Lv3-测试就绪: 在可用的基础上，补全了完整的测试方案和测试代码
 * Lv4-性能就绪: 在可用的基础上，经历过完整的性能测试，有测试报告
