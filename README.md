@@ -44,7 +44,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 * :sparkling_heart: production ready: 有实例在长期运行，没有问题被发现
 
 ### 选择参考
-* spring-boot-maven：绝大多数情况的默认选择。
+* spring-boot-maven：绝大多数情况的默认选择。  
 :thumbsup: 优点是主流，主流的生态就是最大的优点。
 :thumbsdown: 因为大量使用spring的注解，所以移植性不高
 
