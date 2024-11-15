@@ -45,7 +45,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 
 ### 选择参考
 * spring-boot-maven：绝大多数情况的默认选择。  
-:thumbsup: 优点是主流，主流的生态就是最大的优点。
+:thumbsup: 优点是主流，主流的生态就是最大的优点。  
 :thumbsdown: 因为大量使用spring的注解，所以移植性不高
 
 * spring-boot-jaxrs-maven: 如果继续用spring，但是又希望尽量使用标准化jakarta注解时选择。  
