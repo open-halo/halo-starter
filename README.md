@@ -38,10 +38,10 @@ mvn archetype:generate -DarchetypeCatalog=local
 * :tada: Lv5-生产就绪: 有生产环境的用例在持续运行，长期观测无性能异常，无内存泄漏，无GC异常等
 
 ### Graalvm支持度说明
-* build fail: 还不能构建graalvm native可执行程序
-* build pass: 可以正常构建了，但是运行可能还有问题
-* ready: 可正常运行
-* production ready: 有实例在长期运行，没有问题被发现
+* :sweat: build fail: 还不能构建graalvm native可执行程序
+* :broken_heart: build pass: 可以正常构建了，但是运行可能还有问题
+* :heart: ready: 可正常运行
+* :sparkling_heart: production ready: 有实例在长期运行，没有问题被发现
 
 ### 选择参考
 * spring-boot-maven：绝大多数情况的默认选择，优点是主流，主流的生态就是最大的优点。
