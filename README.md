@@ -23,20 +23,28 @@ mvn archetype:generate -DarchetypeCatalog=local
 ```
 
 ## 框架支持进展
-| 框架名称                    | 框架组合                               | 当前状态 | 正在建设的点  |
-|-------------------------|------------------------------------|----|---------|
-| spring-boot-maven       | spring + jimmer + maven            | 可用 | 示例&测试   |
-| spring-boot-jaxrs-maven | spring + resteasy + jimmer + maven | 基本可用 | OpenAPI |
-| quarkus-maven           | quarkus + JPA + maven              | 可用 | 示例&测试   |
-| helidon-flex-maven      | helidon + Mybatis-Flex + maven     | 基本可用 | GraalVM |
+| 框架名称                    | 框架组合                         | 成熟度 | graalvm    | 正在建设的点  |
+|-------------------------|----------------------------------|-----|------------|---------|
+| spring-boot-maven       | spring + jimmer + maven          | 可用  | No         | 示例&测试   |
+| spring-boot-jaxrs-maven | spring + resteasy + jimmer + maven | 可构建 | NO         | OpenAPI |
+| quarkus-maven           | quarkus + jpa + maven            | 可用  | Ready      | 示例&测试   |
+| helidon-flex-maven      | helidon + mybatis-flex + maven   | 可构建 | build pass | GraalVM |
 
-* spring-boot-maven：绝大多数情况的默认选择，优点是主流，主流的生态就是最大的优点
-* spring-boot-jaxrs-maven: 如果继续用spring，但是又希望尽量标准化，为将来迁移到其他框架做准备用，也可以是过渡框架
+### 成熟度等级说明
+* 可构建：可以正常构建，基本功能都有，但缺少示例代码 & 测试代码
+* 可用：在基本可用的基础上，增加了完整的示例代码 & 测试代码
+* 性能就绪：在可用的基础上，经历过完整的性能测试，有测试报告
+* 生产就绪：有生产环境的测试用例在持续运行，长期观测无性能异常，无内存泄漏，无GC异常等
+
+### 选择参考
+* spring-boot-maven：绝大多数情况的默认选择，优点是主流，主流的生态就是最大的优点。
+* spring-boot-jaxrs-maven: 如果继续用spring，但是又希望尽量使用标准化jakarta注解时选择。  
+为将来迁移到其他框架做准备用，也可以是过渡框架。  
 但是现在和spring-doc的融合还有问题，没有办法正确识别jakarta的注解  
 [issue](https://github.com/resteasy/resteasy-spring-boot/issues/349)
 * quarkus-maven：现在开发体验最好的框架，无论是热更新，还是打包到native，支持都一流
 * helidon-flex-maven：追求最小内存，最快启动时间的选择。  
-现在Mybatis-Flex的native支持有问题
+现在Mybatis-Flex的graalvm-native支持有问题
 [issue](https://github.com/mybatis-flex/mybatis-flex/issues/435)
 
 ## 特性
