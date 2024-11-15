@@ -23,18 +23,25 @@ mvn archetype:generate -DarchetypeCatalog=local
 ```
 
 ## 框架支持进展
-| 框架名称                    | 框架组合                         | 成熟度 | graalvm    | 正在建设的点  |
-|-------------------------|----------------------------------|-----|------------|---------|
-| spring-boot-maven       | spring + jimmer + maven          | 可用  | No         | 示例&测试   |
-| spring-boot-jaxrs-maven | spring + resteasy + jimmer + maven | 可构建 | NO         | OpenAPI |
-| quarkus-maven           | quarkus + jpa + maven            | 可用  | Ready      | 示例&测试   |
-| helidon-flex-maven      | helidon + mybatis-flex + maven   | 可构建 | build pass | GraalVM |
+| 框架名称                    | 框架组合                         | 成熟度     | graalvm    | 正在建设的点  |
+|-------------------------|----------------------------------|---------|------------|---------|
+| spring-boot-maven       | spring + jimmer + maven          | Lv2-可用  | build fail | 示例&测试   |
+| spring-boot-jaxrs-maven | spring + resteasy + jimmer + maven | Lv1-可构建 | build fail | OpenAPI |
+| quarkus-maven           | quarkus + jpa + maven            | Lv2-可用  | ready      | 示例&测试   |
+| helidon-flex-maven      | helidon + mybatis-flex + maven   | Lv1-可构建 | build pass | GraalVM |
 
 ### 成熟度等级说明
-* 可构建：可以正常构建，基本功能都有，但缺少示例代码 & 测试代码
-* 可用：在基本可用的基础上，增加了完整的示例代码 & 测试代码
-* 性能就绪：在可用的基础上，经历过完整的性能测试，有测试报告
-* 生产就绪：有生产环境的测试用例在持续运行，长期观测无性能异常，无内存泄漏，无GC异常等
+* Lv1-可构建：可以正常构建，基本功能都有，但缺少示例代码 & 测试代码，插件支持可能不全
+* Lv2-可用：在基本可用的基础上，补全了插件支持，增加了完整的示例代码 
+* Lv3-测试就绪：在可用的基础上，补全了完整的测试方案和测试代码
+* Lv4-性能就绪：在可用的基础上，经历过完整的性能测试，有测试报告
+* Lv5-生产就绪：有生产环境的测试用例在持续运行，长期观测无性能异常，无内存泄漏，无GC异常等
+
+### Graalvm支持度说明
+* build fail: 还不能构建graalvm native可执行程序
+* build pass: 可以正常构建了，但是运行可能还有问题
+* ready: 可正常运行
+* production ready: 有实例在长期运行，没有问题被发现
 
 ### 选择参考
 * spring-boot-maven：绝大多数情况的默认选择，优点是主流，主流的生态就是最大的优点。
