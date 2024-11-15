@@ -31,11 +31,11 @@ mvn archetype:generate -DarchetypeCatalog=local
 | helidon-flex-maven      | helidon + mybatis-flex + maven   | Lv1-可构建 | build pass | GraalVM |
 
 ### 成熟度等级说明
-* Lv1-可构建：可以正常构建，基本功能都有，但缺少示例代码 & 测试代码，插件支持可能不全
-* Lv2-可用：在基本可用的基础上，补全了插件支持，增加了完整的示例代码 
-* Lv3-测试就绪：在可用的基础上，补全了完整的测试方案和测试代码
-* Lv4-性能就绪：在可用的基础上，经历过完整的性能测试，有测试报告
-* Lv5-生产就绪：有生产环境的测试用例在持续运行，长期观测无性能异常，无内存泄漏，无GC异常等
+* Lv1-可构建: 可以正常构建，基本功能都有，但缺少示例代码 & 测试代码，插件支持可能不全
+* Lv2-可用: 在基本可用的基础上，补全了插件支持，增加了完整的示例代码 
+* Lv3-测试就绪: 在可用的基础上，补全了完整的测试方案和测试代码
+* Lv4-性能就绪: 在可用的基础上，经历过完整的性能测试，有测试报告
+* Lv5-生产就绪: 有生产环境的测试用例在持续运行，长期观测无性能异常，无内存泄漏，无GC异常等
 
 ### Graalvm支持度说明
 * build fail: 还不能构建graalvm native可执行程序
@@ -48,11 +48,11 @@ mvn archetype:generate -DarchetypeCatalog=local
 * spring-boot-jaxrs-maven: 如果继续用spring，但是又希望尽量使用标准化jakarta注解时选择。  
 为将来迁移到其他框架做准备用，也可以是过渡框架。  
 但是现在和spring-doc的融合还有问题，没有办法正确识别jakarta的注解  
-[issue](https://github.com/resteasy/resteasy-spring-boot/issues/349)
+:warning: [issue](https://github.com/resteasy/resteasy-spring-boot/issues/349)
 * quarkus-maven：现在开发体验最好的框架，无论是热更新，还是打包到native，支持都一流
 * helidon-flex-maven：追求最小内存，最快启动时间的选择。  
 现在Mybatis-Flex的graalvm-native支持有问题
-[issue](https://github.com/mybatis-flex/mybatis-flex/issues/435)
+:warning: [issue](https://github.com/mybatis-flex/mybatis-flex/issues/435)
 
 ## 特性
 ### [1] 符合DDD设计的多模块工程架子
