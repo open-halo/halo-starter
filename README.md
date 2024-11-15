@@ -179,30 +179,32 @@ mvn archetype:generate -DarchetypeCatalog=local
 
 
 ## 选择&思考
-### 关于maven和gradle
-* 后续maven和gradle都会支持。  
-* 公司级项目推荐maven，因为简单，因为没有那么多高级特性，所以不用担心某些同事玩出花活儿，下限有保证。  
-* 个人级项目推荐gradle，因为行数少，修改依赖简单一些，能节省不少代码，同时也能玩出高级花活儿，上限有保证。  
+### 构建方案: maven/gradle
+* maven: 公司级项目推荐，因为简单，因为没有那么多高级特性，所以不用担心某些同事玩出花活儿，下限有保证。  
+* gradle: 个人级项目推荐，因为行数少，修改依赖简单一些，能节省不少代码；不玩花活时，眼睛看着舒服，同时也能玩出高级花活儿，上限有保证。  
+**后续maven和gradle都会支持，但是目前主要支持maven**
 
-### 关于spring/quarkus/micronaut/helidon
+### 主框架: spring/quarkus/micronaut/helidon
 * :tada: spring:  生态最庞大，最成熟，资料最多，时髦的graalvm native也能做。  
 * :fire: quarkus:  如果实在希望内存占用少，轻量化且现代化，推荐quarkus，热更新做得特别好，DI是一个build-time的实现。生态算仅次于spring的第二好的了。
 * :star: micronaut:  编译期DI和编译期AOP，不喜欢反射，同时考虑极致性能可以考虑。
 * :star: helidon:  因为不依赖于netty，所以模块化和虚拟线程支持一流，虚拟线程目前看有内存占用优势。  
 
-### 关于IoC/DI注入注解
-* spring中推荐使用jakarta标准注解，或者构造器注入，而不用spring的@Autowire
-* quarkus是一个build-time的实现，兼容CDI
-* micronaut是一个compile-time的实现，兼容CDI
-* 可以关注一下avaje/inject，是一个通用的compile-time的DI方案，挺好用的
+### IoC/DI方案: spring/CDI/avaje
+* spring: 推荐使用jakarta标准注解，或者构造器注入，而不用spring的@Autowire，主支持自定义注解，也能兼容大部分CDI
+* CDI: quarkus/micronaut/helidon都兼容CDI，quarkus是一个build-time的实现，micronaut是一个compile-time实现，helidon是runtime实现
+* avaje/inject: 是一个通用的compile-time的DI方案，挺好用的
 
+### 接口协议方案: rest/grpc/dubbo3
+* rest: 通用，成熟，前后端交互+纯后端交互都支持，各种需求都有解决方案
+* grpc: 高性能，纯后端交互支持不错，前后端交互能通过grpc-web勉强支持
+* dubbo3: 目前偏向于纯后端微服务交互方案，兼容grpc，有成熟的微服务治理方案
 
-### 关于restful接口的注解
+#### 关于restful接口的注解
 * 建议用jakarta标准注解，就算在spring环境中也建议用标准注解。
 * 你会发现万一有一天需要迁移到其他框架的时候，能节省大量工作量。
 * 最主要的是jakarta标准注解比起spring注解也没有太多不方便的地方。
 
-### 关于文档
 #### REST接口
 * 通过interface直接生成OpenApi文档是较好的工程实践
 * 开发环境支持swagger-ui和直接下载openapi.yaml，生产环境关闭
@@ -217,28 +219,31 @@ mvn archetype:generate -DarchetypeCatalog=local
 * :thumbsdown: GRPC直接做前后端交互现在还有少量缺陷，例如文件上传麻烦
 * :thumbsdown: 网关想做细粒度的权限控制复杂，因为不好在网关层感知payload内容
 
-### 关于bean校验
-* hibernate validator注解校验是现在体验最好的标准化方案
+### 参数校验方案: jakarta validation
+* jakarta validation的默认实现hibernate validator注解校验是现在体验最好的标准化方案
 
-### 关于JPA，MyBatis和Jimmer
-* 如果是国外项目，推荐JPA，国际友人对JPA标准还是很有执念的。
-* 如果是国内项目，推荐MyBatis，毕竟后续能够开发维护的人是最多的。
-* 如果是全新项目，推荐尝试Jimmer，很多开发体验可能超出你的想象，但不成熟。
+### 存储层方案: jpa/mybatis/jimmer/jdbi
+* jpa: 国外项目中推荐使用，国际友人对JPA标准还是很有执念的。
+* mybatis: 国内项目推荐使用，建议配合generator使用，体验不错，表结构修改字段相对麻烦。
+* mybatis-plus: 国内主流方案，BaseMapper能节省不少代码，也有generator。
+* mybatis-flex: 国内新兴方案，和mybatis-plus解决相同问题，但是性能更好，很多功能设计更优雅。
+* jimmer: 如果是全新项目推荐尝试，很多开发体验可能超出你的想象，但不成熟。
+* jdbi: 接口抽象做得不错，但是实现质量一般，喜欢SQL为中心方案的开发者可以考虑。
 
-### 关于Jackson/Fastjson/Gson
-* 国外项目，不用犹豫，直接Jackson。   
-* 国内项目，可以考虑fastjson2，确实快很多，就是偶尔有问题或者漏洞。  
-* Gson尽量不用，范型API上相对简洁，但为此引入一套库并不值得。  
+### JSON方案: jackson/fastjson/gson
+* jackson: 国外项目，不用犹豫，直接jackson。   
+* fastjson: 国内项目，可以考虑fastjson2，确实快很多，就是偶尔有问题或者漏洞。  
+* gson: 尽量不用，范型API上相对简洁，但为此引入一套库并不值得。  
 
-### 关于logback和log4j2
-* log4j2性能好，不担心兼容性的情况默认选这个吧。  
-* logback兼容性好
+### 日志方案: logback/log4j2
+* log4j2: 性能好，不担心兼容性的情况默认选这个吧。  
+* logback: 兼容性好
 
-### 关于Hutool
+### 工具类方案: Hutool
 * Hutool很好，比大多数的程序员能够写出的代码都好，尽量采用Hutool工具API可以保证很多质量下限。  
 
-### 关于BeanSearcher
-* 能够极大减少查询类工作量，建议尝试。
+### 其他提升开发体验方案: BeanSearcher
+* BeanSearcher: 能够极大减少查询类工作量，建议尝试。
 
 
 ## TODO list
