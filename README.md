@@ -35,7 +35,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 * :star: Lv2-可用: 在基本可用的基础上，补全了插件支持，增加了完整的示例代码 
 * :star2: Lv3-测试就绪: 在可用的基础上，补全了完整的测试方案和测试代码
 * :fire: Lv4-性能就绪: 在可用的基础上，经历过完整的性能测试，有测试报告
-* :tada: Lv5-生产就绪: 有生产环境的测试用例在持续运行，长期观测无性能异常，无内存泄漏，无GC异常等
+* :tada: Lv5-生产就绪: 有生产环境的用例在持续运行，长期观测无性能异常，无内存泄漏，无GC异常等
 
 ### Graalvm支持度说明
 * build fail: 还不能构建graalvm native可执行程序
