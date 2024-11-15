@@ -23,7 +23,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 ```
 
 ## 框架支持进展
-| 框架名称                    | 框架组合                         | 成熟度     | graalvm    | 正在建设的点  |
+| 框架名称                    | 框架组合                         | 成熟度     | graalvm    | 正在建设的功能  |
 |-------------------------|----------------------------------|---------|------------|---------|
 | spring-boot-maven       | spring + jimmer + maven          | :star:  | :sweat: | 示例&测试   |
 | spring-boot-jaxrs-maven | spring + resteasy + jimmer + maven | :sparkles: | :sweat: | OpenAPI |
