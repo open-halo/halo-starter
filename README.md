@@ -186,7 +186,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 
 ### 关于Spring boot/quarkus/micronaut/helidon
 * :tada: spring:  生态最庞大，最成熟，资料最多，时髦的graalvm native也能做。  
-* :fire: quarkus:  如果实在希望内存占用少，轻量化且现代化，推荐quarkus，热更新做得特别好，DI是一个build-time的实现。
+* :fire: quarkus:  如果实在希望内存占用少，轻量化且现代化，推荐quarkus，热更新做得特别好，DI是一个build-time的实现。生态算仅次于spring的第二好的了。
 * :star: micronaut:  编译期DI和编译期AOP，不喜欢反射，同时考虑极致性能可以考虑。
 * :star: helidon:  因为不依赖于netty，所以模块化和虚拟线程支持一流，虚拟线程目前看有内存占用优势。  
 
