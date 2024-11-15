@@ -220,7 +220,7 @@ mvn archetype:generate -DarchetypeCatalog=local
 * 有完善的服务可视化/追踪/限流/熔断等治理方案
 * Java研发时体验优秀，远好于rest的开发体验，毕竟一个interface就定好协议了
 * Dubbo3兼容grpc是一个非常优秀的决策，让跨语言交互成为可能
-* :thumbsdown: 现在还只有spring生态比较完善，其他的生态还非常不成熟 [issue](https://github.com/apache/dubbo/issues/14897)
+* :thumbsdown: 现在还只有spring生态比较完善，其他框架的生态还非常不成熟 [issue](https://github.com/apache/dubbo/issues/14897)
 
 
 ### 参数校验方案: jakarta validation
