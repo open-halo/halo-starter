@@ -3,12 +3,23 @@
 现在fat-jar模式可以正常运行
 native-image模式下mybatis-flex会因为logger初始化失败
 
+
+## 相关问题 :warning:
+由于proto文件中的包目录现在还不是根据groupId 和 artifactId 变化的，所以还需要手动修改
+mainClass设置还有问题
+
 # halo
 
 Sample Helidon SE project that includes multiple REST operations.
 
 
+
+
 ## Memory Footprint
+
+fat-jar 130K
+运行内存：157M
+
 
 | type    | memory usage | jar size | binary size |
 |---------|--------------|----------|-------------|
