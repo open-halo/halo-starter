@@ -9,11 +9,11 @@
 
     <modules>
         <module>api</module>
-        <module>api-adapter</module>
-        <module>starter</module>
+        <module>bridge</module>
         <module>core</module>
         <module>common</module>
         <module>infra</module>
+        <module>starter</module>
     </modules>
 
     <properties>
@@ -23,7 +23,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
         <quarkus.platform.group-id>io.quarkus.platform</quarkus.platform.group-id>
-        <quarkus.platform.version>3.15.1</quarkus.platform.version>
+        <quarkus.platform.version>3.18.1</quarkus.platform.version>
         <jandex.version>3.2.2</jandex.version>
         <grpc.version>1.65.1</grpc.version>
         <protobuf.version>3.25.5</protobuf.version>
@@ -89,13 +89,13 @@
 
             <dependency>
                 <groupId>org.example</groupId>
-                <artifactId>halo-api-adapter-grpc</artifactId>
+                <artifactId>halo-bridge-grpc</artifactId>
                 <version>1.0.0</version>
             </dependency>
 
             <dependency>
                 <groupId>org.example</groupId>
-                <artifactId>halo-api-adapter-rest</artifactId>
+                <artifactId>halo-bridge-rest</artifactId>
                 <version>1.0.0</version>
             </dependency>
 

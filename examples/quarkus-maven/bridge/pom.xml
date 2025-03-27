@@ -7,9 +7,9 @@
         <version>1.0.0</version>
     </parent>
 
-    <artifactId>halo-api-adapter</artifactId>
+    <artifactId>halo-bridge</artifactId>
     <packaging>pom</packaging>
-    <name>api-adapter</name>
+    <name>bridge</name>
 
     <modules>
         <module>rest</module>

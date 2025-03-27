@@ -14,12 +14,12 @@
     <dependencies>
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>halo-api-adapter-rest</artifactId>
+            <artifactId>halo-bridge-rest</artifactId>
         </dependency>
 
         <dependency>
             <groupId>org.example</groupId>
-            <artifactId>halo-api-adapter-grpc</artifactId>
+            <artifactId>halo-bridge-grpc</artifactId>
         </dependency>
 
         <dependency>
