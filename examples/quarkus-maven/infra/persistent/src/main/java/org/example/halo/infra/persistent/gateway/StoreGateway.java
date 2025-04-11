@@ -11,6 +11,7 @@ import org.example.halo.core.model.base.ApiResult;
 import org.example.halo.core.model.base.PagedRequest;
 import org.example.halo.core.model.base.PagedResult;
 import org.example.halo.core.model.dto.StoreProcureRequest;
+import org.example.halo.infra.persistent.mapper.StoreMapper;
 import org.example.halo.infra.persistent.repository.StoreRepository;
 
 @Named
@@ -20,9 +21,12 @@ public class StoreGateway implements IStoreGateway {
     @Inject
     StoreRepository storeRepository;
 
+    @Inject
+    StoreMapper storeMapper;
+
     @Override
     public ApiResult<Void> register(Store store) {
-        storeRepository.persist(store);
+        storeMapper.insert(store);
         return ApiResult.ofSuccess();
     }
 
