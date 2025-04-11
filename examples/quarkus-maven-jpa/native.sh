@@ -1,0 +1,1 @@
+mvn clean install -Dnative && ./starter/target/halo-starter-1.0.0-runner

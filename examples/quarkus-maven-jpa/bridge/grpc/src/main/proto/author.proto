@@ -1,0 +1,66 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.example.halo.api.grpc.author";
+option java_outer_classname = "AuthorGrpcProto";
+
+import "base/common.proto";
+import "store.proto";
+import "book.proto";
+
+package author;
+
+service AuthorGrpc {
+    rpc Register (RegisterRequest) returns (RegisterReply) {}
+    rpc Publish (PublishRequest) returns (PublishReply) {}
+    rpc fetchAllBooks (FetchAllBooksRequest) returns (FetchAllBooksReply) {}
+    rpc fetchAllStores (FetchAllStoresRequest) returns (FetchAllStoresReply) {}
+}
+
+message RegisterRequest {
+    common.RequestInfo request_info = 1;
+    string name = 2;
+    string gender = 3;
+    string email = 4;
+}
+
+message RegisterReply {
+    common.ReplyInfo reply_info = 1;
+    uint64 author_id = 2;
+}
+
+message PublishRequest {
+    common.RequestInfo request_info = 1;
+    uint64 author_id = 2;
+    string name = 3;
+    uint32 edition = 4;
+    string price = 5;
+}
+
+message PublishReply {
+    common.ReplyInfo reply_info = 1;
+    uint64 book_id = 2;
+}
+
+message FetchAllBooksRequest {
+    common.RequestInfo request_info = 1;
+    common.Pagination pagination = 2;
+    uint64 author_id = 3;
+}
+
+message FetchAllBooksReply {
+    common.ReplyInfo reply_info = 1;
+    repeated book.Book books = 2;
+}
+
+message FetchAllStoresRequest {
+    common.RequestInfo request_info = 1;
+    common.Pagination pagination = 2;
+    uint64 book_id = 3;
+}
+
+message FetchAllStoresReply {
+    common.ReplyInfo reply_info = 1;
+    repeated store.Store stores = 2;
+}
+
